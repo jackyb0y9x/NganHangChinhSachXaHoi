@@ -1,0 +1,1222 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Ngân hàng Chính sách xã hội (VBSP) - Cổng thông tin điện tử</title>
+  
+  <!-- Favicon -->
+  <link rel="shortcut icon" href="https://storage-vnportal.vnpt.vn/tw-nhcsxh/8053/banner/logo.png" type="image/png">
+  
+  <!-- Font Awesome 6.5.2 -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+  
+  <!-- Custom Stylesheets -->
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/header-nav.css">
+  <link rel="stylesheet" href="css/components.css">
+</head>
+<body>
+
+    <!-- ==================== TOP BAR ==================== -->
+  <div class="vbsp-topbar">
+    <div class="vbsp-container">
+      <div class="topbar-wrapper">
+        <div class="topbar-left">
+          <span class="topbar-portal-title">
+            <i class="fa-solid fa-landmark"></i>
+            <span class="portal-title-full">CỔNG THÔNG TIN ĐIỆN TỬ NGÂN HÀNG CHÍNH SÁCH XÃ HỘI</span>
+            <span class="portal-title-short">NHCSXH - VBSP</span>
+          </span>
+        </div>
+        <div class="topbar-right">
+          <span class="topbar-item" id="liveClock">
+            <i class="fa-regular fa-clock"></i> Hà Nội: Thứ Năm, 22/10/2026 - 16:52
+          </span>
+          <div class="topbar-links">
+            <a href="index-v2.html" title="Xem giao diện Trang chủ Version 2"><i class="fa-solid fa-layer-group"></i> Trang chủ V2</a>
+            <a href="#footer"><i class="fa-solid fa-sitemap"></i> Sơ đồ cổng</a>
+            <a href="#footer"><i class="fa-solid fa-envelope"></i> Liên hệ</a>
+          </div>
+          <div class="lang-switch" title="Ngôn ngữ / Language">
+            <i class="fa-solid fa-globe lang-icon"></i>
+            <a href="index.html" class="active" title="Tiếng Việt">VN</a>
+            <a href="en-news-highlights.html" title="English">English</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ==================== MAIN BRAND HEADER ==================== -->
+  <header class="vbsp-main-header">
+    <div class="vbsp-container">
+      <div class="header-wrapper">
+        <div class="header-brand">
+          <a href="index.html" class="header-brand-link">
+            <img src="https://storage-vnportal.vnpt.vn/tw-nhcsxh/8053/banner/logo.png" alt="Logo NHCSXH" class="brand-logo-img">
+            <div class="brand-text-block">
+              <span class="brand-title-vn">Ngân hàng Chính sách xã hội</span>
+              <span class="brand-title-en">Vietnam Bank for Social Policies</span>
+            </div>
+          </a>
+        </div>
+        <div class="header-quick-tools">
+          <form class="header-search-form" onsubmit="event.preventDefault(); window.location.href='tin-tuc-su-kien.html';">
+            <input type="text" class="header-search-input" placeholder="Tìm kiếm dịch vụ, chính sách...">
+            <button type="submit" class="header-search-btn" aria-label="Tìm kiếm"><i class="fa-solid fa-magnifying-glass"></i></button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- ==================== MAIN NAVIGATION BAR (7 TOP MENUS - DESKTOP & MOBILE DRAWER) ==================== -->
+  <nav class="vbsp-navbar" aria-label="Điều hướng chính">
+    <div class="vbsp-container nav-container">
+      <div class="mobile-nav-bar">
+        <button type="button" class="mobile-nav-toggle" aria-label="Mở menu danh mục" aria-expanded="false">
+          <i class="fa-solid fa-bars"></i>
+          <span>Danh mục</span>
+        </button>
+        <a href="tel:1900638586" class="mobile-hotline-chip">
+          <i class="fa-solid fa-phone-volume"></i>
+          <span>1900 638 586</span>
+        </a>
+      </div>
+
+      <div class="mobile-nav-backdrop" aria-hidden="true"></div>
+
+      <ul class="nav-menu">
+        <!-- Mobile Drawer Top Header & Search (Hidden on Desktop) -->
+        <li class="mobile-drawer-top">
+          <div class="mobile-drawer-brand-row">
+            <a href="index.html" class="mobile-drawer-brand">
+              <img src="https://storage-vnportal.vnpt.vn/tw-nhcsxh/8053/banner/logo.png" alt="VBSP">
+              <div>
+                <strong>NHCSXH Việt Nam</strong>
+                <span>Danh mục Cổng thông tin</span>
+              </div>
+            </a>
+            <button type="button" class="mobile-drawer-close" aria-label="Đóng menu">
+              <i class="fa-solid fa-xmark"></i>
+            </button>
+          </div>
+          <form class="mobile-drawer-search" onsubmit="event.preventDefault(); window.location.href='tin-tuc-su-kien.html';">
+            <input type="text" placeholder="Tìm kiếm tin tức, chính sách..." aria-label="Tìm kiếm">
+            <button type="submit" aria-label="Tìm"><i class="fa-solid fa-magnifying-glass"></i></button>
+          </form>
+        </li>
+
+        <!-- 1. TRANG CHỦ -->
+        <li class="nav-item active">
+          <a href="index.html" class="nav-link">
+            <span>Trang chủ</span>
+          </a>
+        </li>
+
+        <!-- 2. GIỚI THIỆU -->
+        <li class="nav-item has-children ">
+          <a href="gioi-thieu-san-pham-dich-vu.html" class="nav-link">
+            <span>Giới thiệu</span>
+            <i class="fa-solid fa-chevron-down arrow-down"></i>
+          </a>
+          <div class="dropdown-panel dropdown-w-md">
+            <div class="dropdown-item">
+              <a href="y-nghia-bieu-trung-logo.html" class="dropdown-link">
+                <span>Ý nghĩa biểu trưng (Logo)</span>
+              </a>
+            </div>
+            <div class="dropdown-item">
+              <a href="lich-su-hinh-thanh.html" class="dropdown-link">
+                <span>Lịch sử hình thành</span>
+              </a>
+            </div>
+            <div class="dropdown-item">
+              <a href="cac-phan-thuong-cao-quy.html" class="dropdown-link">
+                <span>Các phần thưởng cao quý</span>
+              </a>
+            </div>
+            <div class="dropdown-item">
+              <a href="co-cau-to-chuc.html" class="dropdown-link">
+                <span>Cơ cấu tổ chức, đăng ký hoạt động</span>
+              </a>
+            </div>
+            <div class="dropdown-item has-sub-flyout dropdown-divider-top">
+              <a href="gioi-thieu-san-pham-dich-vu.html" class="dropdown-link dropdown-link-featured">
+                <span>Các sản phẩm dịch vụ</span>
+                <i class="fa-solid fa-chevron-right sub-flyout-arrow"></i>
+              </a>
+              <div class="sub-flyout-panel">
+                <div class="flyout-grid">
+                  <!-- Cột 1: Thanh toán chuyển tiền -->
+                  <div class="flyout-col">
+                    <div class="flyout-col-title">Thanh toán chuyển tiền</div>
+                    <ul class="flyout-list">
+                      <li><a href="chi-tiet-chuyen-tien.html?tab=den" class="flyout-link">Chuyển tiền đến trong nước</a></li>
+                      <li><a href="chi-tiet-chuyen-tien.html?tab=di" class="flyout-link">Chuyển tiền đi trong nước</a></li>
+                      <li><a href="chi-tiet-chuyen-tien.html?tab=kieuhoi" class="flyout-link">Dịch vụ chuyển tiền kiều hối</a></li>
+                    </ul>
+                  </div>
+
+                  <!-- Cột 2: Nhận tiền gửi tiết kiệm -->
+                  <div class="flyout-col">
+                    <div class="flyout-col-title">Nhận tiền gửi tiết kiệm</div>
+                    <ul class="flyout-list">
+                      <li><a href="chi-tiet-tien-gui-tiet-kiem.html?tab=cokyhan" class="flyout-link">Gửi tiết kiệm có kỳ hạn</a></li>
+                      <li><a href="chi-tiet-tien-gui-tiet-kiem.html?tab=khongkyhan" class="flyout-link">Gửi tiết kiệm không kỳ hạn</a></li>
+                      <li><a href="chi-tiet-tien-gui-tiet-kiem.html#calc" class="flyout-link">Công cụ tính lãi tiết kiệm</a></li>
+                    </ul>
+                  </div>
+
+                  <!-- Cột 3: Cho vay & Ngân quỹ -->
+                  <div class="flyout-col">
+                    <div class="flyout-col-title">Cho vay &amp; Ngân quỹ</div>
+                    <ul class="flyout-list">
+                      <li><a href="chi-tiet-quy-trinh-cho-vay.html?tab=tiengui" class="flyout-link">Tiền gửi có kỳ hạn</a></li>
+                      <li><a href="chi-tiet-quy-trinh-cho-vay.html?tab=thanhtoan" class="flyout-link">Tiền gửi thanh toán</a></li>
+                      <li><a href="chi-tiet-quy-trinh-cho-vay.html?tab=chovay" class="flyout-link">Quy trình cho vay chính sách</a></li>
+                    </ul>
+                  </div>
+                </div>
+
+                <div class="sub-flyout-footer">
+                  <a href="gioi-thieu-san-pham-dich-vu.html" class="flyout-footer-link">
+                    <span>Xem toàn bộ thông tin sản phẩm &amp; dịch vụ</span>
+                    <i class="fa-solid fa-arrow-right"></i>
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </li>
+
+        <!-- 3. THÔNG TIN HOẠT ĐỘNG -->
+        <li class="nav-item has-children ">
+          <a href="tin-tuc-su-kien.html" class="nav-link">
+            <span>Thông tin hoạt động</span>
+            <i class="fa-solid fa-chevron-down arrow-down"></i>
+          </a>
+          <div class="dropdown-panel dropdown-w-lg">
+            <div class="dropdown-item"><a href="tin-noi-bat.html" class="dropdown-link"><span>Tin nổi bật</span></a></div>
+            <div class="dropdown-item"><a href="tin-moi-cap-nhat.html" class="dropdown-link"><span>Tin mới cập nhật</span></a></div>
+            <div class="dropdown-item"><a href="nguoi-tot-viec-tot.html" class="dropdown-link"><span>Người tốt - Việc tốt</span></a></div>
+            <div class="dropdown-item"><a href="chi-tiet-multimedia.html" class="dropdown-link"><span>Chuyên trang Multimedia</span></a></div>
+            <div class="dropdown-item"><a href="phong-su-anh.html" class="dropdown-link"><span>Phóng sự ảnh</span></a></div>
+            <div class="dropdown-item"><a href="xem-video.html" class="dropdown-link"><span>Xem / Video</span></a></div>
+            <div class="dropdown-item"><a href="nghe-audio.html" class="dropdown-link"><span>Nghe / Audio</span></a></div>
+            <div class="dropdown-item dropdown-divider-top"><a href="thuc-hien-chi-thi-40.html" class="dropdown-link"><span>Thực hiện Chỉ thị số 40-CT/TW</span></a></div>
+            <div class="dropdown-item"><a href="cuoc-thi-truc-tuyen-chi-thi-39.html" class="dropdown-link"><span>Cuộc thi trực tuyến Chỉ thị số 39-CT/TW</span></a></div>
+            <div class="dropdown-item"><a href="cuoc-thi-viet-tin-dung-chinh-sach-xa-hoi-y-dang-long-dan.html" class="dropdown-link"><span>Cuộc thi viết "Tín dụng chính sách xã hội - ý Đảng, lòng Dân"</span></a></div>
+          </div>
+        </li>
+
+        <!-- 4. HỆ THỐNG VĂN BẢN -->
+        <li class="nav-item has-children ">
+          <a href="he-thong-van-ban.html" class="nav-link">
+            <span>Hệ thống văn bản</span>
+            <i class="fa-solid fa-chevron-down arrow-down"></i>
+          </a>
+          <div class="dropdown-panel dropdown-w-sm">
+            <div class="dropdown-item"><a href="he-thong-van-ban.html#trunguong" class="dropdown-link"><span>Văn bản Bộ, ngành Trung ương</span></a></div>
+            <div class="dropdown-item"><a href="he-thong-van-ban.html#hdqt" class="dropdown-link"><span>Văn bản của Hội đồng quản trị</span></a></div>
+            <div class="dropdown-item"><a href="he-thong-van-ban.html#tgd" class="dropdown-link"><span>Văn bản của Tổng giám đốc</span></a></div>
+            <div class="dropdown-item dropdown-divider-top">
+              <a href="he-thong-van-ban.html" class="dropdown-link dropdown-link-accent">
+                <span>Tra cứu tất cả văn bản chỉ đạo</span>
+              </a>
+            </div>
+          </div>
+        </li>
+
+        <!-- 5. ĐÀO TẠO VÀ NCKH -->
+        <li class="nav-item has-children ">
+          <a href="chuyen-de-nghien-cuu-khoa-hoc.html" class="nav-link">
+            <span>Đào tạo và NCKH</span>
+            <i class="fa-solid fa-chevron-down arrow-down"></i>
+          </a>
+          <div class="dropdown-panel dropdown-w-sm">
+            <div class="dropdown-item"><a href="chuyen-de-nghien-cuu-khoa-hoc.html" class="dropdown-link"><span>Nghiên cứu khoa học</span></a></div>
+            <div class="dropdown-item"><a href="nghien-cuu-trao-doi.html" class="dropdown-link"><span>Nghiên cứu &amp; trao đổi</span></a></div>
+            <div class="dropdown-item"><a href="chuyen-de-nghien-cuu-khoa-hoc.html?tab=daotao" class="dropdown-link"><span>Chuyên đề đào tạo</span></a></div>
+            <div class="dropdown-item"><a href="chuyen-de-nghien-cuu-khoa-hoc.html?tab=canbo" class="dropdown-link"><span>Đào tạo cán bộ trong hệ thống</span></a></div>
+          </div>
+        </li>
+
+        <!-- 6. CHUYÊN MỤC KHÁC -->
+        <li class="nav-item has-children ">
+          <a href="cong-tac-dang.html" class="nav-link">
+            <span>Chuyên mục khác</span>
+            <i class="fa-solid fa-chevron-down arrow-down"></i>
+          </a>
+          <div class="dropdown-panel dropdown-2col">
+            <div class="dropdown-col-group">
+              <div class="mega-col-title mega-col-title-compact">Công tác Đảng &amp; Đoàn thể</div>
+              <div class="dropdown-item"><a href="cong-tac-dang.html" class="dropdown-link"><span>Công tác Đảng</span></a></div>
+              <div class="dropdown-item"><a href="hoat-dong-cong-doan.html" class="dropdown-link"><span>Hoạt động Công đoàn/An sinh xã hội</span></a></div>
+              <div class="dropdown-item"><a href="doan-thanh-nien.html" class="dropdown-link"><span>Đoàn thanh niên</span></a></div>
+              <div class="dropdown-item"><a href="chung-tay-vi-cong-dong.html" class="dropdown-link"><span>Chung tay vì cộng đồng</span></a></div>
+            </div>
+            <div class="dropdown-col-group">
+              <div class="mega-col-title mega-col-title-compact">Ấn phẩm &amp; Cẩm nang số</div>
+              <div class="dropdown-item"><a href="an-pham-thong-tin-nhcsxh.html" class="dropdown-link"><span>Mời đọc ấn phẩm “Thông tin NHCSXH”</span></a></div>
+              <div class="dropdown-item"><a href="an-pham-bao-cao-thuong-nien.html" class="dropdown-link"><span>Mời đọc ấn phẩm Báo cáo thường niên</span></a></div>
+              <div class="dropdown-item"><a href="so-tay-vbsp-smartbanking.html" class="dropdown-link"><span>Sổ tay VBSP SmartBanking</span></a></div>
+              <div class="dropdown-item"><a href="giao-duc-so-go-digital.html" class="dropdown-link"><span>Giáo dục số cơ bản - GO DIGITAL</span></a></div>
+            </div>
+          </div>
+        </li>
+
+        <!-- 7. HỎI - ĐÁP -->
+        <li class="nav-item has-children ">
+          <a href="hoi-dap.html" class="nav-link">
+            <span>Hỏi - Đáp</span>
+            <i class="fa-solid fa-chevron-down arrow-down"></i>
+          </a>
+          <div class="dropdown-panel dropdown-w-sm">
+            <div class="dropdown-item"><a href="hoi-dap.html?type=chinh-sach" class="dropdown-link"><span>Hỏi đáp chính sách</span></a></div>
+            <div class="dropdown-item"><a href="hoi-dap.html?type=quy-trinh" class="dropdown-link"><span>Hỏi đáp quy trình nghiệp vụ</span></a></div>
+            <div class="dropdown-item"><a href="hoi-dap.html?type=khac" class="dropdown-link"><span>Hỏi đáp khác</span></a></div>
+            <div class="dropdown-item dropdown-divider-top">
+              <a href="hoi-dap.html?type=gui-cau-hoi" class="dropdown-link dropdown-link-accent">
+                <span>Gửi câu hỏi trực tuyến</span>
+              </a>
+            </div>
+          </div>
+        </li>
+
+        <!-- Mobile Drawer Bottom Quick Links (Hidden on Desktop) -->
+        <li class="mobile-drawer-bottom">
+          <div class="mobile-drawer-lang">
+            <a href="index.html" class="active"><i class="fa-solid fa-check"></i> Tiếng Việt</a>
+            <a href="en-news-highlights.html"><i class="fa-solid fa-globe"></i> English Portal</a>
+          </div>
+          <a href="tra-cuu-diem-giao-dich.html" class="mobile-drawer-cta">
+            <i class="fa-solid fa-location-dot"></i> Tra cứu Điểm giao dịch &amp; Lãi suất
+          </a>
+        </li>
+      </ul>
+    </div>
+  </nav>
+
+  <!-- ==================== HERO BACKGROUND SLIDER (MỜ ẢO CHUYỂN SANG ẢNH MỚI) ==================== -->
+  <section class="hero-bg-section" id="heroBgSection">
+    <div class="hero-bg-slider" id="heroBgSlider">
+      
+      <!-- Slide 1: Hình ảnh chính gia đình và cán bộ tín dụng (từ vbsp-org.vnptweb.vn/Images/nhcs.png) -->
+      <div class="hero-bg-slide active">
+        <img src="https://vbsp-org.vnptweb.vn/Images/nhcs.png" alt="Tín dụng chính sách đồng hành cùng người dân" class="hero-bg-img">
+        <div class="hero-bg-overlay"></div>
+        <div class="vbsp-container hero-caption-container">
+          <div class="heroTextWrap">
+            <div class="heroPill"></div>
+            <div class="heroCard">
+              <h2>Tín dụng chính sách đồng hành cùng người dân</h2>
+              <p>Lan tỏa nguồn vốn ưu đãi, tạo sinh kế và bảo đảm an sinh xã hội</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Slide 2: Hoạt động điểm giao dịch xã phục vụ nhân dân -->
+      <div class="hero-bg-slide">
+        <img src="https://vbsp.org.vn/wp-content/uploads/2026/08/690897_690881_img_6974_14323425_15104925.jpg" alt="Điểm giao dịch xã phục vụ tận cơ sở" class="hero-bg-img">
+        <div class="hero-bg-overlay"></div>
+        <div class="vbsp-container hero-caption-container">
+          <div class="heroTextWrap">
+            <div class="heroPill"></div>
+            <div class="heroCard">
+              <h2>Điểm giao dịch xã phục vụ tận cơ sở</h2>
+              <p>Gần dân, sát dân - Đưa nguồn vốn tín dụng chính sách đến tận tay người thụ hưởng</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Slide 3: Nguồn vốn tiếp sức sản xuất kinh doanh nông nghiệp & kinh tế hộ -->
+      <div class="hero-bg-slide">
+        <img src="https://vbsp.org.vn/wp-content/uploads/2026/09/sqqw.jpg" alt="Tiếp sức sản xuất kinh doanh và tạo việc làm" class="hero-bg-img">
+        <div class="hero-bg-overlay"></div>
+        <div class="vbsp-container hero-caption-container">
+          <div class="heroTextWrap">
+            <div class="heroPill"></div>
+            <div class="heroCard">
+              <h2>Tiếp sức sản xuất kinh doanh và tạo việc làm</h2>
+              <p>Đồng hành cùng hộ nghèo vươn lên phát triển kinh tế bền vững và làm giàu chính đáng</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Slide 4: Khẳng định sứ mệnh an sinh và phát triển bền vững -->
+      <div class="hero-bg-slide">
+        <img src="https://vbsp.org.vn/wp-content/uploads/2026/10/502A0590-2.jpg" alt="Thấu hiểu lòng dân - Tận tâm phục vụ" class="hero-bg-img">
+        <div class="hero-bg-overlay"></div>
+        <div class="vbsp-container hero-caption-container">
+          <div class="heroTextWrap">
+            <div class="heroPill"></div>
+            <div class="heroCard">
+              <h2>Thấu hiểu lòng dân - Tận tâm phục vụ</h2>
+              <p>Phát huy sứ mệnh vì sự nghiệp an sinh xã hội và giảm nghèo bền vững của đất nước</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- Arrow Navigation -->
+    <button class="hero-bg-arrow prev" id="heroBgPrev" aria-label="Ảnh trước"><i class="fa-solid fa-chevron-left"></i></button>
+    <button class="hero-bg-arrow next" id="heroBgNext" aria-label="Ảnh sau"><i class="fa-solid fa-chevron-right"></i></button>
+
+    <!-- Background Slider Navigation Dots -->
+    <div class="hero-bg-dots" id="heroBgDots">
+      <span class="hero-bg-dot active" data-slide="0" title="Slide 1"></span>
+      <span class="hero-bg-dot" data-slide="1" title="Slide 2"></span>
+      <span class="hero-bg-dot" data-slide="2" title="Slide 3"></span>
+      <span class="hero-bg-dot" data-slide="3" title="Slide 4"></span>
+    </div>
+  </section>
+
+  <!-- ==================== QUICK TOOLS BAR: 3 CARDS LÃI SUẤT & TRA CỨU ĐIỂM GIAO DỊCH (FLOATING DOCK) ==================== -->
+  <section class="quick-tools-section">
+    <div class="vbsp-container">
+      <div class="quick-tools-container">
+        
+        <!-- CARD 1: LÃI SUẤT CHO VAY -->
+        <div class="rate-card rate-loan">
+          <div class="rate-card-header green-header">
+            <span class="rate-header-title">LÃI SUẤT CHO VAY</span>
+            <span class="rate-header-unit">%/NĂM</span>
+          </div>
+          <div class="rate-card-body">
+            <div class="rate-row">
+              <span class="rate-label">Hộ nghèo, HSSV</span>
+              <span class="rate-number green-text">6.24%</span>
+            </div>
+            <div class="rate-row highlight-green">
+              <span class="rate-label">Hộ cận nghèo</span>
+              <span class="rate-number green-text">7.488%</span>
+            </div>
+            <div class="rate-row">
+              <span class="rate-label">Nhà ở xã hội</span>
+              <span class="rate-number green-text">5.4%</span>
+            </div>
+          </div>
+          <div class="rate-card-footer">
+            <a href="gioi-thieu-san-pham-dich-vu.html#laisuat" class="rate-detail-link green-link">
+              Xem chi tiết <i class="fa-solid fa-arrow-right"></i>
+            </a>
+          </div>
+        </div>
+
+        <!-- CARD 2: LÃI SUẤT HUY ĐỘNG -->
+        <div class="rate-card rate-deposit">
+          <div class="rate-card-header magenta-header">
+            <span class="rate-header-title">LÃI SUẤT HUY ĐỘNG</span>
+            <span class="rate-header-unit">TẠI QUẦY / ONLINE</span>
+          </div>
+          <div class="rate-card-body">
+            <div class="rate-row">
+              <span class="rate-label">01 tháng</span>
+              <span class="rate-number magenta-text">2,6% / 3,2%</span>
+            </div>
+            <div class="rate-row highlight-pink">
+              <span class="rate-label">06→09 tháng</span>
+              <span class="rate-number magenta-text">4,0% / 5,7%</span>
+            </div>
+            <div class="rate-row">
+              <span class="rate-label">Từ 24 tháng</span>
+              <span class="rate-number magenta-text">6,0% / 6,7%</span>
+            </div>
+          </div>
+          <div class="rate-card-footer">
+            <a href="gioi-thieu-san-pham-dich-vu.html#laisuat" class="rate-detail-link magenta-link">
+              Xem chi tiết <i class="fa-solid fa-arrow-right"></i>
+            </a>
+          </div>
+        </div>
+
+        <!-- CARD 3: TRA CỨU ĐIỂM GIAO DỊCH (MÔ HÌNH 2 CẤP: 34 TỈNH/THÀNH -> PHÒNG GIAO DỊCH) -->
+        <div class="rate-card branch-lookup-card">
+          <div class="rate-card-header green-header">
+            <span class="rate-header-title">TRA CỨU ĐIỂM GIAO DỊCH</span>
+          </div>
+          <div class="rate-card-body">
+            <div class="lookup-grid-2col">
+              <div class="lookup-form-group">
+                <label for="homeProvinceSelect" class="lookup-label">Tỉnh/Thành phố</label>
+                <select id="homeProvinceSelect" class="lookup-select">
+                  <option value="">-- Chọn tỉnh/thành --</option>
+                </select>
+              </div>
+              <div class="lookup-form-group">
+                <label for="homeOfficeSelect" class="lookup-label">Phòng giao dịch</label>
+                <select id="homeOfficeSelect" class="lookup-select" disabled>
+                  <option value="">- Tất cả -</option>
+                </select>
+              </div>
+            </div>
+            <div class="lookup-bottom-row">
+              <span class="lookup-hint">Chọn địa phương để xem địa chỉ và lịch giao dịch</span>
+              <a href="tra-cuu-diem-giao-dich.html" id="homeBranchDetailLink" class="rate-detail-link green-link">
+                Xem chi tiết <i class="fa-solid fa-arrow-right"></i>
+              </a>
+            </div>
+            <!-- Quick result popup when user selects -->
+            <div id="homeBranchInfoBox" class="branch-quick-popup" style="display: none;">
+              <!-- Injected dynamically by js/main.js -->
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ==================== BANNER CAM KẾT SỨ MỆNH XOÁ ĐÓI GIẢM NGHÈO (VỪA KHUÔN GIAO DIỆN) ==================== -->
+  <section class="home-commitment-section">
+    <div class="vbsp-container">
+      <div class="commitment-quote-banner">
+        <div class="commitment-quote-wrap">
+          <div class="commitment-quote-content">
+            <div class="commitment-quote-icon">
+              <i class="fa-solid fa-quote-left"></i>
+            </div>
+            <div>
+              <blockquote class="commitment-quote-text">
+                “Chúng tôi cam kết thực hiện mục tiêu xoá đói giảm nghèo trên thế giới, thông qua các hành động quốc gia kiên quyết và hợp tác quốc tế, coi đây như một đòi hỏi bắt buộc về mặt đạo đức, xã hội, chính trị và kinh tế của toàn nhân loại”.
+              </blockquote>
+              <div class="commitment-quote-source">
+                (Trích Hội nghị thượng đỉnh thế giới về phát triển xã hội họp tại Copenhagen - Đan Mạch tháng 3/1995)
+              </div>
+            </div>
+          </div>
+          <div class="commitment-quick-links">
+            <a href="y-nghia-bieu-trung-logo.html" class="commitment-btn">
+              <i class="fa-solid fa-spa" style="color: var(--vbsp-gold);"></i> Ý nghĩa Logo
+            </a>
+            <a href="lich-su-hinh-thanh.html" class="commitment-btn">
+              <i class="fa-solid fa-timeline" style="color: var(--vbsp-gold);"></i> Lịch sử 20+ năm
+            </a>
+            <a href="cac-phan-thuong-cao-quy.html" class="commitment-btn">
+              <i class="fa-solid fa-trophy" style="color: #fca5a5;"></i> Anh hùng Lao động
+            </a>
+            <a href="co-cau-to-chuc.html" class="commitment-btn commitment-btn-primary">
+              <i class="fa-solid fa-sitemap"></i> Cơ cấu tổ chức
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==================== KHỐI TIN MỚI CẬP NHẬT (THEO HÌNH ẢNH YÊU CẦU) ==================== -->
+  <section class="home-latest-news-section" id="tin-moi-cap-nhat-home">
+    <div class="vbsp-container">
+      
+      <!-- Tiêu đề chuyên mục với vạch hồng điểm nhấn -->
+      <div class="latest-news-head">
+        <div class="latest-news-title-group">
+          <div class="latest-news-pink-bar"></div>
+          <h2 class="latest-news-main-heading">TIN MỚI CẬP NHẬT</h2>
+        </div>
+        <a href="tin-moi-cap-nhat.html" class="latest-news-view-all">
+          Xem tất cả <i class="fa-solid fa-arrow-right"></i>
+        </a>
+      </div>
+
+      <!-- Bố cục 2 phần: 1 Card lớn bên trái + 3 Card nhỏ xếp dọc bên phải -->
+      <div class="latest-news-grid">
+        
+        <!-- Cột trái: Card tiêu điểm lớn -->
+        <article class="latest-news-featured-card">
+          <a href="chi-tiet-tin-tuc.html?id=1" class="latest-featured-thumb-wrap">
+            <img src="https://vbsp.org.vn/wp-content/uploads/2026/09/daa.jpg" 
+                 alt="Vốn ưu đãi tiếp sức học sinh, sinh viên nghèo Lâm Đồng đến giảng đường" 
+                 class="latest-featured-img" 
+                 onerror="this.src='https://images.unsplash.com/photo-1577495508048-b635879837f1?w=800&auto=format&fit=crop&q=80';"
+                 loading="lazy">
+          </a>
+          <div class="latest-featured-body">
+            <span class="latest-featured-badge">TIN MỚI CẬP NHẬT</span>
+            <h3 class="latest-featured-title">
+              <a href="chi-tiet-tin-tuc.html?id=1">Vốn ưu đãi tiếp sức học sinh, sinh viên nghèo Lâm Đồng đến giảng đường</a>
+            </h3>
+            <div class="latest-news-date">16/09/2026</div>
+          </div>
+        </article>
+
+        <!-- Cột phải: 3 tin tức xếp dọc theo hàng -->
+        <div class="latest-news-right-col">
+          
+          <!-- Tin phải 1 -->
+          <article class="latest-news-small-card">
+            <a href="chi-tiet-tin-tuc.html?id=2" class="latest-small-thumb-wrap">
+              <img src="https://vbsp.org.vn/wp-content/uploads/2026/09/áda.jpg" 
+                   alt="Trao vốn chính sách - Tiếp sức người sau cai nghiện đứng vững trên đường về" 
+                   class="latest-small-img" 
+                   onerror="this.src='https://vbsp.org.vn/wp-content/uploads/2026/09/%C3%A1da.jpg'; this.onerror=function(){this.src='https://vbsp.org.vn/wp-content/uploads/2026/10/hoi-nghi-tw4-5500_11zon-394x208.jpg';}" 
+                   loading="lazy">
+            </a>
+            <div class="latest-small-info">
+              <span class="latest-small-tag">TIN MỚI CẬP NHẬT</span>
+              <h4 class="latest-small-title">
+                <a href="chi-tiet-tin-tuc.html?id=2">Trao vốn chính sách – Tiếp sức người sau cai nghiện đứng vững trên đường về</a>
+              </h4>
+              <div class="latest-news-date">16/09/2026</div>
+            </div>
+          </article>
+
+          <!-- Tin phải 2 -->
+          <article class="latest-news-small-card">
+            <a href="chi-tiet-tin-tuc.html?id=3" class="latest-small-thumb-wrap">
+              <img src="https://vbsp.org.vn/wp-content/uploads/2026/09/sqqw.jpg" 
+                   alt="Phát huy hiệu quả nguồn vốn, tạo sinh kế bền vững ở Đồng Lộc" 
+                   class="latest-small-img" 
+                   onerror="this.src='https://vbsp.org.vn/wp-content/uploads/2026/10/image0043-394x208.jpg';" 
+                   loading="lazy">
+            </a>
+            <div class="latest-small-info">
+              <span class="latest-small-tag">TIN MỚI CẬP NHẬT</span>
+              <h4 class="latest-small-title">
+                <a href="chi-tiet-tin-tuc.html?id=3">Phát huy hiệu quả nguồn vốn, tạo sinh kế bền vững ở Đồng Lộc</a>
+              </h4>
+              <div class="latest-news-date">14/09/2026</div>
+            </div>
+          </article>
+
+          <!-- Tin phải 3 -->
+          <article class="latest-news-small-card">
+            <a href="chi-tiet-tin-tuc.html?id=4" class="latest-small-thumb-wrap">
+              <img src="https://vbsp.org.vn/wp-content/uploads/2026/09/sada.jpg" 
+                   alt="Hỗ trợ người sau cai nghiện tái hòa nhập cộng đồng ở Quảng Ninh" 
+                   class="latest-small-img" 
+                   onerror="this.src='https://vbsp.org.vn/wp-content/uploads/2026/10/4a-394x208.jpg';" 
+                   loading="lazy">
+            </a>
+            <div class="latest-small-info">
+              <span class="latest-small-tag">TIN MỚI CẬP NHẬT</span>
+              <h4 class="latest-small-title">
+                <a href="chi-tiet-tin-tuc.html?id=4">Hỗ trợ người sau cai nghiện tái hòa nhập cộng đồng ở Quảng Ninh</a>
+              </h4>
+              <div class="latest-news-date">14/09/2026</div>
+            </div>
+          </article>
+
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+
+  <!-- ==================== 4 KHỐI TIN TỨC CHÍNH (THEO HÌNH ĐÍNH KÈM: XANH BẮT MẮT & HỒNG ĐIỂM NHẤN) ==================== -->
+  <section class="home-quad-news-section" id="thong-tin-hoat-dong">
+    <div class="vbsp-container">
+      <div class="quad-news-grid">
+        
+        <!-- ==================== 1. HOẠT ĐỘNG CÔNG ĐOÀN/AN SINH XÃ HỘI ==================== -->
+        <article class="quad-news-card">
+          <div class="quad-card-topbar"></div>
+          <div class="quad-card-header">
+            <h3 class="quad-card-title">
+              <i class="fa-solid fa-hand-holding-heart" style="color: #f43f5e; font-size: 1.05rem;"></i>
+              HOẠT ĐỘNG CÔNG ĐOÀN/AN SINH XÃ HỘI
+            </h3>
+            <a href="hoat-dong-cong-doan.html" class="quad-card-more-link">
+              <span>Xem thêm</span> <i class="fa-solid fa-arrow-right"></i>
+            </a>
+          </div>
+          <div class="quad-card-body">
+            <!-- Tin tiêu điểm -->
+            <div class="quad-featured-box">
+              <div class="quad-featured-thumb">
+                <img src="https://vbsp.org.vn/wp-content/uploads/2026/10/image0043-394x208.jpg" alt="Lạng Sơn hỗ trợ 350 triệu đồng cho các xã, phường bị thiệt hại bởi cơn bão số 4" onerror="this.src='https://vbsp.org.vn/wp-content/uploads/2026/08/690897_690881_img_6974_14323425_15104925.jpg'">
+                <span class="quad-featured-badge">Tiêu điểm</span>
+              </div>
+              <div>
+                <h4 class="quad-featured-title">
+                  <a href="chi-tiet-tin-tuc.html?id=3">Lạng Sơn hỗ trợ 350 triệu đồng cho các xã, phường bị thiệt hại bởi cơn bão số 4</a>
+                </h4>
+                <p class="quad-featured-desc">
+                  Công đoàn cơ sở NHCSXH tỉnh Lạng Sơn vừa trao kinh phí ủng hộ đồng bào bị thiệt hại do bão lũ gây ra tại các xã, phường trên địa bàn tỉnh.
+                </p>
+              </div>
+            </div>
+
+            <!-- 4 tin phụ -->
+            <ul class="quad-sub-list">
+              <li class="quad-sub-item">
+                <span class="quad-pink-bullet"></span>
+                <a href="chi-tiet-tin-tuc.html?id=3" class="quad-sub-link">Lấy người lao động làm trung tâm: Công đoàn Ngân hàng Việt Nam bước vào nhiệm kỳ mới với nhiều đột phá</a>
+              </li>
+              <li class="quad-sub-item">
+                <span class="quad-pink-bullet"></span>
+                <a href="chi-tiet-tin-tuc.html?id=3" class="quad-sub-link">Công đoàn NHCSXH cần phát huy vai trò cầu nối giữa ngân hàng với người lao động</a>
+              </li>
+              <li class="quad-sub-item">
+                <span class="quad-pink-bullet"></span>
+                <a href="chi-tiet-tin-tuc.html?id=2" class="quad-sub-link">Lễ mít tinh kỷ niệm 79 năm Ngày Thương binh – Liệt sĩ</a>
+              </li>
+              <li class="quad-sub-item">
+                <span class="quad-pink-bullet"></span>
+                <a href="chi-tiet-tin-tuc.html?id=2" class="quad-sub-link">NHCSXH chung sức chăm lo người có công, vun đắp giá trị an sinh xã hội</a>
+              </li>
+            </ul>
+          </div>
+        </article>
+
+        <!-- ==================== 2. THÔNG TIN HOẠT ĐỘNG ==================== -->
+        <article class="quad-news-card">
+          <div class="quad-card-topbar"></div>
+          <div class="quad-card-header">
+            <h3 class="quad-card-title">
+              <i class="fa-solid fa-bullhorn" style="color: #0c8a4b; font-size: 1.05rem;"></i>
+              THÔNG TIN HOẠT ĐỘNG
+            </h3>
+            <a href="tin-tuc-su-kien.html" class="quad-card-more-link">
+              <span>Xem thêm</span> <i class="fa-solid fa-arrow-right"></i>
+            </a>
+          </div>
+          <div class="quad-card-body">
+            <!-- Tin tiêu điểm -->
+            <div class="quad-featured-box">
+              <div class="quad-featured-thumb">
+                <img src="https://vbsp.org.vn/wp-content/uploads/2026/08/690897_690881_img_6974_14323425_15104925.jpg" alt="Vốn ưu đãi tiếp sức học sinh, sinh viên nghèo Lâm Đồng đến giảng đường" onerror="this.src='https://vbsp.org.vn/wp-content/uploads/2026/09/sqqw.jpg'">
+                <span class="quad-featured-badge">Tiêu điểm</span>
+              </div>
+              <div>
+                <h4 class="quad-featured-title">
+                  <a href="chi-tiet-tin-tuc.html?id=1">Vốn ưu đãi tiếp sức học sinh, sinh viên nghèo Lâm Đồng đến giảng đường</a>
+                </h4>
+                <p class="quad-featured-desc">
+                  Nhờ nguồn vốn tín dụng ưu đãi của Nhà nước, nhiều học sinh, sinh viên có hoàn cảnh khó khăn tại Lâm Đồng đã có thêm điều kiện theo đuổi con đường học tập. Bước vào năm học 2026 - 2027, chương trình...
+                </p>
+              </div>
+            </div>
+
+            <!-- 4 tin phụ -->
+            <ul class="quad-sub-list">
+              <li class="quad-sub-item">
+                <span class="quad-pink-bullet"></span>
+                <a href="chi-tiet-tin-tuc.html?id=1" class="quad-sub-link">Trao vốn chính sách – Tiếp sức người sau cai nghiện đứng vững trên đường về</a>
+              </li>
+              <li class="quad-sub-item">
+                <span class="quad-pink-bullet"></span>
+                <a href="chi-tiet-tin-tuc.html?id=1" class="quad-sub-link">Phát huy hiệu quả nguồn vốn, tạo sinh kế bền vững ở Đồng Lộc</a>
+              </li>
+              <li class="quad-sub-item">
+                <span class="quad-pink-bullet"></span>
+                <a href="chi-tiet-tin-tuc.html?id=1" class="quad-sub-link">Hỗ trợ người sau cai nghiện tái hòa nhập cộng đồng ở Quảng Ninh</a>
+              </li>
+              <li class="quad-sub-item">
+                <span class="quad-pink-bullet"></span>
+                <a href="chi-tiet-tin-tuc.html?id=4" class="quad-sub-link">Tín dụng chính sách về nhà ở xã hội giúp người trẻ an cư ở TP Cần Thơ</a>
+              </li>
+            </ul>
+          </div>
+        </article>
+
+        <!-- ==================== 3. CÔNG TÁC ĐẢNG ==================== -->
+        <article class="quad-news-card">
+          <div class="quad-card-topbar"></div>
+          <div class="quad-card-header">
+            <h3 class="quad-card-title">
+              <i class="fa-solid fa-flag" style="color: #dc2626; font-size: 1.05rem;"></i>
+              CÔNG TÁC ĐẢNG
+            </h3>
+            <a href="cong-tac-dang.html" class="quad-card-more-link">
+              <span>Xem thêm</span> <i class="fa-solid fa-arrow-right"></i>
+            </a>
+          </div>
+          <div class="quad-card-body">
+            <!-- Tin tiêu điểm -->
+            <div class="quad-featured-box">
+              <div class="quad-featured-thumb">
+                <img src="https://vbsp.org.vn/wp-content/uploads/2026/10/hoi-nghi-tw4-5500_11zon-394x208.jpg" alt="Hội nghị toàn quốc nghiên cứu, học tập, quán triệt và triển khai thực hiện một số Nghị quyết, Chỉ thị của Bộ Chính trị" onerror="this.src='https://vbsp.org.vn/wp-content/uploads/2026/09/af5d90c8a98e29d0709f_11zon-150x150.jpg'">
+                <span class="quad-featured-badge">Tiêu điểm</span>
+              </div>
+              <div>
+                <h4 class="quad-featured-title">
+                  <a href="chi-tiet-tin-tuc.html?id=2">Hội nghị toàn quốc nghiên cứu, học tập, quán triệt và triển khai thực hiện một số Nghị quyết, Chỉ thị của Bộ Chính trị</a>
+                </h4>
+                <p class="quad-featured-desc">
+                  Ngày 3/9, Bộ Chính trị, Ban Bí thư tổ chức: Hội nghị toàn quốc nghiên cứu, học tập, quán triệt và triển khai thực hiện một số Nghị quyết, Chỉ thị của Bộ Chính trị. Đồng chí Tổng Bí thư, Chủ tịch nước...
+                </p>
+              </div>
+            </div>
+
+            <!-- 4 tin phụ -->
+            <ul class="quad-sub-list">
+              <li class="quad-sub-item">
+                <span class="quad-pink-bullet"></span>
+                <a href="chi-tiet-tin-tuc.html?id=2" class="quad-sub-link">Cách tham gia cuộc thi trực tuyến “Thủ đô Hà Nội cùng dân tộc trong kỷ nguyên mới” trên iHanoi</a>
+              </li>
+              <li class="quad-sub-item">
+                <span class="quad-pink-bullet"></span>
+                <a href="chi-tiet-tin-tuc.html?id=2" class="quad-sub-link">Hưởng ứng cuộc thi “Thủ đô Hà Nội cùng dân tộc trong kỷ nguyên mới”</a>
+              </li>
+              <li class="quad-sub-item">
+                <span class="quad-pink-bullet"></span>
+                <a href="chi-tiet-tin-tuc.html?id=2" class="quad-sub-link">Hội nghị toàn quốc quán triệt và triển khai thực hiện Nghị quyết Hội nghị lần thứ ba Ban Chấp hành Trung ương Đảng khóa XIV</a>
+              </li>
+              <li class="quad-sub-item">
+                <span class="quad-pink-bullet"></span>
+                <a href="chi-tiet-tin-tuc.html?id=2" class="quad-sub-link">Tổng Bí thư, Chủ tịch nước Tô Lâm: Thu hút đầu tư nước ngoài để làm mạnh nội lực, nâng cao tự chủ</a>
+              </li>
+            </ul>
+          </div>
+        </article>
+
+        <!-- ==================== 4. ĐOÀN THANH NIÊN ==================== -->
+        <article class="quad-news-card">
+          <div class="quad-card-topbar"></div>
+          <div class="quad-card-header">
+            <h3 class="quad-card-title">
+              <i class="fa-solid fa-bolt" style="color: #0284c7; font-size: 1.05rem;"></i>
+              ĐOÀN THANH NIÊN
+            </h3>
+            <a href="doan-thanh-nien.html" class="quad-card-more-link">
+              <span>Xem thêm</span> <i class="fa-solid fa-arrow-right"></i>
+            </a>
+          </div>
+          <div class="quad-card-body">
+            <!-- Tin tiêu điểm -->
+            <div class="quad-featured-box">
+              <div class="quad-featured-thumb">
+                <img src="https://vbsp.org.vn/wp-content/uploads/2026/08/3.jpg" alt="Viết tiếp nụ cười cùng những nạn nhân chất độc da cam" onerror="this.src='https://vbsp.org.vn/wp-content/uploads/2026/10/4a-394x208.jpg'">
+                <span class="quad-featured-badge">Tiêu điểm</span>
+              </div>
+              <div>
+                <h4 class="quad-featured-title">
+                  <a href="chi-tiet-tin-tuc.html?id=4">Viết tiếp nụ cười cùng những nạn nhân chất độc da cam</a>
+                </h4>
+                <p class="quad-featured-desc">
+                  Nhân dịp tưởng niệm 65 năm thảm họa da cam tại Việt Nam (10/8/1961 - 10/8/2026), kỷ niệm Ngày Vì nạn nhân chất độc da cam Việt Nam (10/8), trong khuôn khổ Chiến dịch tình nguyện “Kỳ nghỉ hồng năm...
+                </p>
+              </div>
+            </div>
+
+            <!-- 4 tin phụ -->
+            <ul class="quad-sub-list">
+              <li class="quad-sub-item">
+                <span class="quad-pink-bullet"></span>
+                <a href="chi-tiet-tin-tuc.html?id=4" class="quad-sub-link">Tuổi trẻ NHCSXH TP Đà Nẵng hướng tới tri ân kỷ niệm 79 năm Ngày Thương binh – Liệt sĩ</a>
+              </li>
+              <li class="quad-sub-item">
+                <span class="quad-pink-bullet"></span>
+                <a href="chi-tiet-tin-tuc.html?id=4" class="quad-sub-link">Chi đoàn Sở Giao dịch NHCSXH tổ chức hoạt động ý nghĩa kỷ niệm ngày Thương binh – Liệt sĩ</a>
+              </li>
+              <li class="quad-sub-item">
+                <span class="quad-pink-bullet"></span>
+                <a href="chi-tiet-tin-tuc.html?id=4" class="quad-sub-link">Chi đoàn TTCNTT NHCSXH thực hiện các hoạt động đền ơn, đáp nghĩa nhân kỷ niệm 79 năm ngày Thương binh - Liệt sĩ</a>
+              </li>
+              <li class="quad-sub-item">
+                <span class="quad-pink-bullet"></span>
+                <a href="chi-tiet-tin-tuc.html?id=4" class="quad-sub-link">Mang Tết Thiếu nhi đến với học sinh vùng cao Phước Năng</a>
+              </li>
+            </ul>
+          </div>
+        </article>
+
+      </div>
+    </div>
+  </section>
+
+   <!-- ==================== SỰ KIỆN - HÌNH ẢNH SLIDER (SLIDER-HOME - ĐÃ BỎ HẾT TAG TRÊN ẢNH) ==================== -->
+  <section class="home-events-slider-section" id="su-kien-hinh-anh">
+    <div class="vbsp-container">
+      <div class="section-header">
+        <div>
+          <h2 class="section-title"><i class="fa-solid fa-images"></i> Hoạt động & Sự kiện qua hình ảnh</h2>
+          <p class="section-subtitle">Toàn cảnh các hoạt động tiêu điểm, chỉ đạo điều hành và hành trình đưa vốn an sinh đến người dân</p>
+        </div>
+        <div class="slider-home-controls">
+          <button class="slider-arrow-btn prev" id="sliderHomePrev" aria-label="Slide trước"><i class="fa-solid fa-chevron-left"></i></button>
+          <button class="slider-arrow-btn next" id="sliderHomeNext" aria-label="Slide sau"><i class="fa-solid fa-chevron-right"></i></button>
+        </div>
+      </div>
+
+      <div class="slider-home-container" id="sliderHomeContainer">
+        <div class="swiper-wrapper" id="slider-home" style="transform: translate3d(0px, 0px, 0px); transition-duration: 0ms;">
+          <!-- Slide 1 -->
+          <div class="swiper-slide swiper-slide-active">
+            <a href="https://vbsp.org.vn/tao-sinh-ke-cho-ba-con-di-dan-tai-dinh-cu-thuy-dien-vtv1-5h30-13-10-2026.html" title="Tạo sinh kế cho bà con di dân tái định cư thuỷ điện (VTV1 - 5h30 - 13.10.2026)" class="event-slide-card">
+              <div class="event-slide-thumb">
+                <img src="https://vbsp.org.vn/wp-content/uploads/2026/10/cbs5d-394x208.png" alt="Tạo sinh kế cho bà con di dân tái định cư thuỷ điện (VTV1 - 5h30 - 13.10.2026)">
+              </div>
+              <div class="event-slide-info">
+                <b class="title">Tạo sinh kế cho bà con di dân tái định cư thuỷ điện (VTV1 - 5h30 - 13.10.2026)</b>
+                <span class="event-slide-meta"><i class="fa-regular fa-calendar"></i> 13/10/2026 &bull; Thời sự VTV1</span>
+              </div>
+            </a>
+          </div>
+
+          <!-- Slide 2 -->
+          <div class="swiper-slide swiper-slide-next">
+            <a href="https://vbsp.org.vn/phat-dong-thang-cao-diem-vi-nguoi-ngheo-nam-2026.html" title="Phát động Tháng cao điểm “Vì người nghèo” năm 2026" class="event-slide-card">
+              <div class="event-slide-thumb">
+                <img src="https://vbsp.org.vn/wp-content/uploads/2026/10/image0043-394x208.jpg" alt="Phát động Tháng cao điểm “Vì người nghèo” năm 2026">
+              </div>
+              <div class="event-slide-info">
+                <b class="title">Phát động Tháng cao điểm “Vì người nghèo” năm 2026</b>
+                <span class="event-slide-meta"><i class="fa-regular fa-calendar"></i> 17/10/2026 &bull; Vì người nghèo</span>
+              </div>
+            </a>
+          </div>
+
+          <!-- Slide 3 -->
+          <div class="swiper-slide">
+            <a href="https://vbsp.org.vn/nhcsxh-chuc-mung-96-nam-thanh-lap-hoi-lhpn-viet-nam.html" title="NHCSXH chúc mừng 96 năm thành lập Hội LHPN Việt Nam" class="event-slide-card">
+              <div class="event-slide-thumb">
+                <img src="https://vbsp.org.vn/wp-content/uploads/2026/10/1WUpukr6fOszrhngDlBC0Kn5snUUwKyXri8HGExZiKJA7yx3ZOJyBKQhYJhH7mm7D0g-394x208.jpg" alt="NHCSXH chúc mừng 96 năm thành lập Hội LHPN Việt Nam">
+              </div>
+              <div class="event-slide-info">
+                <b class="title">NHCSXH chúc mừng 96 năm thành lập Hội LHPN Việt Nam</b>
+                <span class="event-slide-meta"><i class="fa-regular fa-calendar"></i> 18/10/2026 &bull; Hội LHPN</span>
+              </div>
+            </a>
+          </div>
+
+          <!-- Slide 4 -->
+          <div class="swiper-slide">
+            <a href="https://vbsp.org.vn/doi-moi-phuong-thuc-lanh-dao-cua-dang-gan-trach-nhiem-ca-nhan-voi-ket-qua-cong-viec.html" title="Đổi mới phương thức lãnh đạo của Đảng, gắn trách nhiệm cá nhân với kết quả công việc" class="event-slide-card">
+              <div class="event-slide-thumb">
+                <img src="https://vbsp.org.vn/wp-content/uploads/2026/10/hoi-nghi-tw4-5500_11zon-394x208.jpg" alt="Đổi mới phương thức lãnh đạo của Đảng, gắn trách nhiệm cá nhân với kết quả công việc">
+              </div>
+              <div class="event-slide-info">
+                <b class="title">Đổi mới phương thức lãnh đạo của Đảng, gắn trách nhiệm cá nhân với kết quả công việc</b>
+                <span class="event-slide-meta"><i class="fa-regular fa-calendar"></i> 16/10/2026 &bull; Xây dựng Đảng</span>
+              </div>
+            </a>
+          </div>
+
+          <!-- Slide 5 -->
+          <div class="swiper-slide">
+            <a href="https://vbsp.org.vn/nhcsxh-trien-khai-dich-vu-mobile-banking-doi-voi-khach-hang-la-ho-kinh-doanh.html" title="NHCSXH triển khai dịch vụ Mobile Banking đối với khách hàng là hộ kinh doanh" class="event-slide-card">
+              <div class="event-slide-thumb">
+                <img src="https://vbsp.org.vn/wp-content/uploads/2026/10/4a-394x208.jpg" alt="NHCSXH triển khai dịch vụ Mobile Banking đối với khách hàng là hộ kinh doanh">
+              </div>
+              <div class="event-slide-info">
+                <b class="title">NHCSXH triển khai dịch vụ Mobile Banking đối với khách hàng là hộ kinh doanh</b>
+                <span class="event-slide-meta"><i class="fa-regular fa-calendar"></i> 15/10/2026 &bull; Ngân hàng số</span>
+              </div>
+            </a>
+          </div>
+
+          </div>
+        </div>
+      </div>
+  </section>
+
+
+
+  <!-- ==================== BANNER LIÊN KẾT CHUYÊN ĐỀ ==================== -->
+  <section class="home-promo-banners-section">
+    <div class="vbsp-container">
+      <div class="promo-banners-grid">
+        <a href="cuoc-thi-truc-tuyen-chi-thi-39.html" class="promo-banner-item" title="Cuộc thi trực tuyến Chỉ thị số 39-CT/TW">
+          <img src="https://storage-vnportal.vnpt.vn/tw-nhcsxh/8053/banner/z7113895680960_e81390c30aa81ccd7d038cd5a3f1751f-e1760451897305.jpg" alt="Cuộc thi trực tuyến Chỉ thị số 39-CT/TW" onerror="this.src='images/banner-cuoc-thi-39.jpg'" loading="lazy">
+        </a>
+        <a href="giao-duc-so-go-digital.html" class="promo-banner-item" title="Bình dân học vụ số">
+          <img src="https://storage-vnportal.vnpt.vn/tw-nhcsxh/8053/banner/z6835674508981_33aaca9170eb3792835cb6f624aa07eb2.jpg" alt="Bình dân học vụ số" onerror="this.src='images/banner-binh-dan-hoc-vu-so.jpg'" loading="lazy">
+        </a>
+        <a href="tra-cuu-diem-giao-dich.html" class="promo-banner-item" title="Thông tin chính sách tín dụng công khai tại Điểm giao dịch xã">
+          <img src="https://storage-vnportal.vnpt.vn/tw-nhcsxh/8053/banner/z6848933516475_4cac99d59865e7e37cd9113d17d951b8.jpg" alt="Thông tin chính sách tín dụng công khai tại Điểm giao dịch xã" onerror="this.src='images/banner-thong-tin-diem-giao-dich.jpg'" loading="lazy">
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==================== VĂN BẢN CHỈ ĐẠO ĐIỀU HÀNH (BỔ SUNG RA TRANG CHỦ) ==================== -->
+  <section class="vbsp-section steering-docs-section" id="van-ban-chi-dao">
+    <div class="vbsp-container">
+      <div class="section-header">
+        <div>
+          <h2 class="section-title"><i class="fa-solid fa-file-contract"></i> Văn bản chỉ đạo điều hành</h2>
+          <p class="section-subtitle">Hệ thống văn bản chỉ đạo của Đảng, Chính phủ, Hội đồng quản trị và Tổng Giám đốc NHCSXH</p>
+        </div>
+        <a href="he-thong-van-ban.html" class="section-link-more">
+          Tra cứu toàn bộ hệ thống văn bản <i class="fa-solid fa-arrow-right"></i>
+        </a>
+      </div>
+
+      <!-- Main Scrollable Card Container (Bỏ tiêu chí lọc, cho vào khung scrollable) -->
+      <div class="steering-panel-card">
+        <!-- Card Top Bar / Table Header -->
+        <div class="steering-panel-topbar">
+          <div class="steering-topbar-left">
+            <i class="fa-solid fa-folder-tree"></i>
+            <span class="steering-topbar-title">Danh mục văn bản chỉ đạo điều hành mới nhất</span>
+            <span class="steering-badge-count" id="steeringDocCount">14 văn bản</span>
+          </div>
+        </div>
+
+        <!-- Table Columns Header (Desktop) -->
+        <div class="steering-table-header">
+          <div class="col-code"><i class="fa-solid fa-hashtag"></i> Số hiệu văn bản</div>
+          <div class="col-title"><i class="fa-solid fa-file-lines"></i> Trích yếu nội dung</div>
+          <div class="col-agency"><i class="fa-solid fa-landmark"></i> Cơ quan ban hành</div>
+          <div class="col-date"><i class="fa-regular fa-calendar"></i> Ngày ban hành</div>
+          <div class="col-action"><i class="fa-solid fa-download"></i> Tải về</div>
+        </div>
+
+        <!-- Scrollable Document List Container -->
+        <div class="steering-scroll-container" id="steeringDocsList">
+          <!-- Injected dynamically by initSteeringDocsHome() in js/main.js -->
+        </div>
+
+        <!-- Card Footer -->
+        <div class="steering-panel-footer">
+          <div class="steering-footer-note">
+            <i class="fa-solid fa-circle-info"></i>
+            Các văn bản quy phạm, quyết định và văn bản nghiệp vụ có hiệu lực thi hành trên toàn hệ thống NHCSXH.
+          </div>
+          <a href="he-thong-van-ban.html" class="steering-footer-btn">
+            <i class="fa-solid fa-magnifying-glass"></i> Tra cứu nâng cao toàn bộ văn bản <i class="fa-solid fa-chevron-right" style="font-size: 0.75rem;"></i>
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==================== MULTIMEDIA SECTION (GỌN VÀO GIỮA TRANG CÙNG KHUNG NỘI DUNG PHÍA TRÊN) ==================== -->
+  <section class="multimedia-section" id="multimedia">
+    <div class="vbsp-container">
+      <div class="multimedia-stage-box">
+        <div class="multimedia-stage-head">
+          <h2 class="multimedia-heading">MULTIMEDIA</h2>
+        </div>
+
+        <!-- Centered Pill Navigation Tabs -->
+        <div class="multimedia-tabs-nav">
+          <a href="chi-tiet-multimedia.html?type=video" class="media-pill-btn">
+            <i class="fa-solid fa-video"></i> Videos
+          </a>
+          <a href="chi-tiet-multimedia.html?type=photo" class="media-pill-btn">
+            <i class="fa-regular fa-image"></i> Photos
+          </a>
+          <a href="chi-tiet-multimedia.html?type=podcast" class="media-pill-btn">
+            <i class="fa-solid fa-podcast"></i> Podcast
+          </a>
+          <a href="chi-tiet-multimedia.html?type=infographic" class="media-pill-btn">
+            <i class="fa-solid fa-chart-pie"></i> Infographics
+          </a>
+        </div>
+
+        <!-- Horizontal Carousel Viewport & Track -->
+        <div class="multimedia-carousel-viewport">
+          <div class="multimedia-carousel-track" id="mediaTrack">
+            <!-- Injected dynamically by initMultimediaSlider() in js/main.js -->
+          </div>
+        </div>
+
+        <!-- Centered Circular Navigation Buttons -->
+        <div class="multimedia-nav-btns">
+          <button class="multimedia-circle-btn" id="mediaPrevBtn" aria-label="Lùi lại">
+            <i class="fa-solid fa-chevron-left"></i>
+          </button>
+          <button class="multimedia-circle-btn" id="mediaNextBtn" aria-label="Tiếp theo">
+            <i class="fa-solid fa-chevron-right"></i>
+          </button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==================== STATS: THẤU HIỂU LÒNG DÂN, TẬN TÂM PHỤC VỤ (THEO MẪU ẢNH 2) ==================== -->
+  <section class="impact-stats-section" id="thau-hieu-long-dan">
+    <div class="vbsp-container">
+      <h3 class="impact-stats-title">THẤU HIỂU LÒNG DÂN, TẬN TÂM PHỤC VỤ</h3>
+      <div class="impact-stats-grid">
+        <div class="impact-stat-col">
+          <div class="impact-stat-num white">TOÀN QUỐC</div>
+          <div class="impact-stat-desc">Mạng lưới phục vụ</div>
+        </div>
+        <div class="impact-stat-col">
+          <div class="impact-stat-num magenta">10.000+</div>
+          <div class="impact-stat-desc">Điểm giao dịch</div>
+        </div>
+        <div class="impact-stat-col">
+          <div class="impact-stat-num white">20+</div>
+          <div class="impact-stat-desc">Chương trình tín dụng</div>
+        </div>
+        <div class="impact-stat-col">
+          <div class="impact-stat-num magenta">HÀNG TRIỆU</div>
+          <div class="impact-stat-desc">Khách hàng thụ hưởng</div>
+        </div>
+      </div>
+      <div class="impact-stats-footnote">
+        * Số liệu trong mockup mang tính minh họa và sẽ được cập nhật từ dữ liệu chính thức khi triển khai.
+      </div>
+    </div>
+  </section>
+
+  <!-- ==================== LIÊN KẾT WEBSITE (THEO MẪU ẢNH 3 - 3x3 LOGO TRÁI, CHI TIẾT PHẢI) ==================== -->
+  <section class="website-links-section" id="lien-ket-website">
+    <div class="vbsp-container">
+      <div class="web-links-title-wrap">
+        <h2 class="web-links-title">Liên kết website</h2>
+        <div class="web-links-title-bar"></div>
+      </div>
+
+      <div class="web-links-grid-wrapper">
+        <!-- Cột trái: 3x3 Grid Logo -->
+        <div class="web-logos-grid" id="webLogosGrid">
+          <!-- Injected dynamically by initWebsiteLinks() in js/main.js -->
+        </div>
+
+        <!-- Cột phải: Khung thông tin chi tiết -->
+        <div class="web-detail-card" id="partnerDetailCard">
+          <div>
+            <h3 class="web-detail-title" id="partnerTitle">Hiệp hội Tín dụng Nông nghiệp và Nông thôn khu vực Châu Á Thái Bình Dương</h3>
+            <p class="web-detail-desc" id="partnerDesc">Hiệp hội tín dụng nông nghiệp và nông thôn khu vực châu Á - Thái Bình Dương (Asia-Pacific Rural and Agricultural Credit Association). VBSP là thành viên tích cực, đóng góp nhiều sáng kiến tài chính vi mô bền vững.</p>
+            <div class="web-detail-info-box">
+              <div class="web-detail-info-row">
+                <strong>Địa chỉ:</strong> <span id="partnerAddress">Phòng 303, Tòa nhà BAAC, 2346 Đường Phahon Yothin, Senanikhom, Chatuchak, Bangkok 10900, Thái Lan</span>
+              </div>
+              <div class="web-detail-info-row">
+                <strong>Website:</strong> <a id="partnerUrl" href="https://www.apraca.org" target="_blank" rel="noopener noreferrer">https://www.apraca.org</a>
+              </div>
+            </div>
+          </div>
+
+          <div class="web-detail-footer">
+            <div class="web-detail-dots" id="partnerDots">
+              <!-- Injected dynamically -->
+            </div>
+            <div class="web-detail-nav">
+              <button class="web-detail-arrow-btn" id="partnerPrevBtn" aria-label="Website trước">
+                <i class="fa-solid fa-chevron-left"></i>
+              </button>
+              <button class="web-detail-arrow-btn" id="partnerNextBtn" aria-label="Website tiếp theo">
+                <i class="fa-solid fa-chevron-right"></i>
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==================== FOOTER ==================== -->
+  <footer class="vbsp-footer" id="footer">
+    <div class="vbsp-container">
+      <div class="footer-grid-3col">
+        <!-- Cột 1: Thông tin cơ quan -->
+        <div class="footer-col-agency">
+          <div class="footer-brand-header" style="display: flex; align-items: center; gap: 14px; margin-bottom: 18px;">
+            <img src="https://storage-vnportal.vnpt.vn/tw-nhcsxh/8053/banner/logo.png" alt="Logo NHCSXH" style="height: 52px; background: #ffffff; padding: 4px; border-radius: 6px; box-shadow: 0 2px 8px rgba(0,0,0,0.15);">
+            <div>
+              <h3 class="footer-brand-title" style="margin: 0; font-size: 1.15rem; font-weight: 700; color: #ffffff; text-transform: uppercase;">Ngân hàng Chính sách xã hội</h3>
+              <div style="font-size: 0.8rem; color: #cbd5e1; letter-spacing: 0.5px;">VIETNAM BANK FOR SOCIAL POLICIES (VBSP)</div>
+            </div>
+          </div>
+          <div class="footer-contact-list">
+            <div class="footer-contact-item">
+              <i class="fa-solid fa-location-dot" style="color: var(--vbsp-gold);"></i>
+              <span>Trụ sở chính: Tòa nhà NHCSXH, CC5B Bán đảo Linh Đàm, P. Hoàng Liệt, Q. Hoàng Mai, TP. Hà Nội</span>
+            </div>
+            <div class="footer-contact-item">
+              <i class="fa-solid fa-phone" style="color: var(--vbsp-gold);"></i>
+              <span>Điện thoại: (024) 36417184 - Fax: (024) 36417194</span>
+            </div>
+            <div class="footer-contact-item">
+              <i class="fa-solid fa-headset" style="color: #f43f5e;"></i>
+              <span>Tổng đài Chăm sóc khách hàng: <strong style="color: #ffffff; font-size: 1.05rem;">1900 638 586</strong></span>
+            </div>
+            <div class="footer-contact-item">
+              <i class="fa-solid fa-envelope" style="color: var(--vbsp-gold);"></i>
+              <span>Email: banbientap@vbsp.vn</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Cột 2: Liên kết website -->
+        <div class="footer-col-links">
+          <h4 class="footer-col-title" style="color: #ffffff; font-size: 1.05rem; font-weight: 700; margin-bottom: 16px; position: relative; padding-bottom: 8px;">
+            Liên kết website
+            <span style="position: absolute; bottom: 0; left: 0; width: 40px; height: 3px; background: #f43f5e; border-radius: 2px;"></span>
+          </h4>
+          <div class="footer-links-list" style="display: grid; grid-template-columns: 1fr; gap: 8px;">
+            <a href="https://chinhphu.vn" target="_blank" rel="noopener noreferrer"><i class="fa-solid fa-link" style="color: #f43f5e; font-size: 0.8rem; margin-right: 6px;"></i> Cổng Thông tin điện tử Chính phủ</a>
+            <a href="https://sbv.gov.vn" target="_blank" rel="noopener noreferrer"><i class="fa-solid fa-link" style="color: #f43f5e; font-size: 0.8rem; margin-right: 6px;"></i> Ngân hàng Nhà nước Việt Nam</a>
+            <a href="https://mof.gov.vn" target="_blank" rel="noopener noreferrer"><i class="fa-solid fa-link" style="color: #f43f5e; font-size: 0.8rem; margin-right: 6px;"></i> Bộ Tài chính</a>
+            <a href="https://molisa.gov.vn" target="_blank" rel="noopener noreferrer"><i class="fa-solid fa-link" style="color: #f43f5e; font-size: 0.8rem; margin-right: 6px;"></i> Bộ Lao động - Thương binh và Xã hội</a>
+            <a href="https://nhandan.vn" target="_blank" rel="noopener noreferrer"><i class="fa-solid fa-link" style="color: #f43f5e; font-size: 0.8rem; margin-right: 6px;"></i> Báo Nhân Dân</a>
+            <a href="https://tapchicongsan.org.vn" target="_blank" rel="noopener noreferrer"><i class="fa-solid fa-link" style="color: #f43f5e; font-size: 0.8rem; margin-right: 6px;"></i> Tạp chí Cộng sản</a>
+            <a href="https://hoinongdan.org.vn" target="_blank" rel="noopener noreferrer"><i class="fa-solid fa-link" style="color: #f43f5e; font-size: 0.8rem; margin-right: 6px;"></i> Hội Nông dân Việt Nam</a>
+            <a href="https://hoilhpn.org.vn" target="_blank" rel="noopener noreferrer"><i class="fa-solid fa-link" style="color: #f43f5e; font-size: 0.8rem; margin-right: 6px;"></i> Hội Liên hiệp Phụ nữ Việt Nam</a>
+          </div>
+        </div>
+
+        <!-- Cột 3: Thống kê truy cập -->
+        <div class="footer-col-stats">
+          <h4 class="footer-col-title" style="color: #ffffff; font-size: 1.05rem; font-weight: 700; margin-bottom: 16px; position: relative; padding-bottom: 8px;">
+            Thống kê truy cập
+            <span style="position: absolute; bottom: 0; left: 0; width: 40px; height: 3px; background: #0c8a4b; border-radius: 2px;"></span>
+          </h4>
+          <div class="footer-visitor-stats-box">
+            <div class="footer-stat-row">
+              <span><i class="fa-solid fa-user-check" style="color: #10b981; width: 20px;"></i> Đang trực tuyến:</span>
+              <strong style="color: #34d399; font-size: 0.95rem;">1.248</strong>
+            </div>
+            <div class="footer-stat-row">
+              <span><i class="fa-regular fa-calendar-check" style="color: #38bdf8; width: 20px;"></i> Hôm nay:</span>
+              <strong style="color: #ffffff;">38.450</strong>
+            </div>
+            <div class="footer-stat-row">
+              <span><i class="fa-solid fa-clock-rotate-left" style="color: #fbbf24; width: 20px;"></i> Hôm qua:</span>
+              <strong style="color: #ffffff;">65.210</strong>
+            </div>
+            <div class="footer-stat-row">
+              <span><i class="fa-solid fa-chart-line" style="color: #f43f5e; width: 20px;"></i> Trong tuần:</span>
+              <strong style="color: #ffffff;">286.740</strong>
+            </div>
+            <div class="footer-stat-row">
+              <span><i class="fa-solid fa-eye" style="color: var(--vbsp-gold); width: 20px;"></i> Tổng lượt truy cập:</span>
+              <strong style="color: #fef08a; font-size: 1.05rem; letter-spacing: 0.5px;">128.450.920</strong>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <div>© 2026 Bản quyền thuộc về Ngân hàng Chính sách xã hội (VBSP). Thiết kế & Vận hành Cổng thông tin điện tử.</div>
+        <div>Giấy phép số 128/GP-BC do Cục Báo chí - Bộ Thông tin và Truyền thông cấp ngày 28/07/2005.</div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- ==================== QUICK VIEW MODAL ==================== -->
+  <div class="modal-backdrop" id="quickViewModal">
+    <div class="modal-dialog">
+      <div class="modal-header">
+        <h3 class="modal-title" id="modalServiceTitle">Thông tin sản phẩm dịch vụ</h3>
+        <button class="modal-close-btn" data-close-modal aria-label="Đóng">&times;</button>
+      </div>
+      <div class="modal-body" id="modalServiceContent">
+        <!-- Injected dynamically via js/main.js -->
+      </div>
+      <div class="modal-footer">
+        <button class="btn btn-outline-primary" data-close-modal>Đóng lại</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Scripts -->
+  <script src="js/data.js"></script>
+  <script src="js/main.js"></script>
+  <script>
+    // Tab switcher helper for interest rates
+    function switchInterestTab(type, btn) {
+      document.querySelectorAll('.interest-tab-btn').forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+      document.getElementById('interestSavingsBox').style.display = type === 'savings' ? 'block' : 'none';
+      document.getElementById('interestLoansBox').style.display = type === 'loans' ? 'block' : 'none';
+    }
+  </script>
+</body>
+</html>

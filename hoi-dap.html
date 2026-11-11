@@ -1,0 +1,2433 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Hỏi - Đáp | Ngân hàng Chính sách xã hội (VBSP)</title>
+  <link rel="icon" href="https://storage-vnportal.vnpt.vn/tw-nhcsxh/8053/banner/logo.png" type="image/x-icon">
+  <!-- Google Fonts: Roboto & Merriweather -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Merriweather:ital,wght@0,300;0,400;0,700;1,300;1,400&family=Roboto:wght@300;400;500;700;900&display=swap" rel="stylesheet">
+  <!-- FontAwesome 6 -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <!-- Project Styles -->
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/header-nav.css">
+  <link rel="stylesheet" href="css/components.css">
+  <style>
+    /* Full width content - no right sidebar */
+    .vbsp-fullwidth-layout {
+      width: 100%;
+      max-width: 100%;
+    }
+    
+    /* Photo-based Form & List styling */
+    .qa-photo-container {
+      background: #ffffff;
+      border: 1px solid #d5dde8;
+      border-radius: 8px;
+      padding: 24px 28px;
+      margin-bottom: 30px;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.03);
+    }
+    .qa-photo-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding-bottom: 12px;
+      margin-bottom: 20px;
+      border-bottom: 1px solid #cbd5e1;
+    }
+    .qa-photo-title {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-size: 1.25rem;
+      font-weight: 700;
+      color: #ea580c;
+      margin: 0;
+    }
+    .qa-photo-req-note {
+      font-size: 0.88rem;
+      color: #475569;
+    }
+    .qa-photo-req-note span {
+      color: #dc2626;
+      font-weight: 700;
+    }
+    
+    /* Table Form */
+    .qa-photo-table {
+      width: 100%;
+      border-collapse: collapse;
+    }
+    .qa-photo-table tr {
+      border-bottom: 1px solid #f1f5f9;
+    }
+    .qa-photo-table td {
+      padding: 10px 8px;
+      vertical-align: middle;
+    }
+    .qa-photo-table td.label-col {
+      width: 190px;
+      font-size: 0.92rem;
+      font-weight: 600;
+      color: #1e293b;
+      white-space: nowrap;
+    }
+    .qa-photo-table td.label-col span.req {
+      color: #dc2626;
+      font-weight: 700;
+      margin-left: 2px;
+    }
+    .qa-photo-table td.input-col {
+      width: auto;
+    }
+    .qa-photo-input,
+    .qa-photo-select {
+      width: 100%;
+      height: 38px;
+      border: 1px solid #cbd5e1;
+      border-radius: 4px;
+      padding: 6px 12px;
+      font-size: 0.9rem;
+      background: #ffffff;
+      color: #0f172a;
+      outline: none;
+      transition: border-color 0.2s, box-shadow 0.2s;
+      box-sizing: border-box;
+    }
+    .qa-photo-input:focus,
+    .qa-photo-select:focus {
+      border-color: #0c8a4b;
+      box-shadow: 0 0 0 3px rgba(12, 138, 75, 0.1);
+    }
+    
+    /* Editor */
+    .qa-photo-editor-wrap {
+      border: 1px solid #cbd5e1;
+      border-radius: 4px;
+      overflow: hidden;
+      background: #ffffff;
+    }
+    .qa-photo-editor-bar {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 4px;
+      padding: 6px 8px;
+      background: #f8fafc;
+      border-bottom: 1px solid #cbd5e1;
+    }
+    .qa-photo-bar-btn {
+      width: 28px;
+      height: 28px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      border: 1px solid transparent;
+      background: transparent;
+      border-radius: 3px;
+      color: #334155;
+      font-size: 0.85rem;
+      cursor: pointer;
+      transition: all 0.15s;
+    }
+    .qa-photo-bar-btn:hover {
+      background: #e2e8f0;
+      border-color: #cbd5e1;
+      color: #0f172a;
+    }
+    .qa-photo-editor-content {
+      min-height: 140px;
+      padding: 10px 12px;
+      font-size: 0.92rem;
+      line-height: 1.6;
+      color: #1e293b;
+      outline: none;
+      overflow-y: auto;
+    }
+    .qa-photo-editor-content:empty:before {
+      content: attr(placeholder);
+      color: #94a3b8;
+      font-style: italic;
+    }
+    
+    /* File Chooser */
+    .qa-photo-file-btn {
+      padding: 6px 14px;
+      border: 1px solid #94a3b8;
+      border-radius: 4px;
+      background: #f1f5f9;
+      color: #1e293b;
+      font-size: 0.85rem;
+      font-weight: 500;
+      cursor: pointer;
+      transition: background 0.15s;
+    }
+    .qa-photo-file-btn:hover {
+      background: #e2e8f0;
+    }
+    
+    /* Captcha Box */
+    .qa-photo-captcha-box {
+      display: inline-flex;
+      align-items: center;
+      gap: 12px;
+    }
+    .qa-photo-captcha-img {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 140px;
+      height: 38px;
+      background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%);
+      border: 1px solid #cbd5e1;
+      border-radius: 4px;
+      font-family: 'Georgia', 'Courier New', serif;
+      font-size: 1.5rem;
+      font-weight: 900;
+      letter-spacing: 6px;
+      color: #334155;
+      user-select: none;
+      position: relative;
+      overflow: hidden;
+    }
+    .qa-photo-captcha-img::after {
+      content: '';
+      position: absolute;
+      top: 50%;
+      left: 0;
+      width: 100%;
+      height: 2px;
+      background: rgba(100, 116, 139, 0.4);
+      transform: rotate(-10deg);
+    }
+    
+    /* Action Buttons (GREEN MATCHING SITE TONE) */
+    .qa-photo-btn-submit {
+      background: linear-gradient(135deg, #009640 0%, #0c8a4b 100%);
+      color: #ffffff;
+      border: 1px solid #009640;
+      border-radius: 4px;
+      padding: 10px 26px;
+      font-size: 0.92rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      cursor: pointer;
+      transition: all 0.25s ease;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      box-shadow: 0 2px 8px rgba(0, 150, 64, 0.25);
+    }
+    .qa-photo-btn-submit:hover {
+      background: linear-gradient(135deg, #0c8a4b 0%, #004322 100%);
+      border-color: #004322;
+      transform: translateY(-2px);
+      box-shadow: 0 6px 16px rgba(0, 150, 64, 0.35);
+    }
+    .qa-photo-btn-reset {
+      background: #64748b;
+      color: #ffffff;
+      border: 1px solid #64748b;
+      border-radius: 4px;
+      padding: 10px 22px;
+      font-size: 0.92rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      cursor: pointer;
+      transition: all 0.2s ease;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .qa-photo-btn-reset:hover {
+      background: #475569;
+      border-color: #475569;
+    }
+    
+    /* Search Bar (GREEN MATCHING SITE TONE) */
+    .qa-photo-search-bar {
+      display: grid;
+      grid-template-columns: 1fr auto;
+      gap: 16px;
+      align-items: flex-end;
+      padding: 18px 22px;
+      background: #f8fafc;
+      border: 1px solid #e2e8f0;
+      border-top: 3px solid #009640;
+      border-radius: 8px;
+      margin-bottom: 22px;
+    }
+    .qa-photo-search-btn {
+      background: linear-gradient(135deg, #009640 0%, #0c8a4b 100%);
+      color: #ffffff;
+      border: 1px solid #009640;
+      border-radius: 4px;
+      padding: 0 24px;
+      height: 38px;
+      font-size: 0.92rem;
+      font-weight: 700;
+      cursor: pointer;
+      transition: all 0.25s ease;
+      white-space: nowrap;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      box-shadow: 0 2px 6px rgba(0, 150, 64, 0.25);
+    }
+    .qa-photo-search-btn:hover {
+      background: linear-gradient(135deg, #0c8a4b 0%, #004322 100%);
+      border-color: #004322;
+      transform: translateY(-1px);
+      box-shadow: 0 4px 12px rgba(0, 150, 64, 0.35);
+    }
+    
+    /* Question Items (ELEGANT GREEN ACCENT CARDS) */
+    .qa-photo-list-title {
+      font-size: 1.15rem;
+      font-weight: 700;
+      color: #004322;
+      padding-bottom: 12px;
+      border-bottom: 2px solid #e2e8f0;
+      margin-bottom: 18px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+    .qa-photo-item {
+      padding: 16px 20px;
+      margin-bottom: 14px;
+      background: #ffffff;
+      border: 1px solid #e2e8f0;
+      border-radius: 8px;
+      transition: all 0.2s ease;
+      position: relative;
+    }
+    .qa-photo-item:hover {
+      border-color: #86efac;
+      border-left: 4px solid #009640;
+      box-shadow: 0 4px 14px rgba(0, 150, 64, 0.08);
+      transform: translateY(-1px);
+    }
+    .qa-photo-item:last-child {
+      margin-bottom: 0;
+    }
+    .qa-photo-q-head {
+      display: flex;
+      align-items: flex-start;
+      gap: 10px;
+      margin-bottom: 8px;
+    }
+    .qa-photo-q-num {
+      width: 24px;
+      height: 24px;
+      background: #e6f4ea;
+      color: #009640;
+      font-weight: 700;
+      font-size: 0.85rem;
+      border-radius: 50%;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+      margin-top: 1px;
+    }
+    .qa-photo-q-icon {
+      color: #009640;
+      font-size: 1.05rem;
+      margin-top: 3px;
+    }
+    .qa-photo-q-title {
+      font-size: 1.02rem;
+      font-weight: 700;
+      color: #004322;
+      line-height: 1.45;
+      margin: 0;
+      flex: 1;
+      transition: color 0.2s;
+    }
+    .qa-photo-item:hover .qa-photo-q-title {
+      color: #0c8a4b;
+    }
+    .qa-photo-q-desc {
+      font-size: 0.91rem;
+      color: #334155;
+      line-height: 1.6;
+      margin: 6px 0 10px 34px;
+    }
+    .qa-photo-q-meta-wrap {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-left: 34px;
+      margin-bottom: 12px;
+      font-size: 0.83rem;
+      color: #475569;
+    }
+    .qa-photo-meta-tag {
+      display: inline-flex;
+      align-items: center;
+      gap: 5px;
+      background: #f8fafc;
+      border: 1px solid #e2e8f0;
+      padding: 3px 10px;
+      border-radius: 14px;
+    }
+    .qa-photo-meta-tag i {
+      color: #009640;
+    }
+    .qa-status-pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 5px;
+      background: #f0fdf4;
+      color: #166534;
+      border: 1px solid #bbf7d0;
+      padding: 2px 10px;
+      border-radius: 12px;
+      font-size: 0.78rem;
+      font-weight: 600;
+      margin-left: auto;
+    }
+    .qa-photo-ans-btn {
+      color: #009640;
+      font-weight: 600;
+      font-size: 0.88rem;
+      text-decoration: none;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 5px 14px;
+      background: #f0fdf4;
+      border: 1px solid #bbf7d0;
+      border-radius: 6px;
+      transition: all 0.2s ease;
+    }
+    .qa-photo-ans-btn:hover {
+      background: #009640;
+      color: #ffffff;
+      border-color: #009640;
+      box-shadow: 0 2px 8px rgba(0, 150, 64, 0.2);
+    }
+    .qa-photo-ans-box {
+      display: none;
+      margin: 12px 0 6px 34px;
+      padding: 16px 20px;
+      background: #f7fee7;
+      border: 1px solid #d9f99d;
+      border-left: 4px solid #009640;
+      border-radius: 6px;
+      font-size: 0.9rem;
+      color: #1e293b;
+      line-height: 1.65;
+      animation: fadeInAns 0.25s ease;
+    }
+    @keyframes fadeInAns {
+      from { opacity: 0; transform: translateY(-4px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    .qa-photo-ans-box.show {
+      display: block;
+    }
+    .qa-jump-form-btn {
+      background: #009640;
+      color: #ffffff !important;
+      padding: 6px 14px;
+      border-radius: 20px;
+      font-size: 0.82rem;
+      font-weight: 600;
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      transition: all 0.2s;
+    }
+    .qa-jump-form-btn:hover {
+      background: #004322;
+      transform: translateY(-1px);
+    }
+    
+    @media (max-width: 768px) {
+      .qa-photo-table td.label-col {
+        width: 100%;
+        display: block;
+        padding-bottom: 2px;
+      }
+      .qa-photo-table td.input-col {
+        width: 100%;
+        display: block;
+        padding-top: 2px;
+      }
+      .qa-photo-search-bar {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+<body>
+
+    <!-- ==================== TOP BAR ==================== -->
+  <div class="vbsp-topbar">
+    <div class="vbsp-container">
+      <div class="topbar-wrapper">
+        <div class="topbar-left">
+          <span class="topbar-portal-title">
+            <i class="fa-solid fa-landmark"></i>
+            <span class="portal-title-full">CỔNG THÔNG TIN ĐIỆN TỬ NGÂN HÀNG CHÍNH SÁCH XÃ HỘI</span>
+            <span class="portal-title-short">NHCSXH - VBSP</span>
+          </span>
+        </div>
+        <div class="topbar-right">
+          <span class="topbar-item" id="liveClock">
+            <i class="fa-regular fa-clock"></i> Hà Nội: Thứ Năm, 22/10/2026 - 16:52
+          </span>
+          <div class="topbar-links">
+            <a href="#footer"><i class="fa-solid fa-sitemap"></i> Sơ đồ cổng</a>
+            <a href="#footer"><i class="fa-solid fa-envelope"></i> Liên hệ</a>
+          </div>
+          <div class="lang-switch" title="Ngôn ngữ / Language">
+            <i class="fa-solid fa-globe lang-icon"></i>
+            <a href="index.html" class="active" title="Tiếng Việt">VN</a>
+            <a href="en-news-highlights.html" title="English">English</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ==================== MAIN BRAND HEADER ==================== -->
+  <header class="vbsp-main-header">
+    <div class="vbsp-container">
+      <div class="header-wrapper">
+        <div class="header-brand">
+          <a href="index.html" class="header-brand-link">
+            <img src="https://storage-vnportal.vnpt.vn/tw-nhcsxh/8053/banner/logo.png" alt="Logo NHCSXH" class="brand-logo-img">
+            <div class="brand-text-block">
+              <span class="brand-title-vn">Ngân hàng Chính sách xã hội</span>
+              <span class="brand-title-en">Vietnam Bank for Social Policies</span>
+            </div>
+          </a>
+        </div>
+        <div class="header-quick-tools">
+          <form class="header-search-form" onsubmit="event.preventDefault(); window.location.href='tin-tuc-su-kien.html';">
+            <input type="text" class="header-search-input" placeholder="Tìm kiếm dịch vụ, chính sách...">
+            <button type="submit" class="header-search-btn" aria-label="Tìm kiếm"><i class="fa-solid fa-magnifying-glass"></i></button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- ==================== MAIN NAVIGATION BAR (7 TOP MENUS - DESKTOP & MOBILE DRAWER) ==================== -->
+  <nav class="vbsp-navbar" aria-label="Điều hướng chính">
+    <div class="vbsp-container nav-container">
+      <div class="mobile-nav-bar">
+        <button type="button" class="mobile-nav-toggle" aria-label="Mở menu danh mục" aria-expanded="false">
+          <i class="fa-solid fa-bars"></i>
+          <span>Danh mục</span>
+        </button>
+        <a href="tel:1900638586" class="mobile-hotline-chip">
+          <i class="fa-solid fa-phone-volume"></i>
+          <span>1900 638 586</span>
+        </a>
+      </div>
+
+      <div class="mobile-nav-backdrop" aria-hidden="true"></div>
+
+      <ul class="nav-menu">
+        <!-- Mobile Drawer Top Header & Search (Hidden on Desktop) -->
+        <li class="mobile-drawer-top">
+          <div class="mobile-drawer-brand-row">
+            <a href="index.html" class="mobile-drawer-brand">
+              <img src="https://storage-vnportal.vnpt.vn/tw-nhcsxh/8053/banner/logo.png" alt="VBSP">
+              <div>
+                <strong>NHCSXH Việt Nam</strong>
+                <span>Danh mục Cổng thông tin</span>
+              </div>
+            </a>
+            <button type="button" class="mobile-drawer-close" aria-label="Đóng menu">
+              <i class="fa-solid fa-xmark"></i>
+            </button>
+          </div>
+          <form class="mobile-drawer-search" onsubmit="event.preventDefault(); window.location.href='tin-tuc-su-kien.html';">
+            <input type="text" placeholder="Tìm kiếm tin tức, chính sách..." aria-label="Tìm kiếm">
+            <button type="submit" aria-label="Tìm"><i class="fa-solid fa-magnifying-glass"></i></button>
+          </form>
+        </li>
+
+        <!-- 1. TRANG CHỦ -->
+        <li class="nav-item ">
+          <a href="index.html" class="nav-link">
+            <span>Trang chủ</span>
+          </a>
+        </li>
+
+        <!-- 2. GIỚI THIỆU -->
+        <li class="nav-item has-children ">
+          <a href="gioi-thieu-san-pham-dich-vu.html" class="nav-link">
+            <span>Giới thiệu</span>
+            <i class="fa-solid fa-chevron-down arrow-down"></i>
+          </a>
+          <div class="dropdown-panel dropdown-w-md">
+            <div class="dropdown-item">
+              <a href="y-nghia-bieu-trung-logo.html" class="dropdown-link">
+                <span>Ý nghĩa biểu trưng (Logo)</span>
+              </a>
+            </div>
+            <div class="dropdown-item">
+              <a href="lich-su-hinh-thanh.html" class="dropdown-link">
+                <span>Lịch sử hình thành</span>
+              </a>
+            </div>
+            <div class="dropdown-item">
+              <a href="cac-phan-thuong-cao-quy.html" class="dropdown-link">
+                <span>Các phần thưởng cao quý</span>
+              </a>
+            </div>
+            <div class="dropdown-item">
+              <a href="co-cau-to-chuc.html" class="dropdown-link">
+                <span>Cơ cấu tổ chức, đăng ký hoạt động</span>
+              </a>
+            </div>
+            <div class="dropdown-item has-sub-flyout dropdown-divider-top">
+              <a href="gioi-thieu-san-pham-dich-vu.html" class="dropdown-link dropdown-link-featured">
+                <span>Các sản phẩm dịch vụ</span>
+                <i class="fa-solid fa-chevron-right sub-flyout-arrow"></i>
+              </a>
+              <div class="sub-flyout-panel">
+                <div class="flyout-grid">
+                  <!-- Cột 1: Thanh toán chuyển tiền -->
+                  <div class="flyout-col">
+                    <div class="flyout-col-title">Thanh toán chuyển tiền</div>
+                    <ul class="flyout-list">
+                      <li><a href="chi-tiet-chuyen-tien.html?tab=den" class="flyout-link">Chuyển tiền đến trong nước</a></li>
+                      <li><a href="chi-tiet-chuyen-tien.html?tab=di" class="flyout-link">Chuyển tiền đi trong nước</a></li>
+                      <li><a href="chi-tiet-chuyen-tien.html?tab=kieuhoi" class="flyout-link">Dịch vụ chuyển tiền kiều hối</a></li>
+                    </ul>
+                  </div>
+
+                  <!-- Cột 2: Nhận tiền gửi tiết kiệm -->
+                  <div class="flyout-col">
+                    <div class="flyout-col-title">Nhận tiền gửi tiết kiệm</div>
+                    <ul class="flyout-list">
+                      <li><a href="chi-tiet-tien-gui-tiet-kiem.html?tab=cokyhan" class="flyout-link">Gửi tiết kiệm có kỳ hạn</a></li>
+                      <li><a href="chi-tiet-tien-gui-tiet-kiem.html?tab=khongkyhan" class="flyout-link">Gửi tiết kiệm không kỳ hạn</a></li>
+                      <li><a href="chi-tiet-tien-gui-tiet-kiem.html#calc" class="flyout-link">Công cụ tính lãi tiết kiệm</a></li>
+                    </ul>
+                  </div>
+
+                  <!-- Cột 3: Cho vay & Ngân quỹ -->
+                  <div class="flyout-col">
+                    <div class="flyout-col-title">Cho vay &amp; Ngân quỹ</div>
+                    <ul class="flyout-list">
+                      <li><a href="chi-tiet-quy-trinh-cho-vay.html?tab=tiengui" class="flyout-link">Tiền gửi có kỳ hạn</a></li>
+                      <li><a href="chi-tiet-quy-trinh-cho-vay.html?tab=thanhtoan" class="flyout-link">Tiền gửi thanh toán</a></li>
+                      <li><a href="chi-tiet-quy-trinh-cho-vay.html?tab=chovay" class="flyout-link">Quy trình cho vay chính sách</a></li>
+                    </ul>
+                  </div>
+                </div>
+
+                <div class="sub-flyout-footer">
+                  <a href="gioi-thieu-san-pham-dich-vu.html" class="flyout-footer-link">
+                    <span>Xem toàn bộ thông tin sản phẩm &amp; dịch vụ</span>
+                    <i class="fa-solid fa-arrow-right"></i>
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </li>
+
+        <!-- 3. THÔNG TIN HOẠT ĐỘNG -->
+        <li class="nav-item has-children ">
+          <a href="tin-tuc-su-kien.html" class="nav-link">
+            <span>Thông tin hoạt động</span>
+            <i class="fa-solid fa-chevron-down arrow-down"></i>
+          </a>
+          <div class="dropdown-panel dropdown-w-lg">
+            <div class="dropdown-item"><a href="tin-noi-bat.html" class="dropdown-link"><span>Tin nổi bật</span></a></div>
+            <div class="dropdown-item"><a href="tin-moi-cap-nhat.html" class="dropdown-link"><span>Tin mới cập nhật</span></a></div>
+            <div class="dropdown-item"><a href="nguoi-tot-viec-tot.html" class="dropdown-link"><span>Người tốt - Việc tốt</span></a></div>
+            <div class="dropdown-item"><a href="chi-tiet-multimedia.html" class="dropdown-link"><span>Chuyên trang Multimedia</span></a></div>
+            <div class="dropdown-item"><a href="phong-su-anh.html" class="dropdown-link"><span>Phóng sự ảnh</span></a></div>
+            <div class="dropdown-item"><a href="xem-video.html" class="dropdown-link"><span>Xem / Video</span></a></div>
+            <div class="dropdown-item"><a href="nghe-audio.html" class="dropdown-link"><span>Nghe / Audio</span></a></div>
+            <div class="dropdown-item dropdown-divider-top"><a href="thuc-hien-chi-thi-40.html" class="dropdown-link"><span>Thực hiện Chỉ thị số 40-CT/TW</span></a></div>
+            <div class="dropdown-item"><a href="cuoc-thi-truc-tuyen-chi-thi-39.html" class="dropdown-link"><span>Cuộc thi trực tuyến Chỉ thị số 39-CT/TW</span></a></div>
+            <div class="dropdown-item"><a href="cuoc-thi-viet-tin-dung-chinh-sach-xa-hoi-y-dang-long-dan.html" class="dropdown-link"><span>Cuộc thi viết "Tín dụng chính sách xã hội - ý Đảng, lòng Dân"</span></a></div>
+          </div>
+        </li>
+
+        <!-- 4. HỆ THỐNG VĂN BẢN -->
+        <li class="nav-item has-children ">
+          <a href="he-thong-van-ban.html" class="nav-link">
+            <span>Hệ thống văn bản</span>
+            <i class="fa-solid fa-chevron-down arrow-down"></i>
+          </a>
+          <div class="dropdown-panel dropdown-w-sm">
+            <div class="dropdown-item"><a href="he-thong-van-ban.html#trunguong" class="dropdown-link"><span>Văn bản Bộ, ngành Trung ương</span></a></div>
+            <div class="dropdown-item"><a href="he-thong-van-ban.html#hdqt" class="dropdown-link"><span>Văn bản của Hội đồng quản trị</span></a></div>
+            <div class="dropdown-item"><a href="he-thong-van-ban.html#tgd" class="dropdown-link"><span>Văn bản của Tổng giám đốc</span></a></div>
+            <div class="dropdown-item dropdown-divider-top">
+              <a href="he-thong-van-ban.html" class="dropdown-link dropdown-link-accent">
+                <span>Tra cứu tất cả văn bản chỉ đạo</span>
+              </a>
+            </div>
+          </div>
+        </li>
+
+        <!-- 5. ĐÀO TẠO VÀ NCKH -->
+        <li class="nav-item has-children ">
+          <a href="chuyen-de-nghien-cuu-khoa-hoc.html" class="nav-link">
+            <span>Đào tạo và NCKH</span>
+            <i class="fa-solid fa-chevron-down arrow-down"></i>
+          </a>
+          <div class="dropdown-panel dropdown-w-sm">
+            <div class="dropdown-item"><a href="chuyen-de-nghien-cuu-khoa-hoc.html" class="dropdown-link"><span>Nghiên cứu khoa học</span></a></div>
+            <div class="dropdown-item"><a href="nghien-cuu-trao-doi.html" class="dropdown-link"><span>Nghiên cứu &amp; trao đổi</span></a></div>
+            <div class="dropdown-item"><a href="chuyen-de-nghien-cuu-khoa-hoc.html?tab=daotao" class="dropdown-link"><span>Chuyên đề đào tạo</span></a></div>
+            <div class="dropdown-item"><a href="chuyen-de-nghien-cuu-khoa-hoc.html?tab=canbo" class="dropdown-link"><span>Đào tạo cán bộ trong hệ thống</span></a></div>
+          </div>
+        </li>
+
+        <!-- 6. CHUYÊN MỤC KHÁC -->
+        <li class="nav-item has-children ">
+          <a href="cong-tac-dang.html" class="nav-link">
+            <span>Chuyên mục khác</span>
+            <i class="fa-solid fa-chevron-down arrow-down"></i>
+          </a>
+          <div class="dropdown-panel dropdown-2col">
+            <div class="dropdown-col-group">
+              <div class="mega-col-title mega-col-title-compact">Công tác Đảng &amp; Đoàn thể</div>
+              <div class="dropdown-item"><a href="cong-tac-dang.html" class="dropdown-link"><span>Công tác Đảng</span></a></div>
+              <div class="dropdown-item"><a href="hoat-dong-cong-doan.html" class="dropdown-link"><span>Hoạt động Công đoàn/An sinh xã hội</span></a></div>
+              <div class="dropdown-item"><a href="doan-thanh-nien.html" class="dropdown-link"><span>Đoàn thanh niên</span></a></div>
+              <div class="dropdown-item"><a href="chung-tay-vi-cong-dong.html" class="dropdown-link"><span>Chung tay vì cộng đồng</span></a></div>
+            </div>
+            <div class="dropdown-col-group">
+              <div class="mega-col-title mega-col-title-compact">Ấn phẩm &amp; Cẩm nang số</div>
+              <div class="dropdown-item"><a href="an-pham-thong-tin-nhcsxh.html" class="dropdown-link"><span>Mời đọc ấn phẩm “Thông tin NHCSXH”</span></a></div>
+              <div class="dropdown-item"><a href="an-pham-bao-cao-thuong-nien.html" class="dropdown-link"><span>Mời đọc ấn phẩm Báo cáo thường niên</span></a></div>
+              <div class="dropdown-item"><a href="so-tay-vbsp-smartbanking.html" class="dropdown-link"><span>Sổ tay VBSP SmartBanking</span></a></div>
+              <div class="dropdown-item"><a href="giao-duc-so-go-digital.html" class="dropdown-link"><span>Giáo dục số cơ bản - GO DIGITAL</span></a></div>
+            </div>
+          </div>
+        </li>
+
+        <!-- 7. HỎI - ĐÁP -->
+        <li class="nav-item has-children active">
+          <a href="hoi-dap.html" class="nav-link">
+            <span>Hỏi - Đáp</span>
+            <i class="fa-solid fa-chevron-down arrow-down"></i>
+          </a>
+          <div class="dropdown-panel dropdown-w-sm">
+            <div class="dropdown-item"><a href="hoi-dap.html?type=chinh-sach" class="dropdown-link"><span>Hỏi đáp chính sách</span></a></div>
+            <div class="dropdown-item"><a href="hoi-dap.html?type=quy-trinh" class="dropdown-link"><span>Hỏi đáp quy trình nghiệp vụ</span></a></div>
+            <div class="dropdown-item"><a href="hoi-dap.html?type=khac" class="dropdown-link"><span>Hỏi đáp khác</span></a></div>
+            <div class="dropdown-item dropdown-divider-top">
+              <a href="hoi-dap.html?type=gui-cau-hoi" class="dropdown-link dropdown-link-accent">
+                <span>Gửi câu hỏi trực tuyến</span>
+              </a>
+            </div>
+          </div>
+        </li>
+
+        <!-- Mobile Drawer Bottom Quick Links (Hidden on Desktop) -->
+        <li class="mobile-drawer-bottom">
+          <div class="mobile-drawer-lang">
+            <a href="index.html" class="active"><i class="fa-solid fa-check"></i> Tiếng Việt</a>
+            <a href="en-news-highlights.html"><i class="fa-solid fa-globe"></i> English Portal</a>
+          </div>
+          <a href="tra-cuu-diem-giao-dich.html" class="mobile-drawer-cta">
+            <i class="fa-solid fa-location-dot"></i> Tra cứu Điểm giao dịch &amp; Lãi suất
+          </a>
+        </li>
+      </ul>
+    </div>
+  </nav>
+
+  <!-- ==================== BREADCRUMB ==================== -->
+  <div class="vbsp-breadcrumb">
+    <div class="vbsp-container">
+      <ul class="breadcrumb-list">
+        <li class="breadcrumb-item"><a href="index.html">Trang chủ</a></li>
+        <li class="breadcrumb-item active">Hỏi - Đáp</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- ==================== MAIN CONTENT ==================== -->
+  <main class="vbsp-section" style="padding-top: 24px;">
+    <div class="vbsp-container">
+      <div class="vbsp-fullwidth-layout">
+        
+        <!-- NỘI DUNG CHÍNH (TABS & NỘI DUNG HỎI ĐÁP / FORM GỬI CÂU HỎI - KHÔNG SỬ DỤNG CỘT PHẢI) -->
+        <div>
+          
+          <div class="qa-page-wrapper">
+            
+            <!-- TIÊU ĐỀ TRANG HỎI - ĐÁP -->
+            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 22px; padding-bottom: 12px; border-bottom: 2px solid var(--vbsp-green, #009640);">
+              <h1 style="font-size: 1.35rem; font-weight: 700; color: #004322; margin: 0; display: flex; align-items: center; gap: 10px;">
+                <i class="fa-solid fa-comments" style="color: var(--vbsp-gold, #c89d3c);"></i> HỎI - ĐÁP CHÍNH SÁCH VÀ NGHIỆP VỤ
+              </h1>
+              <span style="font-size: 0.82rem; color: #64748b;">Hệ thống tiếp nhận & giải đáp thắc mắc người dân</span>
+            </div>
+
+            <!-- THANH ĐIỀU HƯỚNG TABS (3 NÚT YÊU CẦU + NÚT GỬI CÂU HỎI THEO MẪU BUTTON AWARD-TAB-PILL) -->
+            <div style="padding: 16px 20px; margin-bottom: 24px; background: #f8fafc; border: 1px solid #e2e8f0; border-radius: 12px;">
+              <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 14px;">
+                <div style="display: flex; gap: 10px; flex-wrap: wrap;" id="qaTabGroup">
+                  <button class="award-tab-pill active" onclick="switchQATab('tat-ca', this)">
+                    <i class="fa-solid fa-table-cells-large"></i> Tất cả thông tin
+                  </button>
+                  <button class="award-tab-pill" onclick="switchQATab('chinh-sach', this)">
+                    <i class="fa-solid fa-scale-balanced"></i> Hỏi đáp chính sách
+                  </button>
+                  <button class="award-tab-pill" onclick="switchQATab('quy-trinh', this)">
+                    <i class="fa-solid fa-diagram-project"></i> Hỏi đáp quy trình
+                  </button>
+                  <button class="award-tab-pill" onclick="switchQATab('khac', this)">
+                    <i class="fa-solid fa-circle-question"></i> Hỏi đáp khác
+                  </button>
+                  <button class="award-tab-pill qa-tab-btn-ask" onclick="switchQATab('gui-cau-hoi', this)">
+                    <i class="fa-solid fa-paper-plane"></i> Gửi câu hỏi
+                  </button>
+                </div>
+                <div style="position: relative;">
+                  <i class="fa-solid fa-magnifying-glass" style="position: absolute; left: 14px; top: 50%; transform: translateY(-50%); color: #94a3b8; font-size: 0.85rem;"></i>
+                  <input type="text" id="qaSearchInput" placeholder="Tìm kiếm câu hỏi, từ khóa..." style="padding: 8px 16px 8px 36px; border: 1.5px solid #cbd5e1; border-radius: 20px; font-size: 0.88rem; width: 250px; outline: none; background: #ffffff; transition: border-color 0.2s;" onkeyup="searchQA()" onfocus="this.style.borderColor='var(--vbsp-green)'" onblur="this.style.borderColor='#cbd5e1'">
+                </div>
+              </div>
+            </div>
+
+            <!-- ==================== TAB 0: TẤT CẢ THÔNG TIN (BAO GỒM DANH SÁCH & FORM GỬI CÂU HỎI) ==================== -->
+            <div id="pane-tat-ca" class="qa-tab-pane" style="display: block;">
+              
+              <!-- THANH TÌM KIẾM CÂU HỎI (NÚT XANH CHUẨN TONE VBSP) -->
+              <div class="qa-photo-search-bar">
+                <div>
+                  <label style="display: block; font-size: 0.88rem; font-weight: 600; color: #334155; margin-bottom: 6px;">
+                    <i class="fa-solid fa-magnifying-glass" style="color: #009640;"></i> Nội dung tìm kiếm
+                  </label>
+                  <input type="text" class="qa-photo-input" id="searchAll" placeholder="Nhập từ khóa cần tra cứu..." onkeyup="if(event.key==='Enter') filterPaneQuestions('pane-tat-ca', 'searchAll')">
+                </div>
+                <div>
+                  <button type="button" class="qa-photo-search-btn" onclick="filterPaneQuestions('pane-tat-ca', 'searchAll')">
+                    <i class="fa-solid fa-magnifying-glass"></i> Tìm kiếm
+                  </button>
+                </div>
+              </div>
+
+              <!-- 1. DANH SÁCH CÂU HỎI ĐÃ ĐƯỢC GIẢI ĐÁP (TẤT CẢ LĨNH VỰC) -->
+              <div class="qa-photo-container">
+                <div class="qa-photo-list-title">
+                  <span style="display: flex; align-items: center; gap: 8px;">
+                    <i class="fa-solid fa-clipboard-check" style="color: #009640; font-size: 1.25rem;"></i>
+                    DANH SÁCH CÂU HỎI ĐÃ ĐƯỢC GIẢI ĐÁP
+                  </span>
+                  <div style="display: flex; align-items: center; gap: 12px;">
+                    <span class="qa-pane-count" style="font-size: 0.88rem; font-weight: 500; color: #64748b; background: #f1f5f9; padding: 4px 12px; border-radius: 12px;">
+                      Tổng số: <strong style="color: #009640;">8</strong> câu hỏi
+                    </span>
+                    <a href="#formCardTatCa" class="qa-jump-form-btn">
+                      <i class="fa-solid fa-pen-to-square"></i> Đặt câu hỏi mới
+                    </a>
+                  </div>
+                </div>
+
+                <div class="qa-photo-items-group">
+                  <!-- Câu All-1 (Hình ảnh mẫu) -->
+                  <div class="qa-photo-item" data-category="chinh-sach">
+                    <div class="qa-photo-q-head">
+                      <span class="qa-photo-q-num">1</span>
+                      <i class="fa-solid fa-circle-question qa-photo-q-icon"></i>
+                      <h3 class="qa-photo-q-title">Lĩnh vực đất đai</h3>
+                      <span class="qa-status-pill"><i class="fa-solid fa-circle-check"></i> Đã giải đáp</span>
+                    </div>
+                    <div class="qa-photo-q-desc">
+                      Tôi muốn hỏi về việc giải quyết tranh chấp đất đai và thủ tục cấp Giấy chứng nhận quyền sử dụng đất tại địa phương được thực hiện như thế nào?
+                    </div>
+                    <div class="qa-photo-q-meta-wrap">
+                      <span class="qa-photo-meta-tag"><i class="fa-regular fa-calendar-check"></i> <strong>Ngày gửi:</strong> 21/10/2026</span>
+                      <span class="qa-photo-meta-tag"><i class="fa-regular fa-user"></i> <strong>Người gửi:</strong> Đinh xuân hoá</span>
+                      <span class="qa-photo-meta-tag"><i class="fa-solid fa-location-dot"></i> <strong>Địa chỉ:</strong> Xóm Bạch Y, Nghệ An</span>
+                    </div>
+                    <div style="margin-left: 34px;">
+                      <a href="javascript:void(0)" class="qa-photo-ans-btn" onclick="toggleDetailAnswer('ans-all-1')">
+                        <i class="fa-regular fa-comments"></i> Xem câu trả lời <i class="fa-solid fa-chevron-down" style="font-size: 0.75rem;"></i>
+                      </a>
+                    </div>
+                    <div id="ans-all-1" class="qa-photo-ans-box">
+                      <div style="font-weight: 700; color: #004322; margin-bottom: 6px; display: flex; align-items: center; gap: 6px;">
+                        <i class="fa-solid fa-building-columns" style="color: #009640;"></i> Trả lời từ Ban Pháp chế & Nghiệp vụ NHCSXH:
+                      </div>
+                      <p style="margin: 0;">Căn cứ Luật Đất đai và các văn bản hướng dẫn hiện hành, việc giải quyết tranh chấp đất đai trước hết phải thông qua hòa giải tại Ủy ban nhân dân cấp xã nơi có đất tranh chấp. Trường hợp hòa giải không thành, đương sự có quyền nộp đơn khởi kiện tại Tòa án nhân dân hoặc nộp đơn yêu cầu giải quyết tranh chấp tại cơ quan quản lý đất đai có thẩm quyền theo quy định của pháp luật.</p>
+                    </div>
+                  </div>
+
+                  <!-- Câu All-2 (Hình ảnh mẫu) -->
+                  <div class="qa-photo-item" data-category="chinh-sach">
+                    <div class="qa-photo-q-head">
+                      <span class="qa-photo-q-num">2</span>
+                      <i class="fa-solid fa-circle-question qa-photo-q-icon"></i>
+                      <h3 class="qa-photo-q-title">Chính sách hỗ trợ tiền chi phí tàu xe và ăn uống khi thăm viếng mộ liệt sỹ</h3>
+                      <span class="qa-status-pill"><i class="fa-solid fa-circle-check"></i> Đã giải đáp</span>
+                    </div>
+                    <div class="qa-photo-q-desc">
+                      Tôi có thân nhân liệt sỹ, xin hỏi chính sách hỗ trợ tiền chi phí tàu xe và ăn uống khi thăm viếng mộ liệt sỹ được quy định như thế nào và thủ tục nhận hỗ trợ ra sao?
+                    </div>
+                    <div class="qa-photo-q-meta-wrap">
+                      <span class="qa-photo-meta-tag"><i class="fa-regular fa-calendar-check"></i> <strong>Ngày gửi:</strong> 16/10/2026</span>
+                      <span class="qa-photo-meta-tag"><i class="fa-regular fa-user"></i> <strong>Người gửi:</strong> Thuyên Lê Văn</span>
+                      <span class="qa-photo-meta-tag"><i class="fa-solid fa-location-dot"></i> <strong>Địa chỉ:</strong> Xóm bắc vực</span>
+                    </div>
+                    <div style="margin-left: 34px;">
+                      <a href="javascript:void(0)" class="qa-photo-ans-btn" onclick="toggleDetailAnswer('ans-all-2')">
+                        <i class="fa-regular fa-comments"></i> Xem câu trả lời <i class="fa-solid fa-chevron-down" style="font-size: 0.75rem;"></i>
+                      </a>
+                    </div>
+                    <div id="ans-all-2" class="qa-photo-ans-box">
+                      <div style="font-weight: 700; color: #004322; margin-bottom: 6px; display: flex; align-items: center; gap: 6px;">
+                        <i class="fa-solid fa-building-columns" style="color: #009640;"></i> Trả lời từ Ban Chế độ Chính sách NHCSXH:
+                      </div>
+                      <p style="margin: 0;">Căn cứ Pháp lệnh Ưu đãi người có công với cách mạng và Nghị định số 131/2021/NĐ-CP của Chính phủ, thân nhân liệt sỹ hoặc người thờ cúng liệt sỹ khi đi thăm viếng mộ liệt sỹ được hỗ trợ tiền tàu xe và tiền ăn theo định mức chi trả của Nhà nước. Hồ sơ bao gồm: Đơn đề nghị hỗ trợ thăm viếng mộ liệt sỹ; Giấy báo tin mộ liệt sỹ hoặc trích lục thông tin mộ liệt sỹ; Giấy giới thiệu thăm viếng mộ liệt sỹ do Phòng Lao động - Thương binh và Xã hội cấp.</p>
+                    </div>
+                  </div>
+
+                  <!-- Câu All-3 (Hình ảnh mẫu) -->
+                  <div class="qa-photo-item" data-category="khac">
+                    <div class="qa-photo-q-head">
+                      <span class="qa-photo-q-num">3</span>
+                      <i class="fa-solid fa-circle-question qa-photo-q-icon"></i>
+                      <h3 class="qa-photo-q-title">Trình độ văn hoá 9/12 có được làm trưởng bản không</h3>
+                      <span class="qa-status-pill"><i class="fa-solid fa-circle-check"></i> Đã giải đáp</span>
+                    </div>
+                    <div class="qa-photo-q-desc">
+                      Xin hỏi theo quy định hiện hành thì người có trình độ văn hóa 9/12 có đủ điều kiện để bầu làm trưởng thôn, trưởng bản không?
+                    </div>
+                    <div class="qa-photo-q-meta-wrap">
+                      <span class="qa-photo-meta-tag"><i class="fa-regular fa-calendar-check"></i> <strong>Ngày gửi:</strong> 16/10/2026</span>
+                      <span class="qa-photo-meta-tag"><i class="fa-regular fa-user"></i> <strong>Người gửi:</strong> Lương Khánh Hoà</span>
+                      <span class="qa-photo-meta-tag"><i class="fa-solid fa-location-dot"></i> <strong>Địa chỉ:</strong> Bản Nật, Kỳ Sơn</span>
+                    </div>
+                    <div style="margin-left: 34px;">
+                      <a href="javascript:void(0)" class="qa-photo-ans-btn" onclick="toggleDetailAnswer('ans-all-3')">
+                        <i class="fa-regular fa-comments"></i> Xem câu trả lời <i class="fa-solid fa-chevron-down" style="font-size: 0.75rem;"></i>
+                      </a>
+                    </div>
+                    <div id="ans-all-3" class="qa-photo-ans-box">
+                      <div style="font-weight: 700; color: #004322; margin-bottom: 6px; display: flex; align-items: center; gap: 6px;">
+                        <i class="fa-solid fa-building-columns" style="color: #009640;"></i> Trả lời từ Ban Biên tập & Pháp chế:
+                      </div>
+                      <p style="margin: 0;">Căn cứ Thông tư 04/2012/TT-BNV (được sửa đổi bởi Thông tư 14/2018/TT-BNV) của Bộ Nội vụ: Tiêu chuẩn Trưởng thôn, bản phải là người có hiểu biết về chủ trương, chính sách của Đảng và Nhà nước, có tinh thần trách nhiệm, uy tín trong cộng đồng. Đối với khu vực miền núi, vùng cao, vùng đồng bào dân tộc thiểu số, người có trình độ tốt nghiệp THCS (9/12) đủ điều kiện về văn hóa để được giới thiệu bầu làm Trưởng bản nếu được nhân dân địa phương tín nhiệm.</p>
+                    </div>
+                  </div>
+
+                  <!-- Câu All-4 (Hình ảnh mẫu) -->
+                  <div class="qa-photo-item" data-category="quy-trinh">
+                    <div class="qa-photo-q-head">
+                      <span class="qa-photo-q-num">4</span>
+                      <i class="fa-solid fa-circle-question qa-photo-q-icon"></i>
+                      <h3 class="qa-photo-q-title">Trả lời công dân về việc kiến nghị xác minh Hợp đồng khoán số 222-2007/HĐ và giải quyết thủ tục cấp Giấy chứng nhận quyền sử dụng đất</h3>
+                      <span class="qa-status-pill"><i class="fa-solid fa-circle-check"></i> Đã giải đáp</span>
+                    </div>
+                    <div class="qa-photo-q-desc">
+                      Kiến nghị liên quan đến việc xác minh hợp đồng khoán đất lâm nghiệp số 222-2007/HĐ và thủ tục cấp GCN QSDĐ cho hộ gia đình tại địa phương.
+                    </div>
+                    <div class="qa-photo-q-meta-wrap">
+                      <span class="qa-photo-meta-tag"><i class="fa-regular fa-calendar-check"></i> <strong>Ngày gửi:</strong> 10/08/2026</span>
+                      <span class="qa-photo-meta-tag"><i class="fa-regular fa-user"></i> <strong>Người gửi:</strong> Hoàng Văn Bình</span>
+                      <span class="qa-photo-meta-tag"><i class="fa-solid fa-location-dot"></i> <strong>Địa chỉ:</strong> Nghệ An</span>
+                    </div>
+                    <div style="margin-left: 34px;">
+                      <a href="javascript:void(0)" class="qa-photo-ans-btn" onclick="toggleDetailAnswer('ans-all-4')">
+                        <i class="fa-regular fa-comments"></i> Xem câu trả lời <i class="fa-solid fa-chevron-down" style="font-size: 0.75rem;"></i>
+                      </a>
+                    </div>
+                    <div id="ans-all-4" class="qa-photo-ans-box">
+                      <div style="font-weight: 700; color: #004322; margin-bottom: 6px; display: flex; align-items: center; gap: 6px;">
+                        <i class="fa-solid fa-building-columns" style="color: #009640;"></i> Trả lời từ Văn phòng NHCSXH & Cơ quan chức năng:
+                      </div>
+                      <p style="margin: 0;">Nội dung kiến nghị xác minh Hợp đồng giao khoán số 222-2007/HĐ và thủ tục cấp Giấy chứng nhận quyền sử dụng đất đã được chuyển đến Ban Quản lý rừng phòng hộ và Phòng Tài nguyên và Môi trường huyện để rà soát hiện trạng sử dụng đất. Kết quả kiểm tra hồ sơ địa chính và đối chiếu thực địa sẽ được thông báo bằng văn bản chính thức đến công dân theo đúng trình tự Luật Tiếp công dân.</p>
+                    </div>
+                  </div>
+
+                  <!-- Câu All-5 (Hình ảnh mẫu) -->
+                  <div class="qa-photo-item" data-category="quy-trinh">
+                    <div class="qa-photo-q-head">
+                      <span class="qa-photo-q-num">5</span>
+                      <i class="fa-solid fa-circle-question qa-photo-q-icon"></i>
+                      <h3 class="qa-photo-q-title">Hướng dẫn về việc tính lương hiệu xuất</h3>
+                      <span class="qa-status-pill"><i class="fa-solid fa-circle-check"></i> Đã giải đáp</span>
+                    </div>
+                    <div class="qa-photo-q-desc">
+                      Xin hướng dẫn cụ thể cách tính tiền lương theo hiệu suất công việc và năng suất lao động cho người lao động tại cơ quan, đơn vị.
+                    </div>
+                    <div class="qa-photo-q-meta-wrap">
+                      <span class="qa-photo-meta-tag"><i class="fa-regular fa-calendar-check"></i> <strong>Ngày gửi:</strong> 26/08/2026</span>
+                      <span class="qa-photo-meta-tag"><i class="fa-regular fa-user"></i> <strong>Người gửi:</strong> Đỗ Thị Hoài</span>
+                      <span class="qa-photo-meta-tag"><i class="fa-solid fa-location-dot"></i> <strong>Địa chỉ:</strong> TDP Mai Lâm, Hải Bình, Thanh Hóa</span>
+                    </div>
+                    <div style="margin-left: 34px;">
+                      <a href="javascript:void(0)" class="qa-photo-ans-btn" onclick="toggleDetailAnswer('ans-all-5')">
+                        <i class="fa-regular fa-comments"></i> Xem câu trả lời <i class="fa-solid fa-chevron-down" style="font-size: 0.75rem;"></i>
+                      </a>
+                    </div>
+                    <div id="ans-all-5" class="qa-photo-ans-box">
+                      <div style="font-weight: 700; color: #004322; margin-bottom: 6px; display: flex; align-items: center; gap: 6px;">
+                        <i class="fa-solid fa-building-columns" style="color: #009640;"></i> Trả lời từ Ban Tổ chức Cán bộ & Lao động tiền lương:
+                      </div>
+                      <p style="margin: 0;">Việc chi trả tiền lương theo hiệu suất (KPI) được thực hiện theo Quy chế trả lương, thưởng nội bộ của từng cơ quan, đơn vị, bảo đảm nguyên tắc gắn kết quả hoàn thành nhiệm vụ với thu nhập. Quý công dân vui lòng đối chiếu trực tiếp với Quy chế chi tiêu nội bộ và Hợp đồng lao động đã ký kết để tính toán định mức chi tiết.</p>
+                    </div>
+                  </div>
+
+                  <!-- Câu All-6 (Hình ảnh mẫu) -->
+                  <div class="qa-photo-item" data-category="chinh-sach">
+                    <div class="qa-photo-q-head">
+                      <span class="qa-photo-q-num">6</span>
+                      <i class="fa-solid fa-circle-question qa-photo-q-icon"></i>
+                      <h3 class="qa-photo-q-title">Về việc Hợp đồng 68/NĐ-CP sau khi chuyển sang hợp đồng 111/NĐ-CP được chuyển về làm việc ở xã đặc biệt khó khăn có được hưởng chế độ hỗ trợ theo Nghị định 76/NĐ-CP</h3>
+                      <span class="qa-status-pill"><i class="fa-solid fa-circle-check"></i> Đã giải đáp</span>
+                    </div>
+                    <div class="qa-photo-q-desc">
+                      Trường hợp lao động hợp đồng theo NĐ 68 chuyển sang NĐ 111 khi điều động công tác tại vùng đặc biệt khó khăn có thuộc đối tượng hưởng phụ cấp thu hút, trợ cấp lần đầu theo Nghị định 76 hay không?
+                    </div>
+                    <div class="qa-photo-q-meta-wrap">
+                      <span class="qa-photo-meta-tag"><i class="fa-regular fa-calendar-check"></i> <strong>Ngày gửi:</strong> 26/08/2026</span>
+                      <span class="qa-photo-meta-tag"><i class="fa-regular fa-user"></i> <strong>Người gửi:</strong> Lô Bảo Giang</span>
+                      <span class="qa-photo-meta-tag"><i class="fa-solid fa-location-dot"></i> <strong>Địa chỉ:</strong> Khối Tây Hồ, Quỳ Hợp</span>
+                    </div>
+                    <div style="margin-left: 34px;">
+                      <a href="javascript:void(0)" class="qa-photo-ans-btn" onclick="toggleDetailAnswer('ans-all-6')">
+                        <i class="fa-regular fa-comments"></i> Xem câu trả lời <i class="fa-solid fa-chevron-down" style="font-size: 0.75rem;"></i>
+                      </a>
+                    </div>
+                    <div id="ans-all-6" class="qa-photo-ans-box">
+                      <div style="font-weight: 700; color: #004322; margin-bottom: 6px; display: flex; align-items: center; gap: 6px;">
+                        <i class="fa-solid fa-building-columns" style="color: #009640;"></i> Trả lời từ Ban Pháp chế NHCSXH:
+                      </div>
+                      <p style="margin: 0;">Căn cứ Nghị định số 111/2022/NĐ-CP về hợp đồng đối với một số loại công việc trong cơ quan hành chính và đơn vị sự nghiệp công lập, và Nghị định số 76/2019/NĐ-CP: Người lao động ký hợp đồng lao động làm việc tại các cơ quan, đơn vị đóng tại xã đặc biệt khó khăn thuộc đối tượng áp dụng của Nghị định 76/2019/NĐ-CP nếu đáp ứng đủ điều kiện về thời gian công tác và hợp đồng lao động hợp lệ.</p>
+                    </div>
+                  </div>
+
+                  <!-- Câu All-7 (Hình ảnh mẫu) -->
+                  <div class="qa-photo-item" data-category="khac">
+                    <div class="qa-photo-q-head">
+                      <span class="qa-photo-q-num">7</span>
+                      <i class="fa-solid fa-circle-question qa-photo-q-icon"></i>
+                      <h3 class="qa-photo-q-title">Mức phạt đối với hành vi vi phạm quy định về hạn sử dụng nguyên liệu thức ăn chăn nuôi</h3>
+                      <span class="qa-status-pill"><i class="fa-solid fa-circle-check"></i> Đã giải đáp</span>
+                    </div>
+                    <div class="qa-photo-q-desc">
+                      Xin hỏi mức xử phạt hành chính đối với cơ sở sản xuất kinh doanh vi phạm về hạn sử dụng nguyên liệu chế biến thức ăn chăn nuôi theo quy định hiện hành?
+                    </div>
+                    <div class="qa-photo-q-meta-wrap">
+                      <span class="qa-photo-meta-tag"><i class="fa-regular fa-calendar-check"></i> <strong>Ngày gửi:</strong> 19/07/2026</span>
+                      <span class="qa-photo-meta-tag"><i class="fa-regular fa-user"></i> <strong>Người gửi:</strong> Ban Bạn đọc</span>
+                      <span class="qa-photo-meta-tag"><i class="fa-solid fa-location-dot"></i> <strong>Địa chỉ:</strong> Quỳnh Lưu, Nghệ An</span>
+                    </div>
+                    <div style="margin-left: 34px;">
+                      <a href="javascript:void(0)" class="qa-photo-ans-btn" onclick="toggleDetailAnswer('ans-all-7')">
+                        <i class="fa-regular fa-comments"></i> Xem câu trả lời <i class="fa-solid fa-chevron-down" style="font-size: 0.75rem;"></i>
+                      </a>
+                    </div>
+                    <div id="ans-all-7" class="qa-photo-ans-box">
+                      <div style="font-weight: 700; color: #004322; margin-bottom: 6px; display: flex; align-items: center; gap: 6px;">
+                        <i class="fa-solid fa-building-columns" style="color: #009640;"></i> Trả lời từ Bộ phận Pháp chế:
+                      </div>
+                      <p style="margin: 0;">Căn cứ Nghị định số 14/2021/NĐ-CP quy định xử phạt vi phạm hành chính về chăn nuôi: Hành vi sử dụng nguyên liệu thức ăn chăn nuôi đã quá thời hạn sử dụng để chế biến thức ăn chăn nuôi bị phạt tiền từ 10.000.000 đồng đến 15.000.000 đồng đối với cá nhân (và gấp đôi đối với tổ chức), đồng thời áp dụng biện pháp khắc phục hậu quả buộc tiêu hủy toàn bộ tang vật vi phạm.</p>
+                    </div>
+                  </div>
+
+                  <!-- Câu All-8 (Hình ảnh mẫu) -->
+                  <div class="qa-photo-item" data-category="quy-trinh">
+                    <div class="qa-photo-q-head">
+                      <span class="qa-photo-q-num">8</span>
+                      <i class="fa-solid fa-circle-question qa-photo-q-icon"></i>
+                      <h3 class="qa-photo-q-title">Trả lời công dân về việc đóng bảo hiểm xã hội cho cán bộ công nhân viên</h3>
+                      <span class="qa-status-pill"><i class="fa-solid fa-circle-check"></i> Đã giải đáp</span>
+                    </div>
+                    <div class="qa-photo-q-desc">
+                      Về việc thực hiện chế độ đóng BHXH bắt buộc đối với người lao động và giải quyết các vướng mắc về chế độ thai sản, ốm đau khi thay đổi vị trí công tác.
+                    </div>
+                    <div class="qa-photo-q-meta-wrap">
+                      <span class="qa-photo-meta-tag"><i class="fa-regular fa-calendar-check"></i> <strong>Ngày gửi:</strong> 17/08/2026</span>
+                      <span class="qa-photo-meta-tag"><i class="fa-regular fa-user"></i> <strong>Người gửi:</strong> Nguyễn Văn An</span>
+                      <span class="qa-photo-meta-tag"><i class="fa-solid fa-location-dot"></i> <strong>Địa chỉ:</strong> xã Vân Du, Nghệ An</span>
+                    </div>
+                    <div style="margin-left: 34px;">
+                      <a href="javascript:void(0)" class="qa-photo-ans-btn" onclick="toggleDetailAnswer('ans-all-8')">
+                        <i class="fa-regular fa-comments"></i> Xem câu trả lời <i class="fa-solid fa-chevron-down" style="font-size: 0.75rem;"></i>
+                      </a>
+                    </div>
+                    <div id="ans-all-8" class="qa-photo-ans-box">
+                      <div style="font-weight: 700; color: #004322; margin-bottom: 6px; display: flex; align-items: center; gap: 6px;">
+                        <i class="fa-solid fa-building-columns" style="color: #009640;"></i> Trả lời từ Ban Pháp chế & Chế độ BHXH:
+                      </div>
+                      <p style="margin: 0;">Căn cứ Luật Bảo hiểm xã hội số 58/2014/QH13: Người sử dụng lao động có trách nhiệm đăng ký tham gia và đóng BHXH, BHYT, BHTN đầy đủ cho người lao động có hợp đồng lao động từ đủ 01 tháng trở lên. Mọi thắc mắc về quá trình đóng nộp, sổ BHXH và chế độ thai sản, ốm đau được cơ quan BHXH địa phương giải quyết căn cứ trên dữ liệu đóng thực tế đã được đồng bộ trên hệ thống VssID.</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <!-- 2. KHỐI NHẬP THÔNG TIN VÀ GỬI CÂU HỎI TRỰC TUYẾN TỚI NHCSXH -->
+              <div class="qa-photo-container" id="formCardTatCa" style="margin-top: 24px;">
+                <div class="qa-photo-header">
+                  <h2 class="qa-photo-title">
+                    <i class="fa-solid fa-pen-to-square"></i> GỬI CÂU HỎI TRỰC TUYẾN TỚI NHCSXH
+                  </h2>
+                  <div class="qa-photo-req-note">
+                    <span>(*)</span> Thông tin bắt buộc
+                  </div>
+                </div>
+
+                <form id="all_photoQAForm" onsubmit="handlePhotoFormSubmit(event, 'all_')">
+                  <table class="qa-photo-table">
+                    <tbody>
+                      <!-- 1. Chuyên mục -->
+                      <tr>
+                        <td class="label-col">Chuyên mục</td>
+                        <td class="input-col">
+                          <select class="qa-photo-select" id="all_photoQACategory">
+                            <option value="hoi-dap">Hỏi đáp chung</option>
+                            <option value="chinh-sach">Hỏi đáp chính sách</option>
+                            <option value="quy-trinh">Hỏi đáp quy trình nghiệp vụ</option>
+                            <option value="khac">Hỏi đáp khác</option>
+                          </select>
+                        </td>
+                      </tr>
+
+                      <!-- 2. Tiêu đề (*) -->
+                      <tr>
+                        <td class="label-col">Tiêu đề <span class="req">(*)</span></td>
+                        <td class="input-col">
+                          <input type="text" class="qa-photo-input" id="all_photoQATitle" placeholder="Nhập tiêu đề câu hỏi..." required>
+                        </td>
+                      </tr>
+
+                      <!-- 3. Nội dung câu hỏi (*) kèm Rich Text Editor -->
+                      <tr>
+                        <td class="label-col" style="vertical-align: top; padding-top: 14px;">Nội dung câu hỏi <span class="req">(*)</span></td>
+                        <td class="input-col">
+                          <div class="qa-photo-editor-wrap">
+                            <div class="qa-photo-editor-bar">
+                              <button type="button" class="qa-photo-bar-btn" onclick="formatPhotoEditor('bold', 'all_')" title="In đậm (Bold)"><i class="fa-solid fa-bold"></i></button>
+                              <button type="button" class="qa-photo-bar-btn" onclick="formatPhotoEditor('italic', 'all_')" title="In nghiêng (Italic)"><i class="fa-solid fa-italic"></i></button>
+                              <button type="button" class="qa-photo-bar-btn" onclick="formatPhotoEditor('underline', 'all_')" title="Gạch chân (Underline)"><i class="fa-solid fa-underline"></i></button>
+                              <button type="button" class="qa-photo-bar-btn" onclick="formatPhotoEditor('strikeThrough', 'all_')" title="Gạch ngang"><i class="fa-solid fa-strikethrough"></i></button>
+                              <span style="display: inline-block; width: 1px; height: 18px; background: #cbd5e1; margin: 0 4px;"></span>
+                              <button type="button" class="qa-photo-bar-btn" onclick="formatPhotoEditor('justifyLeft', 'all_')" title="Căn trái"><i class="fa-solid fa-align-left"></i></button>
+                              <button type="button" class="qa-photo-bar-btn" onclick="formatPhotoEditor('justifyCenter', 'all_')" title="Căn giữa"><i class="fa-solid fa-align-center"></i></button>
+                              <button type="button" class="qa-photo-bar-btn" onclick="formatPhotoEditor('justifyRight', 'all_')" title="Căn phải"><i class="fa-solid fa-align-right"></i></button>
+                              <button type="button" class="qa-photo-bar-btn" onclick="formatPhotoEditor('justifyFull', 'all_')" title="Căn đều 2 bên"><i class="fa-solid fa-align-justify"></i></button>
+                              <span style="display: inline-block; width: 1px; height: 18px; background: #cbd5e1; margin: 0 4px;"></span>
+                              <button type="button" class="qa-photo-bar-btn" onclick="formatPhotoEditor('insertUnorderedList', 'all_')" title="Danh sách chấm"><i class="fa-solid fa-list-ul"></i></button>
+                              <button type="button" class="qa-photo-bar-btn" onclick="formatPhotoEditor('insertOrderedList', 'all_')" title="Danh sách số"><i class="fa-solid fa-list-ol"></i></button>
+                            </div>
+                            <div id="all_photoQAContent" class="qa-photo-editor-content" contenteditable="true" placeholder="Nhập chi tiết nội dung câu hỏi..."></div>
+                          </div>
+                        </td>
+                      </tr>
+
+                      <!-- 4. Tệp tin đính kèm -->
+                      <tr>
+                        <td class="label-col">Tệp tin đính kèm</td>
+                        <td class="input-col">
+                          <input type="file" id="all_photoQAFile" style="display: none;" onchange="handlePhotoFile(this, 'all_')">
+                          <button type="button" class="qa-photo-file-btn" onclick="document.getElementById('all_photoQAFile').click()">
+                            <i class="fa-solid fa-arrow-up-from-bracket"></i> Choose File
+                          </button>
+                          <span id="all_photoQAFileName" style="margin-left: 12px; font-size: 0.88rem; color: #64748b;">No file chosen</span>
+                        </td>
+                      </tr>
+
+                      <!-- 5. Người hỏi (*) -->
+                      <tr>
+                        <td class="label-col">Người hỏi <span class="req">(*)</span></td>
+                        <td class="input-col">
+                          <input type="text" class="qa-photo-input" id="all_photoQASender" placeholder="Họ và tên người gửi câu hỏi..." required>
+                        </td>
+                      </tr>
+
+                      <!-- 6. Địa chỉ (*) -->
+                      <tr>
+                        <td class="label-col">Địa chỉ <span class="req">(*)</span></td>
+                        <td class="input-col">
+                          <input type="text" class="qa-photo-input" id="all_photoQAAddress" placeholder="Thôn/Bản, Xã/Phường, Tỉnh/Thành phố..." required>
+                        </td>
+                      </tr>
+
+                      <!-- 7. Điện thoại (*) -->
+                      <tr>
+                        <td class="label-col">Điện thoại <span class="req">(*)</span></td>
+                        <td class="input-col">
+                          <input type="tel" class="qa-photo-input" id="all_photoQAPhone" placeholder="Số điện thoại liên hệ..." required>
+                        </td>
+                      </tr>
+
+                      <!-- 8. Email (*) -->
+                      <tr>
+                        <td class="label-col">Email <span class="req">(*)</span></td>
+                        <td class="input-col">
+                          <input type="email" class="qa-photo-input" id="all_photoQAEmail" placeholder="Địa chỉ email nhận câu trả lời..." required>
+                        </td>
+                      </tr>
+
+                      <!-- 9. Mã kiểm tra -->
+                      <tr>
+                        <td class="label-col">Mã kiểm tra</td>
+                        <td class="input-col">
+                          <div class="qa-photo-captcha-box">
+                            <div class="qa-photo-captcha-img" id="all_photoCaptchaDisplay">f4244</div>
+                            <button type="button" class="qa-photo-bar-btn" onclick="refreshPhotoCaptcha('all_')" title="Đổi mã khác" style="width: 32px; height: 32px; border: 1px solid #cbd5e1; background: #f8fafc;">
+                              <i class="fa-solid fa-rotate"></i>
+                            </button>
+                          </div>
+                        </td>
+                      </tr>
+
+                      <!-- 10. Nhập mã kiểm tra (*) -->
+                      <tr>
+                        <td class="label-col">Nhập mã kiểm tra <span class="req">(*)</span></td>
+                        <td class="input-col">
+                          <input type="text" class="qa-photo-input" id="all_photoCaptchaInput" style="max-width: 240px;" placeholder="Nhập mã kiểm tra..." required>
+                        </td>
+                      </tr>
+
+                      <!-- Action Buttons (Nút gửi màu xanh cùng tone giao diện) -->
+                      <tr>
+                        <td></td>
+                        <td style="padding-top: 16px;">
+                          <div style="display: flex; gap: 14px; align-items: center; flex-wrap: wrap;">
+                            <button type="submit" class="qa-photo-btn-submit">
+                              <i class="fa-solid fa-paper-plane"></i> GỬI CÂU HỎI
+                            </button>
+                            <button type="button" class="qa-photo-btn-reset" onclick="resetPhotoQA('all_')">
+                              <i class="fa-solid fa-rotate-left"></i> LÀM LẠI
+                            </button>
+                          </div>
+                        </td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </form>
+              </div>
+
+            </div>
+
+            <!-- ==================== TAB 1: HỎI ĐÁP CHÍNH SÁCH ==================== -->
+            <div id="pane-chinh-sach" class="qa-tab-pane" style="display: none;">
+              
+              <!-- THANH TÌM KIẾM CÂU HỎI CHÍNH SÁCH (NÚT XANH CHUẨN TONE VBSP) -->
+              <div class="qa-photo-search-bar">
+                <div>
+                  <label style="display: block; font-size: 0.88rem; font-weight: 600; color: #334155; margin-bottom: 6px;">
+                    <i class="fa-solid fa-magnifying-glass" style="color: #009640;"></i> Nội dung tìm kiếm chính sách tín dụng
+                  </label>
+                  <input type="text" class="qa-photo-input" id="searchCS" placeholder="Nhập từ khóa cần tra cứu chính sách tín dụng..." onkeyup="if(event.key==='Enter') filterPaneQuestions('pane-chinh-sach', 'searchCS')">
+                </div>
+                <div>
+                  <button type="button" class="qa-photo-search-btn" onclick="filterPaneQuestions('pane-chinh-sach', 'searchCS')">
+                    <i class="fa-solid fa-magnifying-glass"></i> Tìm kiếm
+                  </button>
+                </div>
+              </div>
+
+              <!-- DANH SÁCH CÂU HỎI ĐÃ ĐƯỢC GIẢI ĐÁP - CHÍNH SÁCH -->
+              <div class="qa-photo-container">
+                <div class="qa-photo-list-title">
+                  <span style="display: flex; align-items: center; gap: 8px;">
+                    <i class="fa-solid fa-clipboard-check" style="color: #009640; font-size: 1.25rem;"></i>
+                    DANH SÁCH CÂU HỎI ĐÃ ĐƯỢC GIẢI ĐÁP
+                  </span>
+                  <div style="display: flex; align-items: center; gap: 12px;">
+                    <span class="qa-pane-count" style="font-size: 0.88rem; font-weight: 500; color: #64748b; background: #f1f5f9; padding: 4px 12px; border-radius: 12px;">
+                      Tổng số: <strong style="color: #009640;">7</strong> câu hỏi
+                    </span>
+                    <a href="javascript:void(0)" class="qa-jump-form-btn" onclick="switchQATab('gui-cau-hoi')">
+                      <i class="fa-solid fa-pen-to-square"></i> Đặt câu hỏi mới
+                    </a>
+                  </div>
+                </div>
+
+                <div class="qa-photo-items-group">
+                  <!-- Câu CS-1 (Từ hình ảnh mẫu) -->
+                  <div class="qa-photo-item" data-category="dat-dai">
+                    <div class="qa-photo-q-head">
+                      <span class="qa-photo-q-num">1</span>
+                      <i class="fa-solid fa-circle-question qa-photo-q-icon"></i>
+                      <h3 class="qa-photo-q-title">Lĩnh vực đất đai</h3>
+                      <span class="qa-status-pill"><i class="fa-solid fa-circle-check"></i> Đã giải đáp</span>
+                    </div>
+                    <div class="qa-photo-q-desc">
+                      Tôi muốn hỏi về việc giải quyết tranh chấp đất đai và thủ tục cấp Giấy chứng nhận quyền sử dụng đất tại địa phương được thực hiện như thế nào?
+                    </div>
+                    <div class="qa-photo-q-meta-wrap">
+                      <span class="qa-photo-meta-tag"><i class="fa-regular fa-calendar-check"></i> <strong>Ngày gửi:</strong> 21/10/2026</span>
+                      <span class="qa-photo-meta-tag"><i class="fa-regular fa-user"></i> <strong>Người gửi:</strong> Đinh xuân hoá</span>
+                      <span class="qa-photo-meta-tag"><i class="fa-solid fa-location-dot"></i> <strong>Địa chỉ:</strong> Xóm Bạch Y, Nghệ An</span>
+                    </div>
+                    <div style="margin-left: 34px;">
+                      <a href="javascript:void(0)" class="qa-photo-ans-btn" onclick="toggleDetailAnswer('ans-cs-1')">
+                        <i class="fa-regular fa-comments"></i> Xem câu trả lời <i class="fa-solid fa-chevron-down" style="font-size: 0.75rem;"></i>
+                      </a>
+                    </div>
+                    <div id="ans-cs-1" class="qa-photo-ans-box">
+                      <div style="font-weight: 700; color: #004322; margin-bottom: 6px; display: flex; align-items: center; gap: 6px;">
+                        <i class="fa-solid fa-building-columns" style="color: #009640;"></i> Trả lời từ Ban Pháp chế & Nghiệp vụ NHCSXH:
+                      </div>
+                      <p style="margin: 0;">Căn cứ Luật Đất đai và các văn bản hướng dẫn hiện hành, việc giải quyết tranh chấp đất đai trước hết phải thông qua hòa giải tại Ủy ban nhân dân cấp xã nơi có đất tranh chấp. Trường hợp hòa giải không thành, đương sự có quyền nộp đơn khởi kiện tại Tòa án nhân dân hoặc nộp đơn yêu cầu giải quyết tranh chấp tại cơ quan quản lý đất đai có thẩm quyền theo quy định của pháp luật.</p>
+                    </div>
+                  </div>
+
+                  <!-- Câu CS-2 (Từ hình ảnh mẫu) -->
+                  <div class="qa-photo-item" data-category="chinh-sach-xa-hoi">
+                    <div class="qa-photo-q-head">
+                      <span class="qa-photo-q-num">2</span>
+                      <i class="fa-solid fa-circle-question qa-photo-q-icon"></i>
+                      <h3 class="qa-photo-q-title">Chính sách hỗ trợ tiền chi phí tàu xe và ăn uống khi thăm viếng mộ liệt sỹ</h3>
+                      <span class="qa-status-pill"><i class="fa-solid fa-circle-check"></i> Đã giải đáp</span>
+                    </div>
+                    <div class="qa-photo-q-desc">
+                      Tôi có thân nhân liệt sỹ, xin hỏi chính sách hỗ trợ tiền chi phí tàu xe và ăn uống khi thăm viếng mộ liệt sỹ được quy định như thế nào và thủ tục nhận hỗ trợ ra sao?
+                    </div>
+                    <div class="qa-photo-q-meta-wrap">
+                      <span class="qa-photo-meta-tag"><i class="fa-regular fa-calendar-check"></i> <strong>Ngày gửi:</strong> 16/10/2026</span>
+                      <span class="qa-photo-meta-tag"><i class="fa-regular fa-user"></i> <strong>Người gửi:</strong> Thuyên Lê Văn</span>
+                      <span class="qa-photo-meta-tag"><i class="fa-solid fa-location-dot"></i> <strong>Địa chỉ:</strong> Xóm bắc vực</span>
+                    </div>
+                    <div style="margin-left: 34px;">
+                      <a href="javascript:void(0)" class="qa-photo-ans-btn" onclick="toggleDetailAnswer('ans-cs-2')">
+                        <i class="fa-regular fa-comments"></i> Xem câu trả lời <i class="fa-solid fa-chevron-down" style="font-size: 0.75rem;"></i>
+                      </a>
+                    </div>
+                    <div id="ans-cs-2" class="qa-photo-ans-box">
+                      <div style="font-weight: 700; color: #004322; margin-bottom: 6px; display: flex; align-items: center; gap: 6px;">
+                        <i class="fa-solid fa-building-columns" style="color: #009640;"></i> Trả lời từ Ban Chế độ Chính sách NHCSXH:
+                      </div>
+                      <p style="margin: 0;">Căn cứ Pháp lệnh Ưu đãi người có công với cách mạng và Nghị định số 131/2021/NĐ-CP của Chính phủ, thân nhân liệt sỹ hoặc người thờ cúng liệt sỹ khi đi thăm viếng mộ liệt sỹ được hỗ trợ tiền tàu xe và tiền ăn theo định mức chi trả của Nhà nước. Hồ sơ bao gồm: Đơn đề nghị hỗ trợ thăm viếng mộ liệt sỹ; Giấy báo tin mộ liệt sỹ hoặc trích lục thông tin mộ liệt sỹ; Giấy giới thiệu thăm viếng mộ liệt sỹ do Phòng Lao động - Thương binh và Xã hội cấp.</p>
+                    </div>
+                  </div>
+
+                  <!-- Câu CS-3 (Từ hình ảnh mẫu) -->
+                  <div class="qa-photo-item" data-category="chinh-sach-xa-hoi">
+                    <div class="qa-photo-q-head">
+                      <span class="qa-photo-q-num">3</span>
+                      <i class="fa-solid fa-circle-question qa-photo-q-icon"></i>
+                      <h3 class="qa-photo-q-title">Về việc Hợp đồng 68/NĐ-CP sau khi chuyển sang hợp đồng 111/NĐ-CP được chuyển về làm việc ở xã đặc biệt khó khăn có được hưởng chế độ hỗ trợ theo Nghị định 76/NĐ-CP</h3>
+                      <span class="qa-status-pill"><i class="fa-solid fa-circle-check"></i> Đã giải đáp</span>
+                    </div>
+                    <div class="qa-photo-q-desc">
+                      Trường hợp lao động hợp đồng theo NĐ 68 chuyển sang NĐ 111 khi điều động công tác tại vùng đặc biệt khó khăn có thuộc đối tượng hưởng phụ cấp thu hút, trợ cấp lần đầu theo Nghị định 76 hay không?
+                    </div>
+                    <div class="qa-photo-q-meta-wrap">
+                      <span class="qa-photo-meta-tag"><i class="fa-regular fa-calendar-check"></i> <strong>Ngày gửi:</strong> 26/08/2026</span>
+                      <span class="qa-photo-meta-tag"><i class="fa-regular fa-user"></i> <strong>Người gửi:</strong> Lô Bảo Giang</span>
+                      <span class="qa-photo-meta-tag"><i class="fa-solid fa-location-dot"></i> <strong>Địa chỉ:</strong> Khối Tây Hồ, Quỳ Hợp</span>
+                    </div>
+                    <div style="margin-left: 34px;">
+                      <a href="javascript:void(0)" class="qa-photo-ans-btn" onclick="toggleDetailAnswer('ans-cs-3')">
+                        <i class="fa-regular fa-comments"></i> Xem câu trả lời <i class="fa-solid fa-chevron-down" style="font-size: 0.75rem;"></i>
+                      </a>
+                    </div>
+                    <div id="ans-cs-3" class="qa-photo-ans-box">
+                      <div style="font-weight: 700; color: #004322; margin-bottom: 6px; display: flex; align-items: center; gap: 6px;">
+                        <i class="fa-solid fa-building-columns" style="color: #009640;"></i> Trả lời từ Ban Pháp chế & Lao động tiền lương:
+                      </div>
+                      <p style="margin: 0;">Căn cứ Nghị định số 111/2022/NĐ-CP về hợp đồng đối với một số loại công việc trong cơ quan hành chính và đơn vị sự nghiệp công lập, và Nghị định số 76/2019/NĐ-CP: Người lao động ký hợp đồng lao động làm việc tại các cơ quan, đơn vị đóng tại xã đặc biệt khó khăn thuộc đối tượng áp dụng của Nghị định 76/2019/NĐ-CP nếu đáp ứng đủ điều kiện về thời gian công tác và hợp đồng lao động hợp lệ theo quy định.</p>
+                    </div>
+                  </div>
+
+                  <!-- Câu CS-4 -->
+                  <div class="qa-photo-item" data-category="viec-lam">
+                    <div class="qa-photo-q-head">
+                      <span class="qa-photo-q-num">4</span>
+                      <i class="fa-solid fa-circle-question qa-photo-q-icon"></i>
+                      <h3 class="qa-photo-q-title">Thủ tục vay vốn hỗ trợ Quỹ quốc gia việc làm đối với doanh nghiệp nhỏ và vừa</h3>
+                      <span class="qa-status-pill"><i class="fa-solid fa-circle-check"></i> Đã giải đáp</span>
+                    </div>
+                    <div class="qa-photo-q-desc">
+                      Doanh nghiệp nhỏ và vừa, cơ sở sản xuất kinh doanh cần đáp ứng điều kiện, hạn mức vay vốn tối đa và chuẩn bị những hồ sơ gì để được vay vốn từ Quỹ quốc gia về việc làm?
+                    </div>
+                    <div class="qa-photo-q-meta-wrap">
+                      <span class="qa-photo-meta-tag"><i class="fa-regular fa-calendar-check"></i> <strong>Ngày gửi:</strong> 10/06/2025</span>
+                      <span class="qa-photo-meta-tag"><i class="fa-regular fa-user"></i> <strong>Người gửi:</strong> Lê Bá Đạt</span>
+                      <span class="qa-photo-meta-tag"><i class="fa-solid fa-location-dot"></i> <strong>Địa chỉ:</strong> Cầu Giấy, Hà Nội</span>
+                    </div>
+                    <div style="margin-left: 34px;">
+                      <a href="javascript:void(0)" class="qa-photo-ans-btn" onclick="toggleDetailAnswer('ans-cs-4')">
+                        <i class="fa-regular fa-comments"></i> Xem câu trả lời <i class="fa-solid fa-chevron-down" style="font-size: 0.75rem;"></i>
+                      </a>
+                    </div>
+                    <div id="ans-cs-4" class="qa-photo-ans-box">
+                      <div style="font-weight: 700; color: #004322; margin-bottom: 6px; display: flex; align-items: center; gap: 6px;">
+                        <i class="fa-solid fa-building-columns" style="color: #009640;"></i> Trả lời từ Ban Tín dụng Người nghèo & Quỹ Quốc gia Việc làm - NHCSXH:
+                      </div>
+                      <p style="margin: 0 0 8px;">Căn cứ Nghị định số 61/2015/NĐ-CP và Nghị định số 74/2019/NĐ-CP của Chính phủ:</p>
+                      <ul style="margin: 0 0 8px; padding-left: 20px;">
+                        <li><strong>Mức vay vốn:</strong> Tối đa <strong>02 tỷ đồng/dự án</strong> và không quá <strong>100 triệu đồng</strong> cho 01 người lao động được tạo việc làm.</li>
+                        <li><strong>Thời hạn vay:</strong> Tối đa 120 tháng (10 năm). Thời hạn cụ thể căn cứ vào nguồn vốn, chu kỳ sản xuất kinh doanh và khả năng trả nợ.</li>
+                        <li><strong>Hồ sơ vay vốn:</strong> Giấy đề nghị vay vốn (Mẫu số 02), Dự án vay vốn có xác nhận của UBND cấp xã nơi thực hiện dự án, Bản sao Giấy chứng nhận đăng ký kinh doanh.</li>
+                      </ul>
+                      <p style="margin: 0;">Khách hàng nộp hồ sơ trực tiếp tại Phòng giao dịch NHCSXH cấp huyện nơi thực hiện dự án để được thẩm định và phê duyệt.</p>
+                    </div>
+                  </div>
+
+                  <!-- Câu CS-5 -->
+                  <div class="qa-photo-item" data-category="viec-lam">
+                    <div class="qa-photo-q-head">
+                      <span class="qa-photo-q-num">5</span>
+                      <i class="fa-solid fa-circle-question qa-photo-q-icon"></i>
+                      <h3 class="qa-photo-q-title">Vay vốn sản xuất kinh doanh đối với thanh niên xung phong (TNXP) cơ sở miền Nam</h3>
+                      <span class="qa-status-pill"><i class="fa-solid fa-circle-check"></i> Đã giải đáp</span>
+                    </div>
+                    <div class="qa-photo-q-desc">
+                      Thanh niên xung phong cơ sở miền Nam tham gia kháng chiến có hoàn cảnh khó khăn muốn vay vốn phát triển kinh tế gia đình thì hưởng chính sách lãi suất thế nào?
+                    </div>
+                    <div class="qa-photo-q-meta-wrap">
+                      <span class="qa-photo-meta-tag"><i class="fa-regular fa-calendar-check"></i> <strong>Ngày gửi:</strong> 10/06/2025</span>
+                      <span class="qa-photo-meta-tag"><i class="fa-regular fa-user"></i> <strong>Người gửi:</strong> Trần Quốc Trung</span>
+                      <span class="qa-photo-meta-tag"><i class="fa-solid fa-location-dot"></i> <strong>Địa chỉ:</strong> Định Quán, Đồng Nai</span>
+                    </div>
+                    <div style="margin-left: 34px;">
+                      <a href="javascript:void(0)" class="qa-photo-ans-btn" onclick="toggleDetailAnswer('ans-cs-5')">
+                        <i class="fa-regular fa-comments"></i> Xem câu trả lời <i class="fa-solid fa-chevron-down" style="font-size: 0.75rem;"></i>
+                      </a>
+                    </div>
+                    <div id="ans-cs-5" class="qa-photo-ans-box">
+                      <div style="font-weight: 700; color: #004322; margin-bottom: 6px; display: flex; align-items: center; gap: 6px;">
+                        <i class="fa-solid fa-building-columns" style="color: #009640;"></i> Trả lời từ Ban Kế hoạch & Tín dụng NHCSXH:
+                      </div>
+                      <p style="margin: 0 0 6px;">Căn cứ Quyết định số 40/2011/QĐ-TTg của Thủ tướng Chính phủ: TNXP cơ sở miền Nam trực tiếp tham gia kháng chiến nếu gia đình có nhu cầu vay vốn để sản xuất kinh doanh tạo việc làm được ưu tiên vay vốn ưu đãi tại NHCSXH với lãi suất cho vay bằng lãi suất hộ nghèo.</p>
+                      <p style="margin: 0;">Hồ sơ và quy trình vay vốn được thực hiện bình xét công khai thông qua Tổ Tiết kiệm và vay vốn (Tổ TK&VV) tại thôn, ấp, bản nơi cư trú hợp pháp.</p>
+                    </div>
+                  </div>
+
+                  <!-- Câu CS-6 -->
+                  <div class="qa-photo-item" data-category="nuoc-sach">
+                    <div class="qa-photo-q-head">
+                      <span class="qa-photo-q-num">6</span>
+                      <i class="fa-solid fa-circle-question qa-photo-q-icon"></i>
+                      <h3 class="qa-photo-q-title">Về chính sách và mức cho vay nước sạch và vệ sinh môi trường nông thôn mới nhất</h3>
+                      <span class="qa-status-pill"><i class="fa-solid fa-circle-check"></i> Đã giải đáp</span>
+                    </div>
+                    <div class="qa-photo-q-desc">
+                      Xin cho biết mức cho vay chương trình Nước sạch và vệ sinh môi trường nông thôn hiện hành là bao nhiêu và một hộ có được vay cho cả 2 công trình không?
+                    </div>
+                    <div class="qa-photo-q-meta-wrap">
+                      <span class="qa-photo-meta-tag"><i class="fa-regular fa-calendar-check"></i> <strong>Ngày gửi:</strong> 10/06/2025</span>
+                      <span class="qa-photo-meta-tag"><i class="fa-regular fa-user"></i> <strong>Người gửi:</strong> Nguyễn Ngọc Hoàn</span>
+                      <span class="qa-photo-meta-tag"><i class="fa-solid fa-location-dot"></i> <strong>Địa chỉ:</strong> Kiến Xương, Thái Bình</span>
+                    </div>
+                    <div style="margin-left: 34px;">
+                      <a href="javascript:void(0)" class="qa-photo-ans-btn" onclick="toggleDetailAnswer('ans-cs-6')">
+                        <i class="fa-regular fa-comments"></i> Xem câu trả lời <i class="fa-solid fa-chevron-down" style="font-size: 0.75rem;"></i>
+                      </a>
+                    </div>
+                    <div id="ans-cs-6" class="qa-photo-ans-box">
+                      <div style="font-weight: 700; color: #004322; margin-bottom: 6px; display: flex; align-items: center; gap: 6px;">
+                        <i class="fa-solid fa-building-columns" style="color: #009640;"></i> Trả lời từ Ban Tín dụng Học sinh sinh viên & Đối tượng chính sách khác:
+                      </div>
+                      <p style="margin: 0 0 6px;">Theo Quyết định số 10/2024/QĐ-TTg ngày 15/7/2024 của Thủ tướng Chính phủ:</p>
+                      <ul style="margin: 0; padding-left: 20px;">
+                        <li><strong>Mức cho vay:</strong> Tối đa <strong>25 triệu đồng/loại công trình/hộ</strong>. Một hộ gia đình có thể vay tối đa <strong>50 triệu đồng</strong> để đầu tư 02 công trình (công trình nước sạch và công trình vệ sinh).</li>
+                        <li><strong>Bảo đảm tiền vay:</strong> Khách hàng không phải thực hiện bảo đảm tiền vay (không cần thế chấp tài sản).</li>
+                        <li><strong>Thời hạn cho vay:</strong> Tối đa 05 năm (60 tháng), trả nợ linh hoạt tại Điểm giao dịch xã.</li>
+                      </ul>
+                    </div>
+                  </div>
+
+                  <!-- Câu CS-7 -->
+                  <div class="qa-photo-item" data-category="hssv">
+                    <div class="qa-photo-q-head">
+                      <span class="qa-photo-q-num">7</span>
+                      <i class="fa-solid fa-circle-question qa-photo-q-icon"></i>
+                      <h3 class="qa-photo-q-title">Vay vốn chương trình học sinh sinh viên: Tiền lãi có bị cộng dồn vào nợ gốc không?</h3>
+                      <span class="qa-status-pill"><i class="fa-solid fa-circle-check"></i> Đã giải đáp</span>
+                    </div>
+                    <div class="qa-photo-q-desc">
+                      Gia đình tôi vay vốn cho con học đại học. Xin hỏi trong thời gian con đang đi học thì có phải trả lãi không và tiền lãi có bị tính dồn vào nợ gốc không?
+                    </div>
+                    <div class="qa-photo-q-meta-wrap">
+                      <span class="qa-photo-meta-tag"><i class="fa-regular fa-calendar-check"></i> <strong>Ngày gửi:</strong> 10/06/2025</span>
+                      <span class="qa-photo-meta-tag"><i class="fa-regular fa-user"></i> <strong>Người gửi:</strong> Nguyễn Thị Ngọc</span>
+                      <span class="qa-photo-meta-tag"><i class="fa-solid fa-location-dot"></i> <strong>Địa chỉ:</strong> Hải Hậu, Nam Định</span>
+                    </div>
+                    <div style="margin-left: 34px;">
+                      <a href="javascript:void(0)" class="qa-photo-ans-btn" onclick="toggleDetailAnswer('ans-cs-7')">
+                        <i class="fa-regular fa-comments"></i> Xem câu trả lời <i class="fa-solid fa-chevron-down" style="font-size: 0.75rem;"></i>
+                      </a>
+                    </div>
+                    <div id="ans-cs-7" class="qa-photo-ans-box">
+                      <div style="font-weight: 700; color: #004322; margin-bottom: 6px; display: flex; align-items: center; gap: 6px;">
+                        <i class="fa-solid fa-building-columns" style="color: #009640;"></i> Trả lời từ Ban Quản lý Tín dụng HSSV - NHCSXH:
+                      </div>
+                      <p style="margin: 0 0 6px;">Theo quy định tại Quyết định số 157/2007/QĐ-TTg của Thủ tướng Chính phủ:</p>
+                      <p style="margin: 0 0 6px;">Trong thời gian học sinh, sinh viên đang theo học, hộ gia đình vay vốn <strong>chưa phải trả nợ gốc và lãi tiền vay</strong>.</p>
+                      <p style="margin: 0;">Tiền lãi được tính theo tháng kể từ ngày nhận món tiền vay đầu tiên, nhưng <strong>tuyệt đối KHÔNG bị cộng dồn vào nợ gốc</strong>. Khi học sinh sinh viên kết thúc khóa học 12 tháng, hộ vay mới bắt đầu thực hiện trả nợ gốc và lãi theo định kỳ.</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <!-- CTA BANNER -->
+              <div class="qa-ask-cta-card">
+                <div>
+                  <h3 style="margin: 0 0 6px; font-size: 1.15rem; color: #ffffff;"><i class="fa-solid fa-circle-question" style="color: var(--vbsp-gold);"></i> Bạn có câu hỏi khác về Chính sách tín dụng?</h3>
+                  <p style="margin: 0; font-size: 0.88rem; color: #cbd5e1;">Gửi trực tiếp thắc mắc để được Chuyên viên Ban Tín dụng NHCSXH Trung ương phản hồi chi tiết.</p>
+                </div>
+                <button class="qa-ask-cta-btn" onclick="switchQATab('gui-cau-hoi')">
+                  <i class="fa-solid fa-paper-plane"></i> Gửi câu hỏi ngay
+                </button>
+              </div>
+            </div>
+
+            <!-- ==================== TAB 2: HỎI ĐÁP QUY TRÌNH NGHIỆP VỤ ==================== -->
+            <div id="pane-quy-trinh" class="qa-tab-pane" style="display: none;">
+              
+              <!-- THANH TÌM KIẾM CÂU HỎI QUY TRÌNH (ĐÃ BỎ TIÊU CHÍ NHÓM THỦ TỤC QUY TRÌNH) -->
+              <div class="qa-photo-search-bar" style="grid-template-columns: 1fr auto;">
+                <div>
+                  <label style="display: block; font-size: 0.88rem; font-weight: 600; color: #334155; margin-bottom: 6px;">
+                    <i class="fa-solid fa-magnifying-glass" style="color: #009640;"></i> Nội dung tìm kiếm quy trình nghiệp vụ
+                  </label>
+                  <input type="text" class="qa-photo-input" id="searchQT" placeholder="Nhập từ khóa cần tra cứu thủ tục, quy trình..." onkeyup="if(event.key==='Enter') filterPaneQuestions('pane-quy-trinh', 'searchQT')">
+                </div>
+                <div>
+                  <button type="button" class="qa-photo-search-btn" onclick="filterPaneQuestions('pane-quy-trinh', 'searchQT')">
+                    <i class="fa-solid fa-magnifying-glass"></i> Tìm kiếm
+                  </button>
+                </div>
+              </div>
+
+              <!-- DANH SÁCH CÂU HỎI ĐÃ ĐƯỢC GIẢI ĐÁP - QUY TRÌNH -->
+              <div class="qa-photo-container">
+                <div class="qa-photo-list-title">
+                  <span style="display: flex; align-items: center; gap: 8px;">
+                    <i class="fa-solid fa-clipboard-check" style="color: #009640; font-size: 1.25rem;"></i>
+                    DANH SÁCH CÂU HỎI ĐÃ ĐƯỢC GIẢI ĐÁP
+                  </span>
+                  <div style="display: flex; align-items: center; gap: 12px;">
+                    <span class="qa-pane-count" style="font-size: 0.88rem; font-weight: 500; color: #64748b; background: #f1f5f9; padding: 4px 12px; border-radius: 12px;">
+                      Tổng số: <strong style="color: #009640;">7</strong> câu hỏi
+                    </span>
+                    <a href="javascript:void(0)" class="qa-jump-form-btn" onclick="switchQATab('gui-cau-hoi')">
+                      <i class="fa-solid fa-pen-to-square"></i> Đặt câu hỏi mới
+                    </a>
+                  </div>
+                </div>
+
+                <div class="qa-photo-items-group">
+                  <!-- Câu QT-1 (Từ hình ảnh mẫu) -->
+                  <div class="qa-photo-item" data-category="ho-so-vay">
+                    <div class="qa-photo-q-head">
+                      <span class="qa-photo-q-num">1</span>
+                      <i class="fa-solid fa-circle-question qa-photo-q-icon"></i>
+                      <h3 class="qa-photo-q-title">Trả lời công dân về việc kiến nghị xác minh Hợp đồng khoán số 222-2007/HĐ và giải quyết thủ tục cấp Giấy chứng nhận quyền sử dụng đất</h3>
+                      <span class="qa-status-pill"><i class="fa-solid fa-circle-check"></i> Đã giải đáp</span>
+                    </div>
+                    <div class="qa-photo-q-desc">
+                      Kiến nghị liên quan đến việc xác minh hợp đồng khoán đất lâm nghiệp số 222-2007/HĐ và thủ tục cấp GCN QSDĐ cho hộ gia đình tại địa phương.
+                    </div>
+                    <div class="qa-photo-q-meta-wrap">
+                      <span class="qa-photo-meta-tag"><i class="fa-regular fa-calendar-check"></i> <strong>Ngày gửi:</strong> 10/08/2026</span>
+                      <span class="qa-photo-meta-tag"><i class="fa-regular fa-user"></i> <strong>Người gửi:</strong> Hoàng Văn Bình</span>
+                      <span class="qa-photo-meta-tag"><i class="fa-solid fa-location-dot"></i> <strong>Địa chỉ:</strong> Nghệ An</span>
+                    </div>
+                    <div style="margin-left: 34px;">
+                      <a href="javascript:void(0)" class="qa-photo-ans-btn" onclick="toggleDetailAnswer('ans-qt-1')">
+                        <i class="fa-regular fa-comments"></i> Xem câu trả lời <i class="fa-solid fa-chevron-down" style="font-size: 0.75rem;"></i>
+                      </a>
+                    </div>
+                    <div id="ans-qt-1" class="qa-photo-ans-box">
+                      <div style="font-weight: 700; color: #004322; margin-bottom: 6px; display: flex; align-items: center; gap: 6px;">
+                        <i class="fa-solid fa-building-columns" style="color: #009640;"></i> Trả lời từ Văn phòng NHCSXH & Cơ quan chức năng:
+                      </div>
+                      <p style="margin: 0;">Nội dung kiến nghị xác minh Hợp đồng giao khoán số 222-2007/HĐ và thủ tục cấp Giấy chứng nhận quyền sử dụng đất đã được chuyển đến Ban Quản lý rừng phòng hộ và Phòng Tài nguyên và Môi trường huyện để rà soát hiện trạng sử dụng đất. Kết quả kiểm tra hồ sơ địa chính và đối chiếu thực địa sẽ được thông báo bằng văn bản chính thức đến công dân theo đúng trình tự Luật Tiếp công dân.</p>
+                    </div>
+                  </div>
+
+                  <!-- Câu QT-2 (Từ hình ảnh mẫu) -->
+                  <div class="qa-photo-item" data-category="lao-dong-che-do">
+                    <div class="qa-photo-q-head">
+                      <span class="qa-photo-q-num">2</span>
+                      <i class="fa-solid fa-circle-question qa-photo-q-icon"></i>
+                      <h3 class="qa-photo-q-title">Hướng dẫn về việc tính lương hiệu xuất</h3>
+                      <span class="qa-status-pill"><i class="fa-solid fa-circle-check"></i> Đã giải đáp</span>
+                    </div>
+                    <div class="qa-photo-q-desc">
+                      Xin hướng dẫn cụ thể cách tính tiền lương theo hiệu suất công việc và năng suất lao động cho người lao động tại cơ quan, đơn vị.
+                    </div>
+                    <div class="qa-photo-q-meta-wrap">
+                      <span class="qa-photo-meta-tag"><i class="fa-regular fa-calendar-check"></i> <strong>Ngày gửi:</strong> 26/08/2026</span>
+                      <span class="qa-photo-meta-tag"><i class="fa-regular fa-user"></i> <strong>Người gửi:</strong> Đỗ Thị Hoài</span>
+                      <span class="qa-photo-meta-tag"><i class="fa-solid fa-location-dot"></i> <strong>Địa chỉ:</strong> TDP Mai Lâm, Hải Bình, Thanh Hóa</span>
+                    </div>
+                    <div style="margin-left: 34px;">
+                      <a href="javascript:void(0)" class="qa-photo-ans-btn" onclick="toggleDetailAnswer('ans-qt-2')">
+                        <i class="fa-regular fa-comments"></i> Xem câu trả lời <i class="fa-solid fa-chevron-down" style="font-size: 0.75rem;"></i>
+                      </a>
+                    </div>
+                    <div id="ans-qt-2" class="qa-photo-ans-box">
+                      <div style="font-weight: 700; color: #004322; margin-bottom: 6px; display: flex; align-items: center; gap: 6px;">
+                        <i class="fa-solid fa-building-columns" style="color: #009640;"></i> Trả lời từ Ban Tổ chức Cán bộ & Lao động tiền lương:
+                      </div>
+                      <p style="margin: 0;">Việc chi trả tiền lương theo hiệu suất (KPI) được thực hiện theo Quy chế trả lương, thưởng nội bộ của từng cơ quan, đơn vị, bảo đảm nguyên tắc gắn kết quả hoàn thành nhiệm vụ với thu nhập. Quý công dân vui lòng đối chiếu trực tiếp với Quy chế chi tiêu nội bộ và Hợp đồng lao động đã ký kết để tính toán định mức chi tiết.</p>
+                    </div>
+                  </div>
+
+                  <!-- Câu QT-3 (Từ hình ảnh mẫu) -->
+                  <div class="qa-photo-item" data-category="lao-dong-che-do">
+                    <div class="qa-photo-q-head">
+                      <span class="qa-photo-q-num">3</span>
+                      <i class="fa-solid fa-circle-question qa-photo-q-icon"></i>
+                      <h3 class="qa-photo-q-title">Trả lời công dân về việc đóng bảo hiểm xã hội cho cán bộ công nhân viên</h3>
+                      <span class="qa-status-pill"><i class="fa-solid fa-circle-check"></i> Đã giải đáp</span>
+                    </div>
+                    <div class="qa-photo-q-desc">
+                      Về việc thực hiện chế độ đóng BHXH bắt buộc đối với người lao động và giải quyết các vướng mắc về chế độ thai sản, ốm đau khi thay đổi vị trí công tác.
+                    </div>
+                    <div class="qa-photo-q-meta-wrap">
+                      <span class="qa-photo-meta-tag"><i class="fa-regular fa-calendar-check"></i> <strong>Ngày gửi:</strong> 17/08/2026</span>
+                      <span class="qa-photo-meta-tag"><i class="fa-regular fa-user"></i> <strong>Người gửi:</strong> Nguyễn Văn An</span>
+                      <span class="qa-photo-meta-tag"><i class="fa-solid fa-location-dot"></i> <strong>Địa chỉ:</strong> xã Vân Du, Nghệ An</span>
+                    </div>
+                    <div style="margin-left: 34px;">
+                      <a href="javascript:void(0)" class="qa-photo-ans-btn" onclick="toggleDetailAnswer('ans-qt-3')">
+                        <i class="fa-regular fa-comments"></i> Xem câu trả lời <i class="fa-solid fa-chevron-down" style="font-size: 0.75rem;"></i>
+                      </a>
+                    </div>
+                    <div id="ans-qt-3" class="qa-photo-ans-box">
+                      <div style="font-weight: 700; color: #004322; margin-bottom: 6px; display: flex; align-items: center; gap: 6px;">
+                        <i class="fa-solid fa-building-columns" style="color: #009640;"></i> Trả lời từ Ban Pháp chế & Chế độ BHXH:
+                      </div>
+                      <p style="margin: 0;">Căn cứ Luật Bảo hiểm xã hội số 58/2014/QH13: Người sử dụng lao động có trách nhiệm đăng ký tham gia và đóng BHXH, BHYT, BHTN đầy đủ cho người lao động có hợp đồng lao động từ đủ 01 tháng trở lên. Mọi thắc mắc về quá trình đóng nộp, sổ BHXH và chế độ thai sản, ốm đau được cơ quan BHXH địa phương giải quyết căn cứ trên dữ liệu đóng thực tế đã được đồng bộ trên hệ thống VssID.</p>
+                    </div>
+                  </div>
+
+                  <!-- Câu QT-4 -->
+                  <div class="qa-photo-item" data-category="ho-so-vay">
+                    <div class="qa-photo-q-head">
+                      <span class="qa-photo-q-num">4</span>
+                      <i class="fa-solid fa-circle-question qa-photo-q-icon"></i>
+                      <h3 class="qa-photo-q-title">Quy trình bình xét cho vay công khai tại Tổ Tiết kiệm và vay vốn (Tổ TK&VV)</h3>
+                      <span class="qa-status-pill"><i class="fa-solid fa-circle-check"></i> Đã giải đáp</span>
+                    </div>
+                    <div class="qa-photo-q-desc">
+                      Hộ gia đình muốn vay vốn NHCSXH thì phải thực hiện các bước đăng ký và bình xét như thế nào tại thôn/bản?
+                    </div>
+                    <div class="qa-photo-q-meta-wrap">
+                      <span class="qa-photo-meta-tag"><i class="fa-regular fa-calendar-check"></i> <strong>Ngày gửi:</strong> 18/06/2025</span>
+                      <span class="qa-photo-meta-tag"><i class="fa-regular fa-user"></i> <strong>Người gửi:</strong> Đỗ Thị Mai</span>
+                      <span class="qa-photo-meta-tag"><i class="fa-solid fa-location-dot"></i> <strong>Địa chỉ:</strong> Lương Sơn, Hòa Bình</span>
+                    </div>
+                    <div style="margin-left: 34px;">
+                      <a href="javascript:void(0)" class="qa-photo-ans-btn" onclick="toggleDetailAnswer('ans-qt-4')">
+                        <i class="fa-regular fa-comments"></i> Xem câu trả lời <i class="fa-solid fa-chevron-down" style="font-size: 0.75rem;"></i>
+                      </a>
+                    </div>
+                    <div id="ans-qt-4" class="qa-photo-ans-box">
+                      <div style="font-weight: 700; color: #004322; margin-bottom: 6px; display: flex; align-items: center; gap: 6px;">
+                        <i class="fa-solid fa-building-columns" style="color: #009640;"></i> Trả lời từ Ban Hợp tác Xã hội & Tổ TK&VV - NHCSXH:
+                      </div>
+                      <ol style="margin: 0; padding-left: 20px;">
+                        <li><strong>Bước 1:</strong> Người vay viết Giấy đề nghị vay vốn (Mẫu 01/TD) gửi Ban quản lý Tổ TK&VV nơi đang sinh sống.</li>
+                        <li><strong>Bước 2:</strong> Ban quản lý Tổ tổ chức họp toàn thể các tổ viên có sự chứng kiến của Trưởng thôn và Hội đoàn thể nhận ủy thác.</li>
+                        <li><strong>Bước 3:</strong> Tổ bình xét công khai đối tượng thụ hưởng và lập Biên bản họp Tổ (Mẫu 10C/TD).</li>
+                        <li><strong>Bước 4:</strong> Trình UBND cấp xã phê duyệt danh sách hộ vay đủ điều kiện.</li>
+                        <li><strong>Bước 5:</strong> Cán bộ NHCSXH kiểm tra hồ sơ và thông báo lịch phát vốn trực tiếp tại phiên giao dịch xã định kỳ.</li>
+                      </ol>
+                    </div>
+                  </div>
+
+                  <!-- Câu QT-5 -->
+                  <div class="qa-photo-item" data-category="xu-ly-no">
+                    <div class="qa-photo-q-head">
+                      <span class="qa-photo-q-num">5</span>
+                      <i class="fa-solid fa-circle-question qa-photo-q-icon"></i>
+                      <h3 class="qa-photo-q-title">Thủ tục đề nghị xử lý nợ rủi ro (gia hạn nợ, khoanh nợ) khi gặp bão lũ, thiên tai, dịch bệnh</h3>
+                      <span class="qa-status-pill"><i class="fa-solid fa-circle-check"></i> Đã giải đáp</span>
+                    </div>
+                    <div class="qa-photo-q-desc">
+                      Gia đình vay vốn chăn nuôi nhưng gặp bão lũ làm sập chuồng trại và chết toàn bộ gia súc. Thủ tục xin khoanh nợ hoặc gia hạn nợ cần làm thế nào?
+                    </div>
+                    <div class="qa-photo-q-meta-wrap">
+                      <span class="qa-photo-meta-tag"><i class="fa-regular fa-calendar-check"></i> <strong>Ngày gửi:</strong> 15/06/2025</span>
+                      <span class="qa-photo-meta-tag"><i class="fa-regular fa-user"></i> <strong>Người gửi:</strong> Hoàng Văn Thái</span>
+                      <span class="qa-photo-meta-tag"><i class="fa-solid fa-location-dot"></i> <strong>Địa chỉ:</strong> Hữu Lũng, Lạng Sơn</span>
+                    </div>
+                    <div style="margin-left: 34px;">
+                      <a href="javascript:void(0)" class="qa-photo-ans-btn" onclick="toggleDetailAnswer('ans-qt-5')">
+                        <i class="fa-regular fa-comments"></i> Xem câu trả lời <i class="fa-solid fa-chevron-down" style="font-size: 0.75rem;"></i>
+                      </a>
+                    </div>
+                    <div id="ans-qt-5" class="qa-photo-ans-box">
+                      <div style="font-weight: 700; color: #004322; margin-bottom: 6px; display: flex; align-items: center; gap: 6px;">
+                        <i class="fa-solid fa-building-columns" style="color: #009640;"></i> Trả lời từ Ban Quản lý & Xử lý Nợ rủi ro - NHCSXH:
+                      </div>
+                      <p style="margin: 0 0 6px;">Theo Quyết định số 50/2010/QĐ-TTg và Quyết định số 08/2021/QĐ-TTg của Thủ tướng Chính phủ:</p>
+                      <p style="margin: 0 0 6px;">Khi gặp rủi ro bất khả kháng, người vay làm Đơn đề nghị xử lý nợ gửi Tổ TK&VV. Tổ phối hợp cùng Trưởng thôn, Hội đoàn thể và NHCSXH kiểm tra lập Biên bản xác minh mức độ thiệt hại (Mẫu 01/XLN):</p>
+                      <ul style="margin: 0; padding-left: 20px;">
+                        <li>Thiệt hại vốn và tài sản từ 40% đến dưới 80%: Được xem xét khoanh nợ tối đa <strong>03 năm</strong>.</li>
+                        <li>Thiệt hại từ 80% đến 100%: Được xem xét khoanh nợ tối đa <strong>05 năm</strong> và miễn toàn bộ lãi trong thời gian khoanh nợ.</li>
+                      </ul>
+                    </div>
+                  </div>
+
+                  <!-- Câu QT-6 -->
+                  <div class="qa-photo-item" data-category="giao-dich-xa">
+                    <div class="qa-photo-q-head">
+                      <span class="qa-photo-q-num">6</span>
+                      <i class="fa-solid fa-circle-question qa-photo-q-icon"></i>
+                      <h3 class="qa-photo-q-title">Quy trình nộp tiền tiết kiệm và trả nợ tại Điểm giao dịch xã định kỳ</h3>
+                      <span class="qa-status-pill"><i class="fa-solid fa-circle-check"></i> Đã giải đáp</span>
+                    </div>
+                    <div class="qa-photo-q-desc">
+                      Người dân có thể đến trực tiếp Điểm giao dịch xã vào ngày phiên cố định để nộp tiền gửi tiết kiệm hoặc trả nợ trước hạn không?
+                    </div>
+                    <div class="qa-photo-q-meta-wrap">
+                      <span class="qa-photo-meta-tag"><i class="fa-regular fa-calendar-check"></i> <strong>Ngày gửi:</strong> 22/06/2025</span>
+                      <span class="qa-photo-meta-tag"><i class="fa-regular fa-user"></i> <strong>Người gửi:</strong> Phạm Văn Hùng</span>
+                      <span class="qa-photo-meta-tag"><i class="fa-solid fa-location-dot"></i> <strong>Địa chỉ:</strong> Lạng Giang, Bắc Giang</span>
+                    </div>
+                    <div style="margin-left: 34px;">
+                      <a href="javascript:void(0)" class="qa-photo-ans-btn" onclick="toggleDetailAnswer('ans-qt-6')">
+                        <i class="fa-regular fa-comments"></i> Xem câu trả lời <i class="fa-solid fa-chevron-down" style="font-size: 0.75rem;"></i>
+                      </a>
+                    </div>
+                    <div id="ans-qt-6" class="qa-photo-ans-box">
+                      <div style="font-weight: 700; color: #004322; margin-bottom: 6px; display: flex; align-items: center; gap: 6px;">
+                        <i class="fa-solid fa-building-columns" style="color: #009640;"></i> Trả lời từ Ban Kế toán & Quản lý Tài chính NHCSXH:
+                      </div>
+                      <p style="margin: 0 0 6px;">Vào ngày giao dịch xã cố định hàng tháng (tại trụ sở UBND xã/phường), Tổ giao dịch lưu động của NHCSXH phục vụ đầy đủ mọi nhu cầu giao dịch của người dân:</p>
+                      <p style="margin: 0;">Khách hàng mang Biên nhận nộp tiền hoặc Giấy tờ vay vốn/CCCD đến bàn giao dịch để nộp lãi, trả nợ gốc (đúng hạn hoặc trước hạn) hoặc nộp tiền gửi tiết kiệm. Cán bộ ngân hàng cập nhật trực tiếp vào hệ thống Intellect Core Banking và in chứng từ giao dịch trao tận tay khách hàng giữ ngay tại chỗ.</p>
+                    </div>
+                  </div>
+
+                  <!-- Câu QT-7 -->
+                  <div class="qa-photo-item" data-category="ngan-hang-so">
+                    <div class="qa-photo-q-head">
+                      <span class="qa-photo-q-num">7</span>
+                      <i class="fa-solid fa-circle-question qa-photo-q-icon"></i>
+                      <h3 class="qa-photo-q-title">Quy trình đăng ký và sử dụng dịch vụ VBSP SmartBanking trên điện thoại</h3>
+                      <span class="qa-status-pill"><i class="fa-solid fa-circle-check"></i> Đã giải đáp</span>
+                    </div>
+                    <div class="qa-photo-q-desc">
+                      Thủ tục mở tài khoản ứng dụng Mobile Banking của NHCSXH và các tiện ích chuyển tiền, tra cứu dư nợ được thực hiện ra sao?
+                    </div>
+                    <div class="qa-photo-q-meta-wrap">
+                      <span class="qa-photo-meta-tag"><i class="fa-regular fa-calendar-check"></i> <strong>Ngày gửi:</strong> 25/06/2025</span>
+                      <span class="qa-photo-meta-tag"><i class="fa-regular fa-user"></i> <strong>Người gửi:</strong> Vũ Đức Thịnh</span>
+                      <span class="qa-photo-meta-tag"><i class="fa-solid fa-location-dot"></i> <strong>Địa chỉ:</strong> Triệu Sơn, Thanh Hóa</span>
+                    </div>
+                    <div style="margin-left: 34px;">
+                      <a href="javascript:void(0)" class="qa-photo-ans-btn" onclick="toggleDetailAnswer('ans-qt-7')">
+                        <i class="fa-regular fa-comments"></i> Xem câu trả lời <i class="fa-solid fa-chevron-down" style="font-size: 0.75rem;"></i>
+                      </a>
+                    </div>
+                    <div id="ans-qt-7" class="qa-photo-ans-box">
+                      <div style="font-weight: 700; color: #004322; margin-bottom: 6px; display: flex; align-items: center; gap: 6px;">
+                        <i class="fa-solid fa-building-columns" style="color: #009640;"></i> Trả lời từ Trung tâm Công nghệ Thông tin NHCSXH:
+                      </div>
+                      <p style="margin: 0 0 6px;">Khách hàng mang CCCD gắn chip đến Phòng giao dịch NHCSXH huyện hoặc đăng ký trực tiếp tại Điểm giao dịch xã. Cán bộ ngân hàng đối chiếu thông tin, xác thực sinh trắc học và kích hoạt dịch vụ.</p>
+                      <p style="margin: 0;">Hệ thống gửi tin nhắn SMS kích hoạt; khách hàng tải ứng dụng VBSP SmartBanking từ Google Play hoặc App Store để sử dụng chuyển tiền 24/7, thanh toán tiền điện nước và tra cứu dư nợ vay hoàn toàn miễn phí.</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <!-- CTA BANNER -->
+              <div class="qa-ask-cta-card">
+                <div>
+                  <h3 style="margin: 0 0 6px; font-size: 1.15rem; color: #ffffff;"><i class="fa-solid fa-circle-question" style="color: var(--vbsp-gold);"></i> Cần làm rõ về Quy trình, Hồ sơ thủ tục nghiệp vụ?</h3>
+                  <p style="margin: 0; font-size: 0.88rem; color: #cbd5e1;">Gửi câu hỏi trực tiếp tới bộ phận Thẩm định & Nghiệp vụ NHCSXH để được hướng dẫn chi tiết.</p>
+                </div>
+                <button class="qa-ask-cta-btn" onclick="switchQATab('gui-cau-hoi')">
+                  <i class="fa-solid fa-paper-plane"></i> Gửi câu hỏi ngay
+                </button>
+              </div>
+            </div>
+
+            <!-- ==================== TAB 3: HỎI ĐÁP KHÁC ==================== -->
+            <div id="pane-khac" class="qa-tab-pane" style="display: none;">
+              
+              <!-- THANH TÌM KIẾM CÂU HỎI KHÁC (NÚT XANH CHUẨN TONE VBSP) -->
+              <div class="qa-photo-search-bar">
+                <div>
+                  <label style="display: block; font-size: 0.88rem; font-weight: 600; color: #334155; margin-bottom: 6px;">
+                    <i class="fa-solid fa-magnifying-glass" style="color: #009640;"></i> Nội dung tìm kiếm
+                  </label>
+                  <input type="text" class="qa-photo-input" id="searchKhac" placeholder="Nhập từ khóa cần tra cứu..." onkeyup="if(event.key==='Enter') filterPaneQuestions('pane-khac', 'searchKhac')">
+                </div>
+                <div>
+                  <button type="button" class="qa-photo-search-btn" onclick="filterPaneQuestions('pane-khac', 'searchKhac')">
+                    <i class="fa-solid fa-magnifying-glass"></i> Tìm kiếm
+                  </button>
+                </div>
+              </div>
+
+              <!-- DANH SÁCH CÂU HỎI ĐÃ ĐƯỢC GIẢI ĐÁP - LĨNH VỰC KHÁC -->
+              <div class="qa-photo-container">
+                <div class="qa-photo-list-title">
+                  <span style="display: flex; align-items: center; gap: 8px;">
+                    <i class="fa-solid fa-clipboard-check" style="color: #009640; font-size: 1.25rem;"></i>
+                    DANH SÁCH CÂU HỎI ĐÃ ĐƯỢC GIẢI ĐÁP
+                  </span>
+                  <div style="display: flex; align-items: center; gap: 12px;">
+                    <span class="qa-pane-count" style="font-size: 0.88rem; font-weight: 500; color: #64748b; background: #f1f5f9; padding: 4px 12px; border-radius: 12px;">
+                      Tổng số: <strong style="color: #009640;">5</strong> câu hỏi
+                    </span>
+                    <a href="javascript:void(0)" class="qa-jump-form-btn" onclick="switchQATab('gui-cau-hoi')">
+                      <i class="fa-solid fa-pen-to-square"></i> Đặt câu hỏi mới
+                    </a>
+                  </div>
+                </div>
+
+                <div class="qa-photo-items-group">
+                  <!-- Câu Khác-1 (Từ hình ảnh mẫu) -->
+                  <div class="qa-photo-item" data-category="quy-dinh-chung">
+                    <div class="qa-photo-q-head">
+                      <span class="qa-photo-q-num">1</span>
+                      <i class="fa-solid fa-circle-question qa-photo-q-icon"></i>
+                      <h3 class="qa-photo-q-title">Trình độ văn hoá 9/12 có được làm trưởng bản không</h3>
+                      <span class="qa-status-pill"><i class="fa-solid fa-circle-check"></i> Đã giải đáp</span>
+                    </div>
+                    <div class="qa-photo-q-desc">
+                      Xin hỏi theo quy định hiện hành thì người có trình độ văn hóa 9/12 có đủ điều kiện để bầu làm trưởng thôn, trưởng bản không?
+                    </div>
+                    <div class="qa-photo-q-meta-wrap">
+                      <span class="qa-photo-meta-tag"><i class="fa-regular fa-calendar-check"></i> <strong>Ngày gửi:</strong> 16/10/2026</span>
+                      <span class="qa-photo-meta-tag"><i class="fa-regular fa-user"></i> <strong>Người gửi:</strong> Lương Khánh Hoà</span>
+                      <span class="qa-photo-meta-tag"><i class="fa-solid fa-location-dot"></i> <strong>Địa chỉ:</strong> Bản Nật, Kỳ Sơn</span>
+                    </div>
+                    <div style="margin-left: 34px;">
+                      <a href="javascript:void(0)" class="qa-photo-ans-btn" onclick="toggleDetailAnswer('ans-khac-1')">
+                        <i class="fa-regular fa-comments"></i> Xem câu trả lời <i class="fa-solid fa-chevron-down" style="font-size: 0.75rem;"></i>
+                      </a>
+                    </div>
+                    <div id="ans-khac-1" class="qa-photo-ans-box">
+                      <div style="font-weight: 700; color: #004322; margin-bottom: 6px; display: flex; align-items: center; gap: 6px;">
+                        <i class="fa-solid fa-building-columns" style="color: #009640;"></i> Trả lời từ Ban Biên tập & Pháp chế:
+                      </div>
+                      <p style="margin: 0;">Căn cứ Thông tư 04/2012/TT-BNV (được sửa đổi bởi Thông tư 14/2018/TT-BNV) của Bộ Nội vụ hướng dẫn về tổ chức và hoạt động của thôn, tổ dân phố: Tiêu chuẩn Trưởng thôn, bản phải là người có hiểu biết về chủ trương, chính sách của Đảng và Nhà nước, có tinh thần trách nhiệm, uy tín trong cộng đồng. Đối với khu vực miền núi, vùng cao, vùng đồng bào dân tộc thiểu số, người có trình độ tốt nghiệp THCS (9/12) đủ điều kiện về văn hóa để được giới thiệu bầu làm Trưởng bản nếu được nhân dân địa phương tín nhiệm.</p>
+                    </div>
+                  </div>
+
+                  <!-- Câu Khác-2 (Từ hình ảnh mẫu) -->
+                  <div class="qa-photo-item" data-category="xu-phat">
+                    <div class="qa-photo-q-head">
+                      <span class="qa-photo-q-num">2</span>
+                      <i class="fa-solid fa-circle-question qa-photo-q-icon"></i>
+                      <h3 class="qa-photo-q-title">Mức phạt đối với hành vi vi phạm quy định về hạn sử dụng nguyên liệu thức ăn chăn nuôi</h3>
+                      <span class="qa-status-pill"><i class="fa-solid fa-circle-check"></i> Đã giải đáp</span>
+                    </div>
+                    <div class="qa-photo-q-desc">
+                      Xin hỏi mức xử phạt hành chính đối với cơ sở sản xuất kinh doanh vi phạm về hạn sử dụng nguyên liệu chế biến thức ăn chăn nuôi theo quy định hiện hành?
+                    </div>
+                    <div class="qa-photo-q-meta-wrap">
+                      <span class="qa-photo-meta-tag"><i class="fa-regular fa-calendar-check"></i> <strong>Ngày gửi:</strong> 19/07/2026</span>
+                      <span class="qa-photo-meta-tag"><i class="fa-regular fa-user"></i> <strong>Người gửi:</strong> Ban Bạn đọc</span>
+                      <span class="qa-photo-meta-tag"><i class="fa-solid fa-location-dot"></i> <strong>Địa chỉ:</strong> Quỳnh Lưu, Nghệ An</span>
+                    </div>
+                    <div style="margin-left: 34px;">
+                      <a href="javascript:void(0)" class="qa-photo-ans-btn" onclick="toggleDetailAnswer('ans-khac-2')">
+                        <i class="fa-regular fa-comments"></i> Xem câu trả lời <i class="fa-solid fa-chevron-down" style="font-size: 0.75rem;"></i>
+                      </a>
+                    </div>
+                    <div id="ans-khac-2" class="qa-photo-ans-box">
+                      <div style="font-weight: 700; color: #004322; margin-bottom: 6px; display: flex; align-items: center; gap: 6px;">
+                        <i class="fa-solid fa-building-columns" style="color: #009640;"></i> Trả lời từ Bộ phận Pháp chế:
+                      </div>
+                      <p style="margin: 0;">Căn cứ Nghị định số 14/2021/NĐ-CP quy định xử phạt vi phạm hành chính về chăn nuôi: Hành vi sử dụng nguyên liệu thức ăn chăn nuôi đã quá thời hạn sử dụng để chế biến thức ăn chăn nuôi bị phạt tiền từ 10.000.000 đồng đến 15.000.000 đồng đối với cá nhân (và gấp đôi đối với tổ chức), đồng thời áp dụng biện pháp khắc phục hậu quả buộc tiêu hủy toàn bộ tang vật vi phạm.</p>
+                    </div>
+                  </div>
+
+                  <!-- Câu Khác-3 -->
+                  <div class="qa-photo-item" data-category="thong-tin-chung">
+                    <div class="qa-photo-q-head">
+                      <span class="qa-photo-q-num">3</span>
+                      <i class="fa-solid fa-circle-question qa-photo-q-icon"></i>
+                      <h3 class="qa-photo-q-title">Lịch trực và địa điểm các phiên giao dịch xã cố định của NHCSXH công khai ở đâu?</h3>
+                      <span class="qa-status-pill"><i class="fa-solid fa-circle-check"></i> Đã giải đáp</span>
+                    </div>
+                    <div class="qa-photo-q-desc">
+                      Làm thế nào để người dân tra cứu lịch trực, ngày giao dịch và số điện thoại liên hệ của Tổ giao dịch lưu động xã?
+                    </div>
+                    <div class="qa-photo-q-meta-wrap">
+                      <span class="qa-photo-meta-tag"><i class="fa-regular fa-calendar-check"></i> <strong>Ngày gửi:</strong> 05/07/2025</span>
+                      <span class="qa-photo-meta-tag"><i class="fa-regular fa-user"></i> <strong>Người gửi:</strong> Bùi Thanh Hà</span>
+                      <span class="qa-photo-meta-tag"><i class="fa-solid fa-location-dot"></i> <strong>Địa chỉ:</strong> Đông Triều, Quảng Ninh</span>
+                    </div>
+                    <div style="margin-left: 34px;">
+                      <a href="javascript:void(0)" class="qa-photo-ans-btn" onclick="toggleDetailAnswer('ans-khac-3')">
+                        <i class="fa-regular fa-comments"></i> Xem câu trả lời <i class="fa-solid fa-chevron-down" style="font-size: 0.75rem;"></i>
+                      </a>
+                    </div>
+                    <div id="ans-khac-3" class="qa-photo-ans-box">
+                      <div style="font-weight: 700; color: #004322; margin-bottom: 6px; display: flex; align-items: center; gap: 6px;">
+                        <i class="fa-solid fa-building-columns" style="color: #009640;"></i> Trả lời từ Văn phòng NHCSXH Trung ương:
+                      </div>
+                      <p style="margin: 0 0 6px;">Lịch giao dịch xã cố định của NHCSXH được tổ chức vào một ngày cố định trong tháng tại trụ sở UBND xã/phường/thị trấn:</p>
+                      <ul style="margin: 0; padding-left: 20px;">
+                        <li>Được niêm yết công khai trên Bảng thông tin tín dụng chính sách tại Điểm giao dịch xã.</li>
+                        <li>Được Trưởng thôn và Tổ trưởng Tổ TK&VV thông báo rộng rãi tới người dân trong các cuộc họp thôn/bản.</li>
+                        <li>Được tra cứu trực tuyến 24/7 trên Cổng thông tin điện tử NHCSXH tại chuyên mục <a href="tra-cuu-diem-giao-dich.html" style="color: #009640; font-weight: 600;">Tra cứu điểm giao dịch xã</a>.</li>
+                      </ul>
+                    </div>
+                  </div>
+
+                  <!-- Câu Khác-4 -->
+                  <div class="qa-photo-item" data-category="thong-tin-chung">
+                    <div class="qa-photo-q-head">
+                      <span class="qa-photo-q-num">4</span>
+                      <i class="fa-solid fa-circle-question qa-photo-q-icon"></i>
+                      <h3 class="qa-photo-q-title">Tổng đài Chăm sóc khách hàng và tiếp nhận phản ánh kiến nghị của NHCSXH là số nào?</h3>
+                      <span class="qa-status-pill"><i class="fa-solid fa-circle-check"></i> Đã giải đáp</span>
+                    </div>
+                    <div class="qa-photo-q-desc">
+                      Người dân cần giải đáp thắc mắc về các chương trình vay vốn chính sách hoặc phản ánh kiến nghị thì gọi đến số điện thoại nào?
+                    </div>
+                    <div class="qa-photo-q-meta-wrap">
+                      <span class="qa-photo-meta-tag"><i class="fa-regular fa-calendar-check"></i> <strong>Ngày gửi:</strong> 12/07/2025</span>
+                      <span class="qa-photo-meta-tag"><i class="fa-regular fa-user"></i> <strong>Người gửi:</strong> Trịnh Quang Vinh</span>
+                      <span class="qa-photo-meta-tag"><i class="fa-solid fa-location-dot"></i> <strong>Địa chỉ:</strong> Cẩm Xuyên, Hà Tĩnh</span>
+                    </div>
+                    <div style="margin-left: 34px;">
+                      <a href="javascript:void(0)" class="qa-photo-ans-btn" onclick="toggleDetailAnswer('ans-khac-4')">
+                        <i class="fa-regular fa-comments"></i> Xem câu trả lời <i class="fa-solid fa-chevron-down" style="font-size: 0.75rem;"></i>
+                      </a>
+                    </div>
+                    <div id="ans-khac-4" class="qa-photo-ans-box">
+                      <div style="font-weight: 700; color: #004322; margin-bottom: 6px; display: flex; align-items: center; gap: 6px;">
+                        <i class="fa-solid fa-building-columns" style="color: #009640;"></i> Trả lời từ Trung tâm Chăm sóc khách hàng NHCSXH:
+                      </div>
+                      <ul style="margin: 0; padding-left: 20px;">
+                        <li><strong>Tổng đài Chăm sóc khách hàng toàn quốc:</strong> <strong style="color: #dc2626;">1900 638 586</strong> (hoạt động từ 7h30 đến 17h00 từ Thứ Hai đến Thứ Sáu).</li>
+                        <li><strong>Đường dây nóng Trụ sở chính:</strong> 024 3641 7184 / 024 3641 7212.</li>
+                        <li><strong>Hộp thư điện tử:</strong> <code>banbientap@vbsp.org.vn</code>.</li>
+                      </ul>
+                    </div>
+                  </div>
+
+                  <!-- Câu Khác-5 -->
+                  <div class="qa-photo-item" data-category="minh-bach">
+                    <div class="qa-photo-q-head">
+                      <span class="qa-photo-q-num">5</span>
+                      <i class="fa-solid fa-circle-question qa-photo-q-icon"></i>
+                      <h3 class="qa-photo-q-title">Người dân có phải nộp bất kỳ khoản phí hoặc hoa hồng nào cho cán bộ khi vay vốn?</h3>
+                      <span class="qa-status-pill"><i class="fa-solid fa-circle-check"></i> Đã giải đáp</span>
+                    </div>
+                    <div class="qa-photo-q-desc">
+                      Khi làm hồ sơ vay vốn tín dụng chính sách tại NHCSXH, hộ vay có phải chịu chi phí làm hồ sơ hay bồi dưỡng cán bộ không?
+                    </div>
+                    <div class="qa-photo-q-meta-wrap">
+                      <span class="qa-photo-meta-tag"><i class="fa-regular fa-calendar-check"></i> <strong>Ngày gửi:</strong> 18/07/2025</span>
+                      <span class="qa-photo-meta-tag"><i class="fa-regular fa-user"></i> <strong>Người gửi:</strong> Ma Văn Dũng</span>
+                      <span class="qa-photo-meta-tag"><i class="fa-solid fa-location-dot"></i> <strong>Địa chỉ:</strong> Chiêm Hóa, Tuyên Quang</span>
+                    </div>
+                    <div style="margin-left: 34px;">
+                      <a href="javascript:void(0)" class="qa-photo-ans-btn" onclick="toggleDetailAnswer('ans-khac-5')">
+                        <i class="fa-regular fa-comments"></i> Xem câu trả lời <i class="fa-solid fa-chevron-down" style="font-size: 0.75rem;"></i>
+                      </a>
+                    </div>
+                    <div id="ans-khac-5" class="qa-photo-ans-box">
+                      <div style="font-weight: 700; color: #004322; margin-bottom: 6px; display: flex; align-items: center; gap: 6px;">
+                        <i class="fa-solid fa-building-columns" style="color: #009640;"></i> Trả lời từ Ban Kiểm tra Kiểm soát Nội bộ - NHCSXH:
+                      </div>
+                      <p style="margin: 0 0 6px;"><strong style="color: #dc2626;">HOÀN TOÀN KHÔNG!</strong> Toàn bộ quá trình tư vấn, tiếp nhận hồ sơ, bình xét cho vay và giải ngân vốn vay của Ngân hàng Chính sách xã hội đều là <strong>HOÀN TOÀN MIỄN PHÍ</strong>.</p>
+                      <p style="margin: 0;">Khách hàng vay vốn tuyệt đối không phải trả bất kỳ khoản phí môi giới hay tiền bồi dưỡng nào cho cán bộ ngân hàng, tổ chức hội đoàn thể hay Ban quản lý Tổ TK&VV. Mọi hành vi thu phí trái quy định đều bị xử lý nghiêm minh theo kỷ luật ngành và pháp luật của Nhà nước.</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <!-- CTA BANNER -->
+              <div class="qa-ask-cta-card">
+                <div>
+                  <h3 style="margin: 0 0 6px; font-size: 1.15rem; color: #ffffff;"><i class="fa-solid fa-circle-question" style="color: var(--vbsp-gold);"></i> Bạn có ý kiến đóng góp hoặc phản ánh kiến nghị khác?</h3>
+                  <p style="margin: 0; font-size: 0.88rem; color: #cbd5e1;">Gửi phản hồi trực tiếp để Ban Giám đốc NHCSXH tiếp nhận và xử lý kịp thời.</p>
+                </div>
+                <button class="qa-ask-cta-btn" onclick="switchQATab('gui-cau-hoi')">
+                  <i class="fa-solid fa-paper-plane"></i> Gửi ý kiến ngay
+                </button>
+              </div>
+            </div>
+
+            <!-- ==================== TAB 4: MÀN CHỨC NĂNG GỬI CÂU HỎI TRỰC TUYẾN ==================== -->
+            <div id="pane-gui-cau-hoi" class="qa-tab-pane" style="display: none;">
+              
+              <!-- BANNER HƯỚNG DẪN GỬI CÂU HỎI -->
+              <div style="background: linear-gradient(135deg, #f0fdf4 0%, #ecfdf5 100%); border: 1px solid #bbf7d0; border-left: 4px solid #009640; border-radius: 8px; padding: 16px 20px; margin-bottom: 22px; display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 14px;">
+                <div style="display: flex; align-items: center; gap: 14px;">
+                  <div style="width: 44px; height: 44px; background: linear-gradient(135deg, #009640 0%, #0c8a4b 100%); border-radius: 50%; display: flex; align-items: center; justify-content: center; color: #ffffff; font-size: 1.15rem; flex-shrink: 0; box-shadow: 0 4px 10px rgba(0,150,64,0.25);">
+                    <i class="fa-solid fa-paper-plane"></i>
+                  </div>
+                  <div>
+                    <h3 style="margin: 0 0 4px; font-size: 1.08rem; font-weight: 700; color: #004322;">Tiếp nhận câu hỏi & Phản ánh trực tuyến tới NHCSXH</h3>
+                    <p style="margin: 0; font-size: 0.88rem; color: #334155; line-height: 1.5;">Vui lòng nhập đầy đủ các trường thông tin có dấu <strong style="color: #dc2626;">(*)</strong>. Chuyên viên Ban Tín dụng & Ban Pháp chế NHCSXH sẽ phản hồi trong thời gian sớm nhất.</p>
+                  </div>
+                </div>
+                <div>
+                  <button type="button" class="qa-photo-ans-btn" onclick="switchQATab('chinh-sach')" style="border-radius: 20px;">
+                    <i class="fa-solid fa-arrow-left"></i> Xem danh sách đã giải đáp
+                  </button>
+                </div>
+              </div>
+
+              <!-- KHỐI NHẬP THÔNG TIN VÀ GỬI CÂU HỎI (CHUẨN FORM MẪU) -->
+              <div class="qa-photo-container" id="photoQAFormCard">
+                <div class="qa-photo-header">
+                  <h2 class="qa-photo-title">
+                    <i class="fa-solid fa-pen-to-square"></i> GỬI CÂU HỎI TRỰC TUYẾN TỚI NHCSXH
+                  </h2>
+                  <div class="qa-photo-req-note">
+                    <span>(*)</span> Thông tin bắt buộc
+                  </div>
+                </div>
+
+                <form id="photoQAForm" onsubmit="handlePhotoFormSubmit(event)">
+                  <table class="qa-photo-table">
+                    <tbody>
+                      <!-- 1. Chuyên mục -->
+                      <tr>
+                        <td class="label-col">Chuyên mục</td>
+                        <td class="input-col">
+                          <select class="qa-photo-select" id="photoQACategory">
+                            <option value="hoi-dap">Hỏi đáp chung</option>
+                            <option value="chinh-sach">Hỏi đáp chính sách</option>
+                            <option value="quy-trinh">Hỏi đáp quy trình nghiệp vụ</option>
+                            <option value="khac">Hỏi đáp khác</option>
+                          </select>
+                        </td>
+                      </tr>
+
+                      <!-- 2. Tiêu đề (*) -->
+                      <tr>
+                        <td class="label-col">Tiêu đề <span class="req">(*)</span></td>
+                        <td class="input-col">
+                          <input type="text" class="qa-photo-input" id="photoQATitle" placeholder="Nhập tiêu đề câu hỏi..." required>
+                        </td>
+                      </tr>
+
+                      <!-- 3. Nội dung câu hỏi (*) kèm Rich Text Editor -->
+                      <tr>
+                        <td class="label-col" style="vertical-align: top; padding-top: 14px;">Nội dung câu hỏi <span class="req">(*)</span></td>
+                        <td class="input-col">
+                          <div class="qa-photo-editor-wrap">
+                            <div class="qa-photo-editor-bar">
+                              <button type="button" class="qa-photo-bar-btn" onclick="formatPhotoEditor('bold')" title="In đậm (Bold)"><i class="fa-solid fa-bold"></i></button>
+                              <button type="button" class="qa-photo-bar-btn" onclick="formatPhotoEditor('italic')" title="In nghiêng (Italic)"><i class="fa-solid fa-italic"></i></button>
+                              <button type="button" class="qa-photo-bar-btn" onclick="formatPhotoEditor('underline')" title="Gạch chân (Underline)"><i class="fa-solid fa-underline"></i></button>
+                              <button type="button" class="qa-photo-bar-btn" onclick="formatPhotoEditor('strikeThrough')" title="Gạch ngang"><i class="fa-solid fa-strikethrough"></i></button>
+                              <span style="display: inline-block; width: 1px; height: 18px; background: #cbd5e1; margin: 0 4px;"></span>
+                              <button type="button" class="qa-photo-bar-btn" onclick="formatPhotoEditor('justifyLeft')" title="Căn trái"><i class="fa-solid fa-align-left"></i></button>
+                              <button type="button" class="qa-photo-bar-btn" onclick="formatPhotoEditor('justifyCenter')" title="Căn giữa"><i class="fa-solid fa-align-center"></i></button>
+                              <button type="button" class="qa-photo-bar-btn" onclick="formatPhotoEditor('justifyRight')" title="Căn phải"><i class="fa-solid fa-align-right"></i></button>
+                              <button type="button" class="qa-photo-bar-btn" onclick="formatPhotoEditor('justifyFull')" title="Căn đều 2 bên"><i class="fa-solid fa-align-justify"></i></button>
+                              <span style="display: inline-block; width: 1px; height: 18px; background: #cbd5e1; margin: 0 4px;"></span>
+                              <button type="button" class="qa-photo-bar-btn" onclick="formatPhotoEditor('insertUnorderedList')" title="Danh sách chấm"><i class="fa-solid fa-list-ul"></i></button>
+                              <button type="button" class="qa-photo-bar-btn" onclick="formatPhotoEditor('insertOrderedList')" title="Danh sách số"><i class="fa-solid fa-list-ol"></i></button>
+                            </div>
+                            <div id="photoQAContent" class="qa-photo-editor-content" contenteditable="true" placeholder="Nhập chi tiết nội dung câu hỏi..."></div>
+                          </div>
+                        </td>
+                      </tr>
+
+                      <!-- 4. Tệp tin đính kèm -->
+                      <tr>
+                        <td class="label-col">Tệp tin đính kèm</td>
+                        <td class="input-col">
+                          <input type="file" id="photoQAFile" style="display: none;" onchange="handlePhotoFile(this)">
+                          <button type="button" class="qa-photo-file-btn" onclick="document.getElementById('photoQAFile').click()">
+                            <i class="fa-solid fa-arrow-up-from-bracket"></i> Choose File
+                          </button>
+                          <span id="photoQAFileName" style="margin-left: 12px; font-size: 0.88rem; color: #64748b;">No file chosen</span>
+                        </td>
+                      </tr>
+
+                      <!-- 5. Người hỏi (*) -->
+                      <tr>
+                        <td class="label-col">Người hỏi <span class="req">(*)</span></td>
+                        <td class="input-col">
+                          <input type="text" class="qa-photo-input" id="photoQASender" placeholder="Họ và tên người gửi câu hỏi..." required>
+                        </td>
+                      </tr>
+
+                      <!-- 6. Địa chỉ (*) -->
+                      <tr>
+                        <td class="label-col">Địa chỉ <span class="req">(*)</span></td>
+                        <td class="input-col">
+                          <input type="text" class="qa-photo-input" id="photoQAAddress" placeholder="Thôn/Bản, Xã/Phường, Tỉnh/Thành phố..." required>
+                        </td>
+                      </tr>
+
+                      <!-- 7. Điện thoại (*) -->
+                      <tr>
+                        <td class="label-col">Điện thoại <span class="req">(*)</span></td>
+                        <td class="input-col">
+                          <input type="tel" class="qa-photo-input" id="photoQAPhone" placeholder="Số điện thoại liên hệ..." required>
+                        </td>
+                      </tr>
+
+                      <!-- 8. Email (*) -->
+                      <tr>
+                        <td class="label-col">Email <span class="req">(*)</span></td>
+                        <td class="input-col">
+                          <input type="email" class="qa-photo-input" id="photoQAEmail" placeholder="Địa chỉ email nhận câu trả lời..." required>
+                        </td>
+                      </tr>
+
+                      <!-- 9. Mã kiểm tra -->
+                      <tr>
+                        <td class="label-col">Mã kiểm tra</td>
+                        <td class="input-col">
+                          <div class="qa-photo-captcha-box">
+                            <div class="qa-photo-captcha-img" id="photoCaptchaDisplay">f4244</div>
+                            <button type="button" class="qa-photo-bar-btn" onclick="refreshPhotoCaptcha()" title="Đổi mã khác" style="width: 32px; height: 32px; border: 1px solid #cbd5e1; background: #f8fafc;">
+                              <i class="fa-solid fa-rotate"></i>
+                            </button>
+                          </div>
+                        </td>
+                      </tr>
+
+                      <!-- 10. Nhập mã kiểm tra (*) -->
+                      <tr>
+                        <td class="label-col">Nhập mã kiểm tra <span class="req">(*)</span></td>
+                        <td class="input-col">
+                          <input type="text" class="qa-photo-input" id="photoCaptchaInput" style="max-width: 240px;" placeholder="Nhập mã kiểm tra..." required>
+                        </td>
+                      </tr>
+
+                      <!-- Action Buttons (Nút gửi màu xanh cùng tone giao diện) -->
+                      <tr>
+                        <td></td>
+                        <td style="padding-top: 16px;">
+                          <div style="display: flex; gap: 14px; align-items: center; flex-wrap: wrap;">
+                            <button type="submit" class="qa-photo-btn-submit">
+                              <i class="fa-solid fa-paper-plane"></i> GỬI CÂU HỎI
+                            </button>
+                            <button type="button" class="qa-photo-btn-reset" onclick="resetPhotoQA()">
+                              <i class="fa-solid fa-rotate-left"></i> LÀM LẠI
+                            </button>
+                          </div>
+                        </td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </form>
+              </div>
+
+            </div>
+
+          </div>
+
+        </div>
+
+      </div>
+    </div>
+  </main>
+
+  <!-- ==================== FOOTER ==================== -->
+  <footer class="vbsp-footer" id="footer">
+    <div class="vbsp-container">
+      <div class="footer-grid-3col">
+        <!-- Cột 1: Thông tin cơ quan -->
+        <div class="footer-col-agency">
+          <div class="footer-brand-header" style="display: flex; align-items: center; gap: 14px; margin-bottom: 18px;">
+            <img src="https://storage-vnportal.vnpt.vn/tw-nhcsxh/8053/banner/logo.png" alt="Logo NHCSXH" style="height: 52px; background: #ffffff; padding: 4px; border-radius: 6px; box-shadow: 0 2px 8px rgba(0,0,0,0.15);">
+            <div>
+              <h3 class="footer-brand-title" style="margin: 0; font-size: 1.15rem; font-weight: 700; color: #ffffff; text-transform: uppercase;">Ngân hàng Chính sách xã hội</h3>
+              <div style="font-size: 0.8rem; color: #cbd5e1; letter-spacing: 0.5px;">VIETNAM BANK FOR SOCIAL POLICIES (VBSP)</div>
+            </div>
+          </div>
+          <div class="footer-contact-list">
+            <div class="footer-contact-item">
+              <i class="fa-solid fa-location-dot" style="color: var(--vbsp-gold);"></i>
+              <span>Trụ sở chính: Tòa nhà NHCSXH, CC5B Bán đảo Linh Đàm, P. Hoàng Liệt, Q. Hoàng Mai, TP. Hà Nội</span>
+            </div>
+            <div class="footer-contact-item">
+              <i class="fa-solid fa-phone" style="color: var(--vbsp-gold);"></i>
+              <span>Điện thoại: (024) 36417184 - Fax: (024) 36417194</span>
+            </div>
+            <div class="footer-contact-item">
+              <i class="fa-solid fa-headset" style="color: #f43f5e;"></i>
+              <span>Tổng đài Chăm sóc khách hàng: <strong style="color: #ffffff; font-size: 1.05rem;">1900 638 586</strong></span>
+            </div>
+            <div class="footer-contact-item">
+              <i class="fa-solid fa-envelope" style="color: var(--vbsp-gold);"></i>
+              <span>Email: banbientap@vbsp.vn</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Cột 2: Liên kết website -->
+        <div class="footer-col-links">
+          <h4 class="footer-col-title" style="color: #ffffff; font-size: 1.05rem; font-weight: 700; margin-bottom: 16px; position: relative; padding-bottom: 8px;">
+            Liên kết website
+            <span style="position: absolute; bottom: 0; left: 0; width: 40px; height: 3px; background: #f43f5e; border-radius: 2px;"></span>
+          </h4>
+          <div class="footer-links-list" style="display: grid; grid-template-columns: 1fr; gap: 8px;">
+            <a href="https://chinhphu.vn" target="_blank" rel="noopener noreferrer"><i class="fa-solid fa-link" style="color: #f43f5e; font-size: 0.8rem; margin-right: 6px;"></i> Cổng Thông tin điện tử Chính phủ</a>
+            <a href="https://sbv.gov.vn" target="_blank" rel="noopener noreferrer"><i class="fa-solid fa-link" style="color: #f43f5e; font-size: 0.8rem; margin-right: 6px;"></i> Ngân hàng Nhà nước Việt Nam</a>
+            <a href="https://mof.gov.vn" target="_blank" rel="noopener noreferrer"><i class="fa-solid fa-link" style="color: #f43f5e; font-size: 0.8rem; margin-right: 6px;"></i> Bộ Tài chính</a>
+            <a href="https://molisa.gov.vn" target="_blank" rel="noopener noreferrer"><i class="fa-solid fa-link" style="color: #f43f5e; font-size: 0.8rem; margin-right: 6px;"></i> Bộ Lao động - Thương binh và Xã hội</a>
+            <a href="https://nhandan.vn" target="_blank" rel="noopener noreferrer"><i class="fa-solid fa-link" style="color: #f43f5e; font-size: 0.8rem; margin-right: 6px;"></i> Báo Nhân Dân</a>
+            <a href="https://tapchicongsan.org.vn" target="_blank" rel="noopener noreferrer"><i class="fa-solid fa-link" style="color: #f43f5e; font-size: 0.8rem; margin-right: 6px;"></i> Tạp chí Cộng sản</a>
+            <a href="https://hoinongdan.org.vn" target="_blank" rel="noopener noreferrer"><i class="fa-solid fa-link" style="color: #f43f5e; font-size: 0.8rem; margin-right: 6px;"></i> Hội Nông dân Việt Nam</a>
+            <a href="https://hoilhpn.org.vn" target="_blank" rel="noopener noreferrer"><i class="fa-solid fa-link" style="color: #f43f5e; font-size: 0.8rem; margin-right: 6px;"></i> Hội Liên hiệp Phụ nữ Việt Nam</a>
+          </div>
+        </div>
+
+        <!-- Cột 3: Thống kê truy cập -->
+        <div class="footer-col-stats">
+          <h4 class="footer-col-title" style="color: #ffffff; font-size: 1.05rem; font-weight: 700; margin-bottom: 16px; position: relative; padding-bottom: 8px;">
+            Thống kê truy cập
+            <span style="position: absolute; bottom: 0; left: 0; width: 40px; height: 3px; background: #0c8a4b; border-radius: 2px;"></span>
+          </h4>
+          <div class="footer-visitor-stats-box">
+            <div class="footer-stat-row">
+              <span><i class="fa-solid fa-user-check" style="color: #10b981; width: 20px;"></i> Đang trực tuyến:</span>
+              <strong style="color: #34d399; font-size: 0.95rem;">1.248</strong>
+            </div>
+            <div class="footer-stat-row">
+              <span><i class="fa-regular fa-calendar-check" style="color: #38bdf8; width: 20px;"></i> Hôm nay:</span>
+              <strong style="color: #ffffff;">38.450</strong>
+            </div>
+            <div class="footer-stat-row">
+              <span><i class="fa-solid fa-clock-rotate-left" style="color: #fbbf24; width: 20px;"></i> Hôm qua:</span>
+              <strong style="color: #ffffff;">65.210</strong>
+            </div>
+            <div class="footer-stat-row">
+              <span><i class="fa-solid fa-chart-line" style="color: #f43f5e; width: 20px;"></i> Trong tuần:</span>
+              <strong style="color: #ffffff;">286.740</strong>
+            </div>
+            <div class="footer-stat-row">
+              <span><i class="fa-solid fa-eye" style="color: var(--vbsp-gold); width: 20px;"></i> Tổng lượt truy cập:</span>
+              <strong style="color: #fef08a; font-size: 1.05rem; letter-spacing: 0.5px;">128.450.920</strong>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <div>© 2026 Bản quyền thuộc về Ngân hàng Chính sách xã hội (VBSP). Thiết kế & Vận hành Cổng thông tin điện tử.</div>
+        <div>Giấy phép số 128/GP-BC do Cục Báo chí - Bộ Thông tin và Truyền thông cấp ngày 28/07/2005.</div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- ==================== SCRIPTS ==================== -->
+  <script src="js/data.js"></script>
+  <script src="js/main.js"></script>
+
+  <script>
+    // Tab switching function
+    function switchQATab(tabId, el) {
+      // Buttons
+      document.querySelectorAll('#qaTabGroup .award-tab-pill').forEach(btn => btn.classList.remove('active'));
+      if (el) {
+        el.classList.add('active');
+      } else {
+        const found = document.querySelector(`#qaTabGroup .award-tab-pill[onclick*="'${tabId}'"]`);
+        if (found) found.classList.add('active');
+      }
+
+      // Panes
+      document.querySelectorAll('.qa-tab-pane').forEach(p => p.style.display = 'none');
+      const target = document.getElementById('pane-' + tabId);
+      if (target) {
+        target.style.display = 'block';
+      }
+    }
+
+    // Accordion toggle for standard FAQ items
+    function toggleAccordion(headerEl) {
+      const item = headerEl.closest('.qa-accordion-item');
+      if (item) {
+        item.classList.toggle('open');
+      }
+    }
+
+    // Search questions in real-time across active pane
+    function searchQA() {
+      const val = (document.getElementById('qaSearchInput')?.value || '').toLowerCase().trim();
+      const activePane = document.querySelector('.qa-tab-pane[style*="display: block"]') || document.querySelector('.qa-tab-pane:not([style*="display: none"])');
+      if (!activePane) return;
+      const items = activePane.querySelectorAll('.qa-photo-item');
+      let visibleCount = 0;
+      items.forEach(item => {
+        const text = item.innerText.toLowerCase();
+        const match = (!val) || text.includes(val);
+        item.style.display = match ? 'block' : 'none';
+        if (match) visibleCount++;
+      });
+      const countEl = activePane.querySelector('.qa-pane-count');
+      if (countEl) {
+        countEl.innerHTML = `Tổng số: <strong style="color: #009640;">${visibleCount}</strong> câu hỏi`;
+      }
+    }
+
+    // Filter questions within a specific pane
+    function filterPaneQuestions(paneId, inputId, catId) {
+      const pane = document.getElementById(paneId);
+      if (!pane) return;
+      const keyword = (document.getElementById(inputId)?.value || '').toLowerCase().trim();
+      const cat = catId ? (document.getElementById(catId)?.value || 'all') : 'all';
+      const items = pane.querySelectorAll('.qa-photo-item');
+      let visibleCount = 0;
+
+      items.forEach(item => {
+        const itemCat = item.getAttribute('data-category') || '';
+        const itemText = item.innerText.toLowerCase();
+
+        const matchCat = (cat === 'all') || itemCat.includes(cat);
+        const matchKeyword = (!keyword) || itemText.includes(keyword);
+
+        if (matchCat && matchKeyword) {
+          item.style.display = 'block';
+          visibleCount++;
+        } else {
+          item.style.display = 'none';
+        }
+      });
+
+      const countEl = pane.querySelector('.qa-pane-count');
+      if (countEl) {
+        countEl.innerHTML = `Tổng số: <strong style="color: #009640;">${visibleCount}</strong> câu hỏi`;
+      }
+    }
+
+    // Fallback alias for filterPhotoQuestions
+    function filterPhotoQuestions() {
+      filterPaneQuestions('pane-tat-ca', 'searchAll');
+    }
+
+    // ==================== PHOTO MẪU: TOGGLE CÂU TRẢ LỜI ====================
+    function toggleDetailAnswer(ansId) {
+      const box = document.getElementById(ansId);
+      if (box) {
+        box.classList.toggle('show');
+      }
+    }
+
+    // ==================== PHOTO MẪU: WYSIWYG EDITOR COMMANDS ====================
+    function formatPhotoEditor(command, prefix = '') {
+      document.execCommand(command, false, null);
+      const editor = document.getElementById(prefix ? prefix + 'photoQAContent' : 'photoQAContent');
+      if (editor) editor.focus();
+    }
+
+    // ==================== PHOTO MẪU: FILE INPUT HANDLER ====================
+    function handlePhotoFile(input, prefix = '') {
+      const nameEl = document.getElementById(prefix ? prefix + 'photoQAFileName' : 'photoQAFileName');
+      if (!nameEl) return;
+      if (input.files && input.files[0]) {
+        nameEl.innerText = input.files[0].name;
+        nameEl.style.fontStyle = 'normal';
+        nameEl.style.color = '#009640';
+        nameEl.style.fontWeight = '600';
+      } else {
+        nameEl.innerText = 'No file chosen';
+        nameEl.style.fontStyle = 'italic';
+        nameEl.style.color = '#64748b';
+      }
+    }
+
+    // ==================== PHOTO MẪU: CAPTCHA GENERATOR ====================
+    const photoCaptchaSamples = ['f4244', '93b1c', '7e4a2', '61f3k', '58b2p', 'd82c4'];
+    let photoCaptchaIdx = 0;
+    function refreshPhotoCaptcha(prefix = '') {
+      photoCaptchaIdx = (photoCaptchaIdx + 1) % photoCaptchaSamples.length;
+      const displayEl = document.getElementById(prefix ? prefix + 'photoCaptchaDisplay' : 'photoCaptchaDisplay');
+      const inputEl = document.getElementById(prefix ? prefix + 'photoCaptchaInput' : 'photoCaptchaInput');
+      if (displayEl) displayEl.innerText = photoCaptchaSamples[photoCaptchaIdx];
+      if (inputEl) inputEl.value = '';
+    }
+
+    // ==================== PHOTO MẪU: SUBMIT FORM GỬI CÂU HỎI ====================
+    function handlePhotoFormSubmit(e, prefix = '') {
+      e.preventDefault();
+      const p = prefix || '';
+      const catEl = document.getElementById(p + 'photoQACategory');
+      const titleEl = document.getElementById(p + 'photoQATitle');
+      const contentEl = document.getElementById(p + 'photoQAContent');
+      const senderEl = document.getElementById(p + 'photoQASender');
+      const addressEl = document.getElementById(p + 'photoQAAddress');
+      const phoneEl = document.getElementById(p + 'photoQAPhone');
+      const emailEl = document.getElementById(p + 'photoQAEmail');
+      const captchaEl = document.getElementById(p + 'photoCaptchaInput');
+      const displayCaptcha = document.getElementById(p + 'photoCaptchaDisplay');
+
+      const title = titleEl ? titleEl.value.trim() : '';
+      const content = contentEl ? contentEl.innerText.trim() : '';
+      const sender = senderEl ? senderEl.value.trim() : '';
+      const address = addressEl ? addressEl.value.trim() : '';
+      const phone = phoneEl ? phoneEl.value.trim() : '';
+      const email = emailEl ? emailEl.value.trim() : '';
+      const captcha = captchaEl ? captchaEl.value.trim() : '';
+      const currentCaptcha = displayCaptcha ? displayCaptcha.innerText.toLowerCase() : '';
+
+      if (!title || !content || !sender || !address || !phone || !email) {
+        alert('Vui lòng điền đầy đủ các trường thông tin bắt buộc có dấu (*) !');
+        return;
+      }
+
+      if (captcha.toLowerCase() !== currentCaptcha) {
+        alert('Mã kiểm tra (Captcha) không chính xác! Vui lòng nhập đúng mã ' + currentCaptcha);
+        return;
+      }
+
+      alert('GỬI CÂU HỎI THÀNH CÔNG!\n\nCảm ơn Quý khách ' + sender + '!\nCâu hỏi: "' + title + '" đã được tiếp nhận.\n\nBan Biên tập và Bộ phận Chuyên môn sẽ giải đáp và gửi phản hồi qua email ' + email + ' hoặc liên hệ trực tiếp số điện thoại ' + phone + ' trong thời gian sớm nhất.');
+
+      resetPhotoQA(p);
+    }
+
+    // ==================== PHOTO MẪU: RESET FORM ====================
+    function resetPhotoQA(prefix = '') {
+      const p = prefix || '';
+      const form = document.getElementById(p + 'photoQAForm');
+      if (form) form.reset();
+      const editor = document.getElementById(p + 'photoQAContent');
+      if (editor) editor.innerHTML = '';
+      const nameEl = document.getElementById(p + 'photoQAFileName');
+      if (nameEl) {
+        nameEl.innerText = 'No file chosen';
+        nameEl.style.fontStyle = 'italic';
+        nameEl.style.color = '#64748b';
+      }
+      refreshPhotoCaptcha(p);
+    }
+
+    // Handle URL search params on load
+    window.addEventListener('DOMContentLoaded', () => {
+      const urlParams = new URLSearchParams(window.location.search);
+      const typeParam = urlParams.get('type');
+      const hash = window.location.hash.replace('#', '');
+      const target = typeParam || hash;
+
+      if (target) {
+        if (target === 'tat-ca' || target === 'tatca' || target === 'all') {
+          switchQATab('tat-ca', document.querySelectorAll('#qaTabGroup .award-tab-pill')[0]);
+        } else if (target === 'chinh-sach' || target === 'chinhsach') {
+          switchQATab('chinh-sach', document.querySelectorAll('#qaTabGroup .award-tab-pill')[1]);
+        } else if (target === 'quy-trinh' || target === 'quytrinh') {
+          switchQATab('quy-trinh', document.querySelectorAll('#qaTabGroup .award-tab-pill')[2]);
+        } else if (target === 'khac') {
+          switchQATab('khac', document.querySelectorAll('#qaTabGroup .award-tab-pill')[3]);
+        } else if (target === 'gui-cau-hoi' || target === 'guicauhoi' || target === 'hoidap') {
+          switchQATab('gui-cau-hoi', document.querySelectorAll('#qaTabGroup .award-tab-pill')[4]);
+        }
+      }
+    });
+  </script>
+</body>
+</html>

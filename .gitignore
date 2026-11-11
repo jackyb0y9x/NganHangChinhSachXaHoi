@@ -1,0 +1,10 @@
+# Backup archives & temporary inspection/scratch artifacts
+*.rar
+*.zip
+scratch/
+
+# OS & Editor clutter
+.DS_Store
+Thumbs.db
+desktop.ini
+node_modules/

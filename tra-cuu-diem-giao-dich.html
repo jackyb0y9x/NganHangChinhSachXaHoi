@@ -1,0 +1,1719 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Tra cứu Điểm giao dịch xã & Lãi suất | Ngân hàng Chính sách xã hội (VBSP)</title>
+  
+  <link rel="shortcut icon" href="https://storage-vnportal.vnpt.vn/tw-nhcsxh/8053/banner/logo.png" type="image/png">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/header-nav.css">
+  <link rel="stylesheet" href="css/components.css">
+  <style>
+    /* Responsive styling for DGD Filter & Table */
+    @media (max-width: 992px) {
+      .ui-dgd-filter-grid {
+        grid-template-columns: repeat(2, 1fr) !important;
+      }
+    }
+    @media (max-width: 640px) {
+      .ui-dgd-filter-grid {
+        grid-template-columns: 1fr !important;
+      }
+      .ui-dgd-stats {
+        grid-template-columns: 1fr !important;
+      }
+    }
+    .ui-dgd-page-nav:hover:not(.disabled) {
+      background: #00703c !important;
+      color: #ffffff !important;
+      border-color: #00703c !important;
+    }
+    .ui-dgd-page-nav.disabled {
+      pointer-events: none !important;
+      opacity: 0.45 !important;
+      background: #f1f5f9 !important;
+      cursor: not-allowed !important;
+    }
+  </style>
+</head>
+<body>
+
+                        <!-- ==================== TOP BAR ==================== -->
+  <div class="vbsp-topbar">
+    <div class="vbsp-container">
+      <div class="topbar-wrapper">
+        <div class="topbar-left">
+          <span class="topbar-portal-title">
+            <i class="fa-solid fa-landmark"></i>
+            <span class="portal-title-full">CỔNG THÔNG TIN ĐIỆN TỬ NGÂN HÀNG CHÍNH SÁCH XÃ HỘI</span>
+            <span class="portal-title-short">NHCSXH - VBSP</span>
+          </span>
+        </div>
+        <div class="topbar-right">
+          <span class="topbar-item" id="liveClock">
+            <i class="fa-regular fa-clock"></i> Hà Nội: Thứ Năm, 22/10/2026 - 16:52
+          </span>
+          <div class="topbar-links">
+            <a href="#footer"><i class="fa-solid fa-sitemap"></i> Sơ đồ cổng</a>
+            <a href="#footer"><i class="fa-solid fa-envelope"></i> Liên hệ</a>
+          </div>
+          <div class="lang-switch" title="Ngôn ngữ / Language">
+            <i class="fa-solid fa-globe lang-icon"></i>
+            <a href="index.html" class="active" title="Tiếng Việt">VN</a>
+            <a href="en-news-highlights.html" title="English">English</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ==================== MAIN BRAND HEADER ==================== -->
+  <header class="vbsp-main-header">
+    <div class="vbsp-container">
+      <div class="header-wrapper">
+        <div class="header-brand">
+          <a href="index.html" class="header-brand-link">
+            <img src="https://storage-vnportal.vnpt.vn/tw-nhcsxh/8053/banner/logo.png" alt="Logo NHCSXH" class="brand-logo-img">
+            <div class="brand-text-block">
+              <span class="brand-title-vn">Ngân hàng Chính sách xã hội</span>
+              <span class="brand-title-en">Vietnam Bank for Social Policies</span>
+            </div>
+          </a>
+        </div>
+        <div class="header-quick-tools">
+          <form class="header-search-form" onsubmit="event.preventDefault(); window.location.href='tin-tuc-su-kien.html';">
+            <input type="text" class="header-search-input" placeholder="Tìm kiếm dịch vụ, chính sách...">
+            <button type="submit" class="header-search-btn" aria-label="Tìm kiếm"><i class="fa-solid fa-magnifying-glass"></i></button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- ==================== MAIN NAVIGATION BAR (7 TOP MENUS - DESKTOP & MOBILE DRAWER) ==================== -->
+  <nav class="vbsp-navbar" aria-label="Điều hướng chính">
+    <div class="vbsp-container nav-container">
+      <div class="mobile-nav-bar">
+        <button type="button" class="mobile-nav-toggle" aria-label="Mở menu danh mục" aria-expanded="false">
+          <i class="fa-solid fa-bars"></i>
+          <span>Danh mục</span>
+        </button>
+        <a href="tel:1900638586" class="mobile-hotline-chip">
+          <i class="fa-solid fa-phone-volume"></i>
+          <span>1900 638 586</span>
+        </a>
+      </div>
+
+      <div class="mobile-nav-backdrop" aria-hidden="true"></div>
+
+      <ul class="nav-menu">
+        <!-- Mobile Drawer Top Header & Search (Hidden on Desktop) -->
+        <li class="mobile-drawer-top">
+          <div class="mobile-drawer-brand-row">
+            <a href="index.html" class="mobile-drawer-brand">
+              <img src="https://storage-vnportal.vnpt.vn/tw-nhcsxh/8053/banner/logo.png" alt="VBSP">
+              <div>
+                <strong>NHCSXH Việt Nam</strong>
+                <span>Danh mục Cổng thông tin</span>
+              </div>
+            </a>
+            <button type="button" class="mobile-drawer-close" aria-label="Đóng menu">
+              <i class="fa-solid fa-xmark"></i>
+            </button>
+          </div>
+          <form class="mobile-drawer-search" onsubmit="event.preventDefault(); window.location.href='tin-tuc-su-kien.html';">
+            <input type="text" placeholder="Tìm kiếm tin tức, chính sách..." aria-label="Tìm kiếm">
+            <button type="submit" aria-label="Tìm"><i class="fa-solid fa-magnifying-glass"></i></button>
+          </form>
+        </li>
+
+        <!-- 1. TRANG CHỦ -->
+        <li class="nav-item active">
+          <a href="index.html" class="nav-link">
+            <span>Trang chủ</span>
+          </a>
+        </li>
+
+        <!-- 2. GIỚI THIỆU -->
+        <li class="nav-item has-children ">
+          <a href="gioi-thieu-san-pham-dich-vu.html" class="nav-link">
+            <span>Giới thiệu</span>
+            <i class="fa-solid fa-chevron-down arrow-down"></i>
+          </a>
+          <div class="dropdown-panel dropdown-w-md">
+            <div class="dropdown-item">
+              <a href="y-nghia-bieu-trung-logo.html" class="dropdown-link">
+                <span>Ý nghĩa biểu trưng (Logo)</span>
+              </a>
+            </div>
+            <div class="dropdown-item">
+              <a href="lich-su-hinh-thanh.html" class="dropdown-link">
+                <span>Lịch sử hình thành</span>
+              </a>
+            </div>
+            <div class="dropdown-item">
+              <a href="cac-phan-thuong-cao-quy.html" class="dropdown-link">
+                <span>Các phần thưởng cao quý</span>
+              </a>
+            </div>
+            <div class="dropdown-item">
+              <a href="co-cau-to-chuc.html" class="dropdown-link">
+                <span>Cơ cấu tổ chức, đăng ký hoạt động</span>
+              </a>
+            </div>
+            <div class="dropdown-item has-sub-flyout dropdown-divider-top">
+              <a href="gioi-thieu-san-pham-dich-vu.html" class="dropdown-link dropdown-link-featured">
+                <span>Các sản phẩm dịch vụ</span>
+                <i class="fa-solid fa-chevron-right sub-flyout-arrow"></i>
+              </a>
+              <div class="sub-flyout-panel">
+                <div class="flyout-grid">
+                  <!-- Cột 1: Thanh toán chuyển tiền -->
+                  <div class="flyout-col">
+                    <div class="flyout-col-title">Thanh toán chuyển tiền</div>
+                    <ul class="flyout-list">
+                      <li><a href="chi-tiet-chuyen-tien.html?tab=den" class="flyout-link">Chuyển tiền đến trong nước</a></li>
+                      <li><a href="chi-tiet-chuyen-tien.html?tab=di" class="flyout-link">Chuyển tiền đi trong nước</a></li>
+                      <li><a href="chi-tiet-chuyen-tien.html?tab=kieuhoi" class="flyout-link">Dịch vụ chuyển tiền kiều hối</a></li>
+                    </ul>
+                  </div>
+
+                  <!-- Cột 2: Nhận tiền gửi tiết kiệm -->
+                  <div class="flyout-col">
+                    <div class="flyout-col-title">Nhận tiền gửi tiết kiệm</div>
+                    <ul class="flyout-list">
+                      <li><a href="chi-tiet-tien-gui-tiet-kiem.html?tab=cokyhan" class="flyout-link">Gửi tiết kiệm có kỳ hạn</a></li>
+                      <li><a href="chi-tiet-tien-gui-tiet-kiem.html?tab=khongkyhan" class="flyout-link">Gửi tiết kiệm không kỳ hạn</a></li>
+                      <li><a href="chi-tiet-tien-gui-tiet-kiem.html#calc" class="flyout-link">Công cụ tính lãi tiết kiệm</a></li>
+                    </ul>
+                  </div>
+
+                  <!-- Cột 3: Cho vay & Ngân quỹ -->
+                  <div class="flyout-col">
+                    <div class="flyout-col-title">Cho vay &amp; Ngân quỹ</div>
+                    <ul class="flyout-list">
+                      <li><a href="chi-tiet-quy-trinh-cho-vay.html?tab=tiengui" class="flyout-link">Tiền gửi có kỳ hạn</a></li>
+                      <li><a href="chi-tiet-quy-trinh-cho-vay.html?tab=thanhtoan" class="flyout-link">Tiền gửi thanh toán</a></li>
+                      <li><a href="chi-tiet-quy-trinh-cho-vay.html?tab=chovay" class="flyout-link">Quy trình cho vay chính sách</a></li>
+                    </ul>
+                  </div>
+                </div>
+
+                <div class="sub-flyout-footer">
+                  <a href="gioi-thieu-san-pham-dich-vu.html" class="flyout-footer-link">
+                    <span>Xem toàn bộ thông tin sản phẩm &amp; dịch vụ</span>
+                    <i class="fa-solid fa-arrow-right"></i>
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </li>
+
+        <!-- 3. THÔNG TIN HOẠT ĐỘNG -->
+        <li class="nav-item has-children ">
+          <a href="tin-tuc-su-kien.html" class="nav-link">
+            <span>Thông tin hoạt động</span>
+            <i class="fa-solid fa-chevron-down arrow-down"></i>
+          </a>
+          <div class="dropdown-panel dropdown-w-lg">
+            <div class="dropdown-item"><a href="tin-noi-bat.html" class="dropdown-link"><span>Tin nổi bật</span></a></div>
+            <div class="dropdown-item"><a href="tin-moi-cap-nhat.html" class="dropdown-link"><span>Tin mới cập nhật</span></a></div>
+            <div class="dropdown-item"><a href="nguoi-tot-viec-tot.html" class="dropdown-link"><span>Người tốt - Việc tốt</span></a></div>
+            <div class="dropdown-item"><a href="chi-tiet-multimedia.html" class="dropdown-link"><span>Chuyên trang Multimedia</span></a></div>
+            <div class="dropdown-item"><a href="phong-su-anh.html" class="dropdown-link"><span>Phóng sự ảnh</span></a></div>
+            <div class="dropdown-item"><a href="xem-video.html" class="dropdown-link"><span>Xem / Video</span></a></div>
+            <div class="dropdown-item"><a href="nghe-audio.html" class="dropdown-link"><span>Nghe / Audio</span></a></div>
+            <div class="dropdown-item dropdown-divider-top"><a href="thuc-hien-chi-thi-40.html" class="dropdown-link"><span>Thực hiện Chỉ thị số 40-CT/TW</span></a></div>
+            <div class="dropdown-item"><a href="cuoc-thi-truc-tuyen-chi-thi-39.html" class="dropdown-link"><span>Cuộc thi trực tuyến Chỉ thị số 39-CT/TW</span></a></div>
+            <div class="dropdown-item"><a href="cuoc-thi-viet-tin-dung-chinh-sach-xa-hoi-y-dang-long-dan.html" class="dropdown-link"><span>Cuộc thi viết "Tín dụng chính sách xã hội - ý Đảng, lòng Dân"</span></a></div>
+          </div>
+        </li>
+
+        <!-- 4. HỆ THỐNG VĂN BẢN -->
+        <li class="nav-item has-children ">
+          <a href="he-thong-van-ban.html" class="nav-link">
+            <span>Hệ thống văn bản</span>
+            <i class="fa-solid fa-chevron-down arrow-down"></i>
+          </a>
+          <div class="dropdown-panel dropdown-w-sm">
+            <div class="dropdown-item"><a href="he-thong-van-ban.html#trunguong" class="dropdown-link"><span>Văn bản Bộ, ngành Trung ương</span></a></div>
+            <div class="dropdown-item"><a href="he-thong-van-ban.html#hdqt" class="dropdown-link"><span>Văn bản của Hội đồng quản trị</span></a></div>
+            <div class="dropdown-item"><a href="he-thong-van-ban.html#tgd" class="dropdown-link"><span>Văn bản của Tổng giám đốc</span></a></div>
+            <div class="dropdown-item dropdown-divider-top">
+              <a href="he-thong-van-ban.html" class="dropdown-link dropdown-link-accent">
+                <span>Tra cứu tất cả văn bản chỉ đạo</span>
+              </a>
+            </div>
+          </div>
+        </li>
+
+        <!-- 5. ĐÀO TẠO VÀ NCKH -->
+        <li class="nav-item has-children ">
+          <a href="chuyen-de-nghien-cuu-khoa-hoc.html" class="nav-link">
+            <span>Đào tạo và NCKH</span>
+            <i class="fa-solid fa-chevron-down arrow-down"></i>
+          </a>
+          <div class="dropdown-panel dropdown-w-sm">
+            <div class="dropdown-item"><a href="chuyen-de-nghien-cuu-khoa-hoc.html" class="dropdown-link"><span>Nghiên cứu khoa học</span></a></div>
+            <div class="dropdown-item"><a href="nghien-cuu-trao-doi.html" class="dropdown-link"><span>Nghiên cứu &amp; trao đổi</span></a></div>
+            <div class="dropdown-item"><a href="chuyen-de-nghien-cuu-khoa-hoc.html?tab=daotao" class="dropdown-link"><span>Chuyên đề đào tạo</span></a></div>
+            <div class="dropdown-item"><a href="chuyen-de-nghien-cuu-khoa-hoc.html?tab=canbo" class="dropdown-link"><span>Đào tạo cán bộ trong hệ thống</span></a></div>
+          </div>
+        </li>
+
+        <!-- 6. CHUYÊN MỤC KHÁC -->
+        <li class="nav-item has-children ">
+          <a href="cong-tac-dang.html" class="nav-link">
+            <span>Chuyên mục khác</span>
+            <i class="fa-solid fa-chevron-down arrow-down"></i>
+          </a>
+          <div class="dropdown-panel dropdown-2col">
+            <div class="dropdown-col-group">
+              <div class="mega-col-title mega-col-title-compact">Công tác Đảng &amp; Đoàn thể</div>
+              <div class="dropdown-item"><a href="cong-tac-dang.html" class="dropdown-link"><span>Công tác Đảng</span></a></div>
+              <div class="dropdown-item"><a href="hoat-dong-cong-doan.html" class="dropdown-link"><span>Hoạt động Công đoàn/An sinh xã hội</span></a></div>
+              <div class="dropdown-item"><a href="doan-thanh-nien.html" class="dropdown-link"><span>Đoàn thanh niên</span></a></div>
+              <div class="dropdown-item"><a href="chung-tay-vi-cong-dong.html" class="dropdown-link"><span>Chung tay vì cộng đồng</span></a></div>
+            </div>
+            <div class="dropdown-col-group">
+              <div class="mega-col-title mega-col-title-compact">Ấn phẩm &amp; Cẩm nang số</div>
+              <div class="dropdown-item"><a href="an-pham-thong-tin-nhcsxh.html" class="dropdown-link"><span>Mời đọc ấn phẩm “Thông tin NHCSXH”</span></a></div>
+              <div class="dropdown-item"><a href="an-pham-bao-cao-thuong-nien.html" class="dropdown-link"><span>Mời đọc ấn phẩm Báo cáo thường niên</span></a></div>
+              <div class="dropdown-item"><a href="so-tay-vbsp-smartbanking.html" class="dropdown-link"><span>Sổ tay VBSP SmartBanking</span></a></div>
+              <div class="dropdown-item"><a href="giao-duc-so-go-digital.html" class="dropdown-link"><span>Giáo dục số cơ bản - GO DIGITAL</span></a></div>
+            </div>
+          </div>
+        </li>
+
+        <!-- 7. HỎI - ĐÁP -->
+        <li class="nav-item has-children ">
+          <a href="hoi-dap.html" class="nav-link">
+            <span>Hỏi - Đáp</span>
+            <i class="fa-solid fa-chevron-down arrow-down"></i>
+          </a>
+          <div class="dropdown-panel dropdown-w-sm">
+            <div class="dropdown-item"><a href="hoi-dap.html?type=chinh-sach" class="dropdown-link"><span>Hỏi đáp chính sách</span></a></div>
+            <div class="dropdown-item"><a href="hoi-dap.html?type=quy-trinh" class="dropdown-link"><span>Hỏi đáp quy trình nghiệp vụ</span></a></div>
+            <div class="dropdown-item"><a href="hoi-dap.html?type=khac" class="dropdown-link"><span>Hỏi đáp khác</span></a></div>
+            <div class="dropdown-item dropdown-divider-top">
+              <a href="hoi-dap.html?type=gui-cau-hoi" class="dropdown-link dropdown-link-accent">
+                <span>Gửi câu hỏi trực tuyến</span>
+              </a>
+            </div>
+          </div>
+        </li>
+
+        <!-- Mobile Drawer Bottom Quick Links (Hidden on Desktop) -->
+        <li class="mobile-drawer-bottom">
+          <div class="mobile-drawer-lang">
+            <a href="index.html" class="active"><i class="fa-solid fa-check"></i> Tiếng Việt</a>
+            <a href="en-news-highlights.html"><i class="fa-solid fa-globe"></i> English Portal</a>
+          </div>
+          <a href="tra-cuu-diem-giao-dich.html" class="mobile-drawer-cta">
+            <i class="fa-solid fa-location-dot"></i> Tra cứu Điểm giao dịch &amp; Lãi suất
+          </a>
+        </li>
+      </ul>
+    </div>
+  </nav>
+
+  <!-- BREADCRUMB -->
+  <div class="vbsp-breadcrumb">
+    <div class="vbsp-container">
+      <ul class="breadcrumb-list">
+        <li class="breadcrumb-item"><a href="index.html">Trang chủ</a></li>
+        <li class="breadcrumb-item active">Tra cứu Điểm giao dịch & Biểu lãi suất</li>
+      </ul>
+    </div>
+  </div>
+
+  <main class="vbsp-section">
+    <div class="vbsp-container">
+      <div class="vbsp-layout-2col">
+        <div class="vbsp-main-col">
+
+          <!-- TRA CỨU ĐIỂM GIAO DỊCH (HỆ THỐNG MẠNG LƯỚI TOÀN QUỐC) -->
+          <div class="ui-dgd" style="background: #ffffff; border-radius: var(--radius-md, 12px); border: 1.5px solid var(--border-color, #e2e8f0); padding: 30px; box-shadow: var(--shadow-md, 0 4px 14px rgba(0,0,0,0.05)); margin-bottom: 36px; position: relative; overflow: hidden;">
+            <div style="position: absolute; top: 0; left: 0; width: 100%; height: 5px; background: linear-gradient(90deg, #006c3d 0%, #10b981 50%, #c89d3c 100%);"></div>
+
+            <div class="section-header" style="border-bottom: none; margin-bottom: 22px;">
+              <div>
+                <h1 class="ui-dgd-title" style="font-size: 1.65rem; font-weight: 700; color: #004d25; margin: 0 0 6px 0; text-transform: uppercase;">
+                  Tra cứu điểm giao dịch
+                </h1>
+                <p class="ui-dgd-subtitle" style="color: #64748b; font-size: 0.93rem; margin: 0;">
+                  Tìm kiếm và quản lý thông tin các điểm giao dịch trên toàn quốc.
+                </p>
+              </div>
+              <span class="badge badge-green" style="font-size: 0.9rem; padding: 8px 16px; font-weight: 700; background: #e8f5e9; color: #00703c; border-radius: 6px;"><i class="fa-solid fa-check-circle"></i> Gần 10.000 Điểm giao dịch</span>
+            </div>
+
+            <!-- TIÊU CHÍ TRA CỨU ĐIỂM GIAO DỊCH (FILTER FORM) -->
+            <div class="ui-dgd-filter" style="background: #f8fafc; border: 1.5px solid #e2e8f0; border-radius: 10px; padding: 22px; margin-bottom: 24px;">
+              <div class="ui-dgd-filter-grid" style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px 20px; align-items: flex-end;">
+                
+                <!-- 1. Chi nhánh Tỉnh/TP -->
+                <div class="ui-dgd-field">
+                  <label for="provinceSelect" style="display: block; font-size: 0.88rem; font-weight: 700; color: #1e293b; margin-bottom: 6px;">
+                    <i class="fa-solid fa-city" style="color: #0c8a4b; margin-right: 4px;"></i> Chi nhánh Tỉnh/TP
+                  </label>
+                  <select id="provinceSelect" class="form-select" style="width: 100%; height: 42px; border-radius: 6px; border: 1.5px solid #cbd5e1; padding: 0 12px; font-size: 0.9rem; font-weight: 600; background: #ffffff; color: #0f172a; outline: none;">
+                    <option value="">-- Tất cả --</option>
+                  </select>
+                </div>
+
+                <!-- 2. Phòng Giao dịch -->
+                <div class="ui-dgd-field">
+                  <label for="districtSelect" style="display: block; font-size: 0.88rem; font-weight: 700; color: #1e293b; margin-bottom: 6px;">
+                    <i class="fa-solid fa-building-columns" style="color: #0c8a4b; margin-right: 4px;"></i> Phòng Giao dịch
+                  </label>
+                  <select id="districtSelect" class="form-select" style="width: 100%; height: 42px; border-radius: 6px; border: 1.5px solid #cbd5e1; padding: 0 12px; font-size: 0.9rem; font-weight: 600; background: #ffffff; color: #0f172a; outline: none;">
+                    <option value="">-- Tất cả --</option>
+                  </select>
+                </div>
+
+                <!-- 3. Tên điểm giao dịch -->
+                <div class="ui-dgd-field">
+                  <label for="pointNameInput" style="display: block; font-size: 0.88rem; font-weight: 700; color: #1e293b; margin-bottom: 6px;">
+                    <i class="fa-solid fa-map-pin" style="color: #0c8a4b; margin-right: 4px;"></i> Tên điểm giao dịch
+                  </label>
+                  <input type="text" id="pointNameInput" placeholder="Nhập tên điểm giao dịch..." style="width: 100%; height: 42px; border-radius: 6px; border: 1.5px solid #cbd5e1; padding: 0 12px; font-size: 0.9rem; background: #ffffff; color: #0f172a; outline: none; box-sizing: border-box;">
+                </div>
+
+                <!-- 4. Ngày giao dịch (trong tháng) -->
+                <div class="ui-dgd-field">
+                  <label for="transDaySelect" style="display: block; font-size: 0.88rem; font-weight: 700; color: #1e293b; margin-bottom: 6px;">
+                    <i class="fa-regular fa-calendar-days" style="color: #0c8a4b; margin-right: 4px;"></i> Ngày giao dịch (trong tháng)
+                  </label>
+                  <select id="transDaySelect" class="form-select" style="width: 100%; height: 42px; border-radius: 6px; border: 1.5px solid #cbd5e1; padding: 0 12px; font-size: 0.9rem; font-weight: 600; background: #ffffff; color: #0f172a; outline: none;">
+                    <option value="">-- Tất cả --</option>
+                    <option value="1">Ngày 1</option>
+                    <option value="2">Ngày 2</option>
+                    <option value="3">Ngày 3</option>
+                    <option value="4">Ngày 4</option>
+                    <option value="5">Ngày 5</option>
+                    <option value="6">Ngày 6</option>
+                    <option value="7">Ngày 7</option>
+                    <option value="8">Ngày 8</option>
+                    <option value="9">Ngày 9</option>
+                    <option value="10">Ngày 10</option>
+                    <option value="11">Ngày 11</option>
+                    <option value="12">Ngày 12</option>
+                    <option value="13">Ngày 13</option>
+                    <option value="14">Ngày 14</option>
+                    <option value="15">Ngày 15</option>
+                    <option value="16">Ngày 16</option>
+                    <option value="17">Ngày 17</option>
+                    <option value="18">Ngày 18</option>
+                    <option value="19">Ngày 19</option>
+                    <option value="20">Ngày 20</option>
+                    <option value="21">Ngày 21</option>
+                    <option value="22">Ngày 22</option>
+                    <option value="23">Ngày 23</option>
+                    <option value="24">Ngày 24</option>
+                    <option value="25">Ngày 25</option>
+                    <option value="26">Ngày 26</option>
+                    <option value="27">Ngày 27</option>
+                    <option value="28">Ngày 28</option>
+                    <option value="29">Ngày 29</option>
+                    <option value="30">Ngày 30</option>
+                    <option value="31">Ngày 31</option>
+                  </select>
+                </div>
+
+                <!-- 5. Thời gian giao dịch (từ - đến) -->
+                <div class="ui-dgd-field">
+                  <label style="display: block; font-size: 0.88rem; font-weight: 700; color: #1e293b; margin-bottom: 6px;">
+                    <i class="fa-regular fa-clock" style="color: #0c8a4b; margin-right: 4px;"></i> Thời gian giao dịch (từ - đến)
+                  </label>
+                  <div class="ui-dgd-time" style="display: grid; grid-template-columns: 1fr 1fr; gap: 10px;">
+                    <input type="text" maxlength="5" id="timeFromInput" title="Từ giờ (24h)" placeholder="HH:mm" inputmode="numeric" autocomplete="off" oninput="uiDgdTimeMask(this)" onblur="uiDgdTimeFix(this)" style="width: 100%; height: 42px; border-radius: 6px; border: 1.5px solid #cbd5e1; padding: 0 10px; font-size: 0.9rem; text-align: center; background: #ffffff; color: #0f172a; outline: none; box-sizing: border-box;">
+                    <input type="text" maxlength="5" id="timeToInput" title="Đến giờ (24h)" placeholder="HH:mm" inputmode="numeric" autocomplete="off" oninput="uiDgdTimeMask(this)" onblur="uiDgdTimeFix(this)" style="width: 100%; height: 42px; border-radius: 6px; border: 1.5px solid #cbd5e1; padding: 0 10px; font-size: 0.9rem; text-align: center; background: #ffffff; color: #0f172a; outline: none; box-sizing: border-box;">
+                  </div>
+                </div>
+
+                <!-- 6. Button Tra cứu & Button Nhập lại -->
+                <div class="ui-dgd-actions" style="display: flex; gap: 10px; align-items: flex-end; height: 100%;">
+                  <button type="button" id="btnResetDgd" class="ui-dgd-btn reset" onclick="resetDgdFilter()" style="flex: 1; height: 42px; padding: 0 16px; border-radius: 6px; font-size: 0.9rem; font-weight: 700; border: 1.5px solid #cbd5e1; background: #ffffff; color: #475569; cursor: pointer; display: inline-flex; align-items: center; justify-content: center; gap: 8px; transition: all 0.2s ease;">
+                    <i class="fa-solid fa-arrow-rotate-left"></i> Nhập lại
+                  </button>
+                  <button type="button" id="btnSearchDgd" class="ui-dgd-btn search" onclick="searchDgd()" style="flex: 1; height: 42px; padding: 0 16px; border-radius: 6px; font-size: 0.9rem; font-weight: 700; border: none; background: linear-gradient(135deg, #006c3d 0%, #00884e 100%); color: #ffffff; cursor: pointer; display: inline-flex; align-items: center; justify-content: center; gap: 8px; box-shadow: 0 2px 6px rgba(0, 108, 61, 0.25); transition: all 0.2s ease;">
+                    <i class="fa-solid fa-magnifying-glass"></i> Tra cứu
+                  </button>
+                </div>
+
+              </div>
+            </div>
+
+            <!-- KHỐI TOÀN QUỐC & THỐNG KÊ (THEO ĐÚNG NỘI DUNG YÊU CẦU) -->
+            <div class="ui-dgd-region-section" style="margin-bottom: 24px;">
+              <div class="ui-dgd-region" style="font-size: 1.35rem; font-weight: 800; color: #004d25; margin-bottom: 6px; display: flex; align-items: center; gap: 8px;">
+                <i class="fa-solid fa-earth-americas" style="color: #0c8a4b;"></i> Toàn quốc
+              </div>
+              <div class="ui-dgd-summary" style="font-size: 0.98rem; color: #334155; margin-bottom: 18px; line-height: 1.5;">
+                Tổng số điểm giao dịch là <strong style="color: #0c8a4b; font-weight: 800;">9.964</strong> / Tổng số <strong style="color: #0c8a4b; font-weight: 800;">3.319</strong> xã, phường, đặc khu, trong đó:
+              </div>
+
+              <!-- 2 Thẻ chỉ số: Xã, phường, đặc khu & Trụ sở ngân hàng -->
+              <div class="ui-dgd-stats" style="display: grid; grid-template-columns: repeat(2, 1fr); gap: 18px; margin-bottom: 24px;">
+                <!-- Card 1: Xã, phường, đặc khu -->
+                <div class="ui-dgd-stat" style="background: linear-gradient(135deg, #ffffff 0%, #f8fafc 100%); border: 1.5px solid #e2e8f0; border-top: 4px solid #009640; border-radius: 12px; padding: 20px 24px; box-shadow: 0 2px 8px rgba(0,0,0,0.03);">
+                  <div class="ui-dgd-stat-name" style="font-size: 0.85rem; font-weight: 700; color: #64748b; text-transform: uppercase; letter-spacing: 0.5px;">
+                    Xã, phường, đặc khu
+                  </div>
+                  <div class="ui-dgd-stat-value" style="font-size: 2.35rem; font-weight: 800; color: #00703c; line-height: 1.1; margin: 8px 0; font-variant-numeric: tabular-nums;">
+                    7.303
+                  </div>
+                  <div class="ui-dgd-stat-caption" style="font-size: 0.85rem; color: #475569; font-weight: 500;">
+                    Tổng số điểm giao dịch tại địa phương
+                  </div>
+                </div>
+
+                <!-- Card 2: Trụ sở ngân hàng -->
+                <div class="ui-dgd-stat" style="background: linear-gradient(135deg, #ffffff 0%, #f8fafc 100%); border: 1.5px solid #e2e8f0; border-top: 4px solid #0284c7; border-radius: 12px; padding: 20px 24px; box-shadow: 0 2px 8px rgba(0,0,0,0.03);">
+                  <div class="ui-dgd-stat-name" style="font-size: 0.85rem; font-weight: 700; color: #64748b; text-transform: uppercase; letter-spacing: 0.5px;">
+                    Trụ sở ngân hàng
+                  </div>
+                  <div class="ui-dgd-stat-value" style="font-size: 2.35rem; font-weight: 800; color: #0284c7; line-height: 1.1; margin: 8px 0; font-variant-numeric: tabular-nums;">
+                    2.661
+                  </div>
+                  <div class="ui-dgd-stat-caption" style="font-size: 0.85rem; color: #475569; font-weight: 500;">
+                    Tổng số điểm giao dịch tại trụ sở
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- BẢNG DANH SÁCH ĐIỂM GIAO DỊCH NGAY SAU TOÀN QUỐC -->
+            <div class="ui-dgd-table-panel" style="border: 1.5px solid #cbd5e1; border-radius: 10px; overflow: hidden; background: #ffffff; box-shadow: 0 2px 10px rgba(0,0,0,0.03);">
+              <div class="ui-dgd-table-head" style="display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 10px; padding: 14px 18px; background: #f8fafc; border-bottom: 1.5px solid #e2e8f0;">
+                <div style="font-size: 1.1rem; font-weight: 700; color: #004d25; display: flex; align-items: center; gap: 8px;">
+                  <i class="fa-solid fa-list-check" style="color: #0c8a4b;"></i> Danh sách điểm giao dịch
+                </div>
+                <span id="dgdTotalCountBadge" style="font-size: 0.82rem; font-weight: 700; background: #e8f5e9; color: #00703c; padding: 4px 12px; border-radius: 20px;">
+                  Đang tải dữ liệu...
+                </span>
+              </div>
+
+              <div class="ui-dgd-table-wrap" style="width: 100%; overflow-x: auto;">
+                <table class="ui-dgd-table" id="dgdPointTable" style="width: 100%; border-collapse: collapse; font-size: 0.88rem;">
+                  <thead>
+                    <tr style="background: linear-gradient(135deg, #005a30 0%, #007a40 100%); color: #ffffff;">
+                      <th class="ui-dgd-stt" style="width: 50px; text-align: center; padding: 12px 8px; border: 1px solid rgba(255,255,255,0.2);">STT</th>
+                      <th style="padding: 12px 12px; border: 1px solid rgba(255,255,255,0.2); min-width: 160px;">Tên điểm giao dịch</th>
+                      <th style="padding: 12px 12px; border: 1px solid rgba(255,255,255,0.2); min-width: 140px;">Xã/Phường/Đặc khu</th>
+                      <th style="padding: 12px 12px; border: 1px solid rgba(255,255,255,0.2); min-width: 160px;">Phòng giao dịch</th>
+                      <th style="padding: 12px 12px; border: 1px solid rgba(255,255,255,0.2); min-width: 120px;">Tỉnh/TP</th>
+                      <th class="ui-dgd-center" style="width: 80px; text-align: center; padding: 12px 8px; border: 1px solid rgba(255,255,255,0.2);">Ngày GD</th>
+                      <th class="ui-dgd-center" style="width: 110px; text-align: center; padding: 12px 8px; border: 1px solid rgba(255,255,255,0.2);">Thời gian</th>
+                      <th style="padding: 12px 12px; border: 1px solid rgba(255,255,255,0.2); min-width: 200px;">Địa điểm giao dịch</th>
+                      <th class="ui-dgd-center" style="width: 105px; text-align: center; padding: 12px 8px; border: 1px solid rgba(255,255,255,0.2);">Ngày hiệu lực</th>
+                    </tr>
+                  </thead>
+                  <tbody id="dgdTableBody">
+                    <!-- Populated by JS -->
+                  </tbody>
+                </table>
+              </div>
+
+              <!-- Pager -->
+              <div class="ui-dgd-pager" style="display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 12px; padding: 12px 18px; background: #f8fafc; border-top: 1.5px solid #e2e8f0; font-size: 0.86rem; color: #64748b;">
+                <div style="display: flex; align-items: center; gap: 10px;">
+                  <button type="button" id="dgdPrevPageBtn" class="ui-dgd-page-nav" onclick="changeDgdPage(-1)" style="min-width: 70px; height: 32px; border: 1.5px solid #cbd5e1; border-radius: 6px; background: #ffffff; color: #1e293b; font-weight: 700; cursor: pointer; transition: all 0.2s;">Trước</button>
+                  <span class="ui-dgd-pager-select" style="display: inline-flex; align-items: center; gap: 6px;">
+                    Trang
+                    <select id="dgdPageSelect" onchange="jumpToDgdPage(this.value)" style="height: 32px; padding: 0 8px; border: 1.5px solid #cbd5e1; border-radius: 6px; background: #ffffff; font-weight: 700; color: #0f172a; outline: none; cursor: pointer;">
+                      <option value="1">1</option>
+                    </select>
+                    / <span id="dgdTotalPagesSpan">1</span>
+                  </span>
+                  <button type="button" id="dgdNextPageBtn" class="ui-dgd-page-nav" onclick="changeDgdPage(1)" style="min-width: 70px; height: 32px; border: 1.5px solid #cbd5e1; border-radius: 6px; background: #ffffff; color: #1e293b; font-weight: 700; cursor: pointer; transition: all 0.2s;">Sau</button>
+                </div>
+                <div>
+                  <span id="dgdPageRangeInfo" style="color: #64748b; font-weight: 500;">Hiển thị 1 - 10 / 102 điểm giao dịch</span>
+                </div>
+              </div>
+            </div>
+
+          </div>
+
+      
+          <!-- ==================== TỔNG HỢP MẠNG LƯỚI ĐIỂM GIAO DỊCH THEO TỈNH/THÀNH PHỐ (DỮ LIỆU TỪ VBSP) ==================== -->
+          <div class="network-summary-wrapper" style="background: #ffffff; border-radius: var(--radius-md, 12px); border: 1.5px solid var(--border-color, #e2e8f0); padding: 30px; box-shadow: var(--shadow-sm, 0 2px 10px rgba(0,0,0,0.04)); margin-bottom: 36px; position: relative;">
+            
+            <!-- Tiêu đề Section -->
+            <div style="display: flex; justify-content: space-between; align-items: flex-start; flex-wrap: wrap; gap: 14px; margin-bottom: 24px; padding-bottom: 16px; border-bottom: 2px solid var(--vbsp-green-light, #dcfce7);">
+              <div>
+                <h2 style="font-size: 1.45rem; font-weight: 700; color: #004d25; margin: 0 0 4px; text-transform: uppercase; letter-spacing: -0.2px;">
+                  Tổng hợp mạng lưới điểm giao dịch theo tỉnh/thành phố
+                </h2>
+                <p style="margin: 0; color: #64748b; font-size: 0.92rem;">
+                  Số liệu cập nhật chính thức về quy mô Phòng giao dịch, địa bàn xã/phường và Điểm giao dịch phục vụ người dân toàn hệ thống NHCSXH
+                </p>
+              </div>
+            </div>
+
+            <!-- 3 Thẻ Chỉ số Tổng quan (Thiết kế phong cách số liệu hiện đại) -->
+            <div class="network-metrics-grid" style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px; margin-bottom: 28px;">
+              
+              <!-- Card 1: Tổng số PGD -->
+              <div class="network-metric-card" style="background: linear-gradient(135deg, #ffffff 0%, #f8fafc 100%); border: 1.5px solid #e2e8f0; border-top: 4px solid #009640; border-radius: 12px; padding: 20px 22px; box-shadow: 0 2px 8px rgba(0,0,0,0.04); transition: transform 0.2s, box-shadow 0.2s;">
+                <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 12px;">
+                  <span style="font-size: 0.82rem; font-weight: 700; color: #64748b; text-transform: uppercase; letter-spacing: 0.5px;">Tổng số PGD NHCSXH</span>
+                  <div style="width: 38px; height: 38px; border-radius: 8px; background: #e8f5e9; color: #00703c; display: flex; align-items: center; justify-content: center; font-size: 1.15rem;">
+                    <i class="fa-solid fa-building-columns"></i>
+                  </div>
+                </div>
+                <div style="font-size: 2.3rem; font-weight: 800; color: #0f172a; line-height: 1; font-family: 'Roboto', sans-serif; font-variant-numeric: tabular-nums;">
+                  682
+                </div>
+                <div style="margin-top: 10px; font-size: 0.82rem; color: #166534; font-weight: 600; display: flex; align-items: center; gap: 5px;">
+                  <i class="fa-solid fa-circle-check"></i> Chi nhánh cấp Huyện & PGD trực thuộc
+                </div>
+              </div>
+
+              <!-- Card 2: Tổng số xã/phường -->
+              <div class="network-metric-card" style="background: linear-gradient(135deg, #ffffff 0%, #f8fafc 100%); border: 1.5px solid #e2e8f0; border-top: 4px solid #0284c7; border-radius: 12px; padding: 20px 22px; box-shadow: 0 2px 8px rgba(0,0,0,0.04); transition: transform 0.2s, box-shadow 0.2s;">
+                <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 12px;">
+                  <span style="font-size: 0.82rem; font-weight: 700; color: #64748b; text-transform: uppercase; letter-spacing: 0.5px;">Tổng số xã/phường/đặc khu</span>
+                  <div style="width: 38px; height: 38px; border-radius: 8px; background: #e0f2fe; color: #0284c7; display: flex; align-items: center; justify-content: center; font-size: 1.15rem;">
+                    <i class="fa-solid fa-map"></i>
+                  </div>
+                </div>
+                <div style="font-size: 2.3rem; font-weight: 800; color: #0f172a; line-height: 1; font-family: 'Roboto', sans-serif; font-variant-numeric: tabular-nums;">
+                  3.319
+                </div>
+                <div style="margin-top: 10px; font-size: 0.82rem; color: #0369a1; font-weight: 600; display: flex; align-items: center; gap: 5px;">
+                  <i class="fa-solid fa-check-double"></i> 100% địa bàn có mạng lưới phục vụ
+                </div>
+              </div>
+
+              <!-- Card 3: Tổng số Điểm giao dịch -->
+              <div class="network-metric-card" style="background: linear-gradient(135deg, #f0fdf4 0%, #dcfce7 100%); border: 1.5px solid #86efac; border-top: 4px solid #0c8a4b; border-radius: 12px; padding: 20px 22px; box-shadow: 0 4px 14px rgba(12, 138, 75, 0.08); transition: transform 0.2s, box-shadow 0.2s;">
+                <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 12px;">
+                  <span style="font-size: 0.82rem; font-weight: 700; color: #065f46; text-transform: uppercase; letter-spacing: 0.5px;">Tổng số điểm giao dịch</span>
+                  <div style="width: 38px; height: 38px; border-radius: 8px; background: #0c8a4b; color: #ffffff; display: flex; align-items: center; justify-content: center; font-size: 1.15rem;">
+                    <i class="fa-solid fa-location-dot"></i>
+                  </div>
+                </div>
+                <div style="font-size: 2.4rem; font-weight: 800; color: #004d25; line-height: 1; font-family: 'Roboto', sans-serif; font-variant-numeric: tabular-nums;">
+                  9.964
+                </div>
+                <div style="margin-top: 10px; font-size: 0.82rem; color: #004d25; font-weight: 700; display: flex; align-items: center; gap: 5px;">
+                  <i class="fa-solid fa-bolt"></i> Điểm giao dịch xã mở phiên cố định hàng tháng
+                </div>
+              </div>
+
+            </div>
+
+            <!-- Khung Bảng Chi tiết (Thiết kế phong cách tài chính sang trọng) -->
+            <div class="network-table-panel" style="border: 1px solid #cbd5e1; border-radius: 10px; overflow: hidden; background: #ffffff; box-shadow: 0 2px 10px rgba(0,0,0,0.03);">
+              
+              <!-- Toolbar bảng: Tìm kiếm & Đếm số lượng -->
+              <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 14px; padding: 14px 18px; background: #f8fafc; border-bottom: 1.5px solid #e2e8f0;">
+                <div style="display: flex; align-items: center; gap: 10px; flex-wrap: wrap;">
+                  <h3 style="margin: 0; font-size: 1.05rem; font-weight: 700; color: #1e293b; display: flex; align-items: center; gap: 8px;">
+                    <i class="fa-solid fa-table-list" style="color: #0c8a4b;"></i> Dữ liệu chi tiết theo địa phương
+                  </h3>
+                </div>
+
+                <!-- Ô tìm kiếm nhanh địa phương -->
+                <div style="display: flex; align-items: center; gap: 12px;">
+                  <div style="position: relative;">
+                    <i class="fa-solid fa-magnifying-glass" style="position: absolute; left: 12px; top: 50%; transform: translateY(-50%); color: #94a3b8; font-size: 0.85rem;"></i>
+                    <input type="text" id="networkSearchInput" onkeyup="filterNetworkTable()" placeholder="Tìm Tỉnh / Thành phố..." style="padding: 7px 14px 7px 32px; border: 1.5px solid #cbd5e1; border-radius: 20px; font-size: 0.86rem; width: 220px; outline: none; background: #ffffff; transition: border-color 0.2s;" onfocus="this.style.borderColor='#0c8a4b'" onblur="this.style.borderColor='#cbd5e1'">
+                  </div>
+                  <span id="networkCountBadge" style="font-size: 0.82rem; color: #64748b; font-weight: 600; white-space: nowrap;">
+                    Hiển thị 34/34 kết quả
+                  </span>
+                </div>
+              </div>
+
+              <!-- Table Wrapper (Cuộn ngang linh hoạt trên mobile) -->
+              <div style="overflow-x: auto; width: 100%;">
+                <table class="network-detail-table" id="networkDetailTable" style="width: 100%; border-collapse: collapse; font-size: 0.88rem;">
+                  <thead>
+                    <tr style="background: linear-gradient(135deg, #005a30 0%, #007a40 100%); color: #ffffff;">
+                      <th rowspan="2" style="padding: 12px 10px; border: 1px solid rgba(255,255,255,0.2); text-align: center; font-weight: 700; width: 55px; vertical-align: middle;">
+                        STT<br><small style="opacity: 0.85; font-weight: 400; font-size: 0.75rem;">(1)</small>
+                      </th>
+                      <th rowspan="2" style="padding: 12px 14px; border: 1px solid rgba(255,255,255,0.2); text-align: left; font-weight: 700; min-width: 155px; vertical-align: middle;">
+                        Tỉnh / Thành phố<br><small style="opacity: 0.85; font-weight: 400; font-size: 0.75rem;">(2)</small>
+                      </th>
+                      <th rowspan="2" style="padding: 12px 10px; border: 1px solid rgba(255,255,255,0.2); text-align: right; font-weight: 700; width: 120px; vertical-align: middle;">
+                        Tổng số PGD NHCSXH<br><small style="opacity: 0.85; font-weight: 400; font-size: 0.75rem;">(3)</small>
+                      </th>
+                      <th rowspan="2" style="padding: 12px 10px; border: 1px solid rgba(255,255,255,0.2); text-align: right; font-weight: 700; width: 120px; vertical-align: middle;">
+                        Tổng số xã/phường<br><small style="opacity: 0.85; font-weight: 400; font-size: 0.75rem;">(4)</small>
+                      </th>
+                      <th colspan="4" style="padding: 10px; border: 1px solid rgba(255,255,255,0.2); text-align: center; font-weight: 700;">
+                        Tổng số điểm giao dịch
+                      </th>
+                    </tr>
+                    <tr style="background: #004d25; color: #ffffff;">
+                      <th style="padding: 10px 12px; border: 1px solid rgba(255,255,255,0.2); text-align: right; font-weight: 800; width: 95px; background: #003a1c;">
+                        Cộng<br><small style="opacity: 0.85; font-weight: 400; font-size: 0.75rem;">(5)</small>
+                      </th>
+                      <th style="padding: 10px 10px; border: 1px solid rgba(255,255,255,0.2); text-align: right; font-weight: 600; width: 110px;">
+                        Trụ sở UBND xã mới<br><small style="opacity: 0.85; font-weight: 400; font-size: 0.75rem;">(6)</small>
+                      </th>
+                      <th style="padding: 10px 10px; border: 1px solid rgba(255,255,255,0.2); text-align: right; font-weight: 600; width: 110px;">
+                        Trụ sở UBND xã cũ<br><small style="opacity: 0.85; font-weight: 400; font-size: 0.75rem;">(7)</small>
+                      </th>
+                      <th style="padding: 10px 10px; border: 1px solid rgba(255,255,255,0.2); text-align: right; font-weight: 600; width: 95px;">
+                        Khác<br><small style="opacity: 0.85; font-weight: 400; font-size: 0.75rem;">(8)</small>
+                      </th>
+                    </tr>
+                  </thead>
+                  <tbody id="networkTableBody">
+              <tr class="network-row" style="border-bottom: 1px solid #eef2f6; background-color: #ffffff; transition: background-color 0.15s ease;">
+                <td style="padding: 10px 8px; text-align: center; color: #64748b; font-weight: 700; font-size: 0.85rem; border-right: 1px solid #f1f5f9;">01</td>
+                <td class="province-name" style="padding: 10px 14px; color: #0f172a; font-weight: 700; border-right: 1px solid #f1f5f9;">TP Hải Phòng</td>
+                <td style="padding: 10px 12px; text-align: right; color: #334155; font-weight: 600; font-variant-numeric: tabular-nums; border-right: 1px solid #f1f5f9;">25</td>
+                <td style="padding: 10px 12px; text-align: right; color: #334155; font-weight: 600; font-variant-numeric: tabular-nums; border-right: 1px solid #f1f5f9;">114</td>
+                <td style="padding: 10px 12px; text-align: right; color: #00703c; font-weight: 800; font-variant-numeric: tabular-nums; background: #f0fdf4; border-right: 1px solid #dcfce7;">370</td>
+                <td style="padding: 10px 12px; text-align: right; color: #475569; font-weight: 600; font-variant-numeric: tabular-nums; border-right: 1px solid #f1f5f9;">75</td>
+                <td style="padding: 10px 12px; text-align: center; color: #94a3b8; font-variant-numeric: tabular-nums; border-right: 1px solid #f1f5f9;">-</td>
+                <td style="padding: 10px 12px; text-align: right; color: #475569; font-weight: 600; font-variant-numeric: tabular-nums;">295</td>
+              </tr>
+              <tr class="network-row" style="border-bottom: 1px solid #eef2f6; background-color: #fafbfc; transition: background-color 0.15s ease;">
+                <td style="padding: 10px 8px; text-align: center; color: #64748b; font-weight: 700; font-size: 0.85rem; border-right: 1px solid #f1f5f9;">02</td>
+                <td class="province-name" style="padding: 10px 14px; color: #0f172a; font-weight: 700; border-right: 1px solid #f1f5f9;">Hưng Yên</td>
+                <td style="padding: 10px 12px; text-align: right; color: #334155; font-weight: 600; font-variant-numeric: tabular-nums; border-right: 1px solid #f1f5f9;">18</td>
+                <td style="padding: 10px 12px; text-align: right; color: #334155; font-weight: 600; font-variant-numeric: tabular-nums; border-right: 1px solid #f1f5f9;">104</td>
+                <td style="padding: 10px 12px; text-align: right; color: #00703c; font-weight: 800; font-variant-numeric: tabular-nums; background: #f0fdf4; border-right: 1px solid #dcfce7;">381</td>
+                <td style="padding: 10px 12px; text-align: right; color: #475569; font-weight: 600; font-variant-numeric: tabular-nums; border-right: 1px solid #f1f5f9;">104</td>
+                <td style="padding: 10px 12px; text-align: center; color: #94a3b8; font-variant-numeric: tabular-nums; border-right: 1px solid #f1f5f9;">-</td>
+                <td style="padding: 10px 12px; text-align: right; color: #475569; font-weight: 600; font-variant-numeric: tabular-nums;">277</td>
+              </tr>
+              <tr class="network-row" style="border-bottom: 1px solid #eef2f6; background-color: #ffffff; transition: background-color 0.15s ease;">
+                <td style="padding: 10px 8px; text-align: center; color: #64748b; font-weight: 700; font-size: 0.85rem; border-right: 1px solid #f1f5f9;">03</td>
+                <td class="province-name" style="padding: 10px 14px; color: #0f172a; font-weight: 700; border-right: 1px solid #f1f5f9;">TP Hà Nội</td>
+                <td style="padding: 10px 12px; text-align: right; color: #334155; font-weight: 600; font-variant-numeric: tabular-nums; border-right: 1px solid #f1f5f9;">29</td>
+                <td style="padding: 10px 12px; text-align: right; color: #334155; font-weight: 600; font-variant-numeric: tabular-nums; border-right: 1px solid #f1f5f9;">126</td>
+                <td style="padding: 10px 12px; text-align: right; color: #00703c; font-weight: 800; font-variant-numeric: tabular-nums; background: #f0fdf4; border-right: 1px solid #dcfce7;">503</td>
+                <td style="padding: 10px 12px; text-align: right; color: #475569; font-weight: 600; font-variant-numeric: tabular-nums; border-right: 1px solid #f1f5f9;">91</td>
+                <td style="padding: 10px 12px; text-align: center; color: #94a3b8; font-variant-numeric: tabular-nums; border-right: 1px solid #f1f5f9;">-</td>
+                <td style="padding: 10px 12px; text-align: right; color: #475569; font-weight: 600; font-variant-numeric: tabular-nums;">412</td>
+              </tr>
+              <tr class="network-row" style="border-bottom: 1px solid #eef2f6; background-color: #fafbfc; transition: background-color 0.15s ease;">
+                <td style="padding: 10px 8px; text-align: center; color: #64748b; font-weight: 700; font-size: 0.85rem; border-right: 1px solid #f1f5f9;">04</td>
+                <td class="province-name" style="padding: 10px 14px; color: #0f172a; font-weight: 700; border-right: 1px solid #f1f5f9;">Ninh Bình</td>
+                <td style="padding: 10px 12px; text-align: right; color: #334155; font-weight: 600; font-variant-numeric: tabular-nums; border-right: 1px solid #f1f5f9;">22</td>
+                <td style="padding: 10px 12px; text-align: right; color: #334155; font-weight: 600; font-variant-numeric: tabular-nums; border-right: 1px solid #f1f5f9;">129</td>
+                <td style="padding: 10px 12px; text-align: right; color: #00703c; font-weight: 800; font-variant-numeric: tabular-nums; background: #f0fdf4; border-right: 1px solid #dcfce7;">397</td>
+                <td style="padding: 10px 12px; text-align: right; color: #475569; font-weight: 600; font-variant-numeric: tabular-nums; border-right: 1px solid #f1f5f9;">126</td>
+                <td style="padding: 10px 12px; text-align: center; color: #94a3b8; font-variant-numeric: tabular-nums; border-right: 1px solid #f1f5f9;">-</td>
+                <td style="padding: 10px 12px; text-align: right; color: #475569; font-weight: 600; font-variant-numeric: tabular-nums;">271</td>
+              </tr>
+              <tr class="network-row" style="border-bottom: 1px solid #eef2f6; background-color: #ffffff; transition: background-color 0.15s ease;">
+                <td style="padding: 10px 8px; text-align: center; color: #64748b; font-weight: 700; font-size: 0.85rem; border-right: 1px solid #f1f5f9;">05</td>
+                <td class="province-name" style="padding: 10px 14px; color: #0f172a; font-weight: 700; border-right: 1px solid #f1f5f9;">Phú Thọ</td>
+                <td style="padding: 10px 12px; text-align: right; color: #334155; font-weight: 600; font-variant-numeric: tabular-nums; border-right: 1px solid #f1f5f9;">32</td>
+                <td style="padding: 10px 12px; text-align: right; color: #334155; font-weight: 600; font-variant-numeric: tabular-nums; border-right: 1px solid #f1f5f9;">148</td>
+                <td style="padding: 10px 12px; text-align: right; color: #00703c; font-weight: 800; font-variant-numeric: tabular-nums; background: #f0fdf4; border-right: 1px solid #dcfce7;">479</td>
+                <td style="padding: 10px 12px; text-align: right; color: #475569; font-weight: 600; font-variant-numeric: tabular-nums; border-right: 1px solid #f1f5f9;">112</td>
+                <td style="padding: 10px 12px; text-align: center; color: #94a3b8; font-variant-numeric: tabular-nums; border-right: 1px solid #f1f5f9;">-</td>
+                <td style="padding: 10px 12px; text-align: right; color: #475569; font-weight: 600; font-variant-numeric: tabular-nums;">367</td>
+              </tr>
+              <tr class="network-row" style="border-bottom: 1px solid #eef2f6; background-color: #fafbfc; transition: background-color 0.15s ease;">
+                <td style="padding: 10px 8px; text-align: center; color: #64748b; font-weight: 700; font-size: 0.85rem; border-right: 1px solid #f1f5f9;">06</td>
+                <td class="province-name" style="padding: 10px 14px; color: #0f172a; font-weight: 700; border-right: 1px solid #f1f5f9;">Bắc Ninh</td>
+                <td style="padding: 10px 12px; text-align: right; color: #334155; font-weight: 600; font-variant-numeric: tabular-nums; border-right: 1px solid #f1f5f9;">18</td>
+                <td style="padding: 10px 12px; text-align: right; color: #334155; font-weight: 600; font-variant-numeric: tabular-nums; border-right: 1px solid #f1f5f9;">99</td>
+                <td style="padding: 10px 12px; text-align: right; color: #00703c; font-weight: 800; font-variant-numeric: tabular-nums; background: #f0fdf4; border-right: 1px solid #dcfce7;">313</td>
+                <td style="padding: 10px 12px; text-align: right; color: #475569; font-weight: 600; font-variant-numeric: tabular-nums; border-right: 1px solid #f1f5f9;">85</td>
+                <td style="padding: 10px 12px; text-align: center; color: #94a3b8; font-variant-numeric: tabular-nums; border-right: 1px solid #f1f5f9;">-</td>
+                <td style="padding: 10px 12px; text-align: right; color: #475569; font-weight: 600; font-variant-numeric: tabular-nums;">228</td>
+              </tr>
+              <tr class="network-row" style="border-bottom: 1px solid #eef2f6; background-color: #ffffff; transition: background-color 0.15s ease;">
+                <td style="padding: 10px 8px; text-align: center; color: #64748b; font-weight: 700; font-size: 0.85rem; border-right: 1px solid #f1f5f9;">07</td>
+                <td class="province-name" style="padding: 10px 14px; color: #0f172a; font-weight: 700; border-right: 1px solid #f1f5f9;">Lai Châu</td>
+                <td style="padding: 10px 12px; text-align: right; color: #334155; font-weight: 600; font-variant-numeric: tabular-nums; border-right: 1px solid #f1f5f9;">8</td>
+                <td style="padding: 10px 12px; text-align: right; color: #334155; font-weight: 600; font-variant-numeric: tabular-nums; border-right: 1px solid #f1f5f9;">38</td>
+                <td style="padding: 10px 12px; text-align: right; color: #00703c; font-weight: 800; font-variant-numeric: tabular-nums; background: #f0fdf4; border-right: 1px solid #dcfce7;">106</td>
+                <td style="padding: 10px 12px; text-align: right; color: #475569; font-weight: 600; font-variant-numeric: tabular-nums; border-right: 1px solid #f1f5f9;">31</td>
+                <td style="padding: 10px 12px; text-align: center; color: #94a3b8; font-variant-numeric: tabular-nums; border-right: 1px solid #f1f5f9;">-</td>
+                <td style="padding: 10px 12px; text-align: right; color: #475569; font-weight: 600; font-variant-numeric: tabular-nums;">75</td>
+              </tr>
+              <tr class="network-row" style="border-bottom: 1px solid #eef2f6; background-color: #fafbfc; transition: background-color 0.15s ease;">
+                <td style="padding: 10px 8px; text-align: center; color: #64748b; font-weight: 700; font-size: 0.85rem; border-right: 1px solid #f1f5f9;">08</td>
+                <td class="province-name" style="padding: 10px 14px; color: #0f172a; font-weight: 700; border-right: 1px solid #f1f5f9;">Sơn La</td>
+                <td style="padding: 10px 12px; text-align: right; color: #334155; font-weight: 600; font-variant-numeric: tabular-nums; border-right: 1px solid #f1f5f9;">12</td>
+                <td style="padding: 10px 12px; text-align: right; color: #334155; font-weight: 600; font-variant-numeric: tabular-nums; border-right: 1px solid #f1f5f9;">75</td>
+                <td style="padding: 10px 12px; text-align: right; color: #00703c; font-weight: 800; font-variant-numeric: tabular-nums; background: #f0fdf4; border-right: 1px solid #dcfce7;">200</td>
+                <td style="padding: 10px 12px; text-align: right; color: #475569; font-weight: 600; font-variant-numeric: tabular-nums; border-right: 1px solid #f1f5f9;">58</td>
+                <td style="padding: 10px 12px; text-align: center; color: #94a3b8; font-variant-numeric: tabular-nums; border-right: 1px solid #f1f5f9;">-</td>
+                <td style="padding: 10px 12px; text-align: right; color: #475569; font-weight: 600; font-variant-numeric: tabular-nums;">142</td>
+              </tr>
+              <tr class="network-row" style="border-bottom: 1px solid #eef2f6; background-color: #ffffff; transition: background-color 0.15s ease;">
+                <td style="padding: 10px 8px; text-align: center; color: #64748b; font-weight: 700; font-size: 0.85rem; border-right: 1px solid #f1f5f9;">09</td>
+                <td class="province-name" style="padding: 10px 14px; color: #0f172a; font-weight: 700; border-right: 1px solid #f1f5f9;">Lào Cai</td>
+                <td style="padding: 10px 12px; text-align: right; color: #334155; font-weight: 600; font-variant-numeric: tabular-nums; border-right: 1px solid #f1f5f9;">18</td>
+                <td style="padding: 10px 12px; text-align: right; color: #334155; font-weight: 600; font-variant-numeric: tabular-nums; border-right: 1px solid #f1f5f9;">99</td>
+                <td style="padding: 10px 12px; text-align: right; color: #00703c; font-weight: 800; font-variant-numeric: tabular-nums; background: #f0fdf4; border-right: 1px solid #dcfce7;">319</td>
+                <td style="padding: 10px 12px; text-align: right; color: #475569; font-weight: 600; font-variant-numeric: tabular-nums; border-right: 1px solid #f1f5f9;">57</td>
+                <td style="padding: 10px 12px; text-align: center; color: #94a3b8; font-variant-numeric: tabular-nums; border-right: 1px solid #f1f5f9;">-</td>
+                <td style="padding: 10px 12px; text-align: right; color: #475569; font-weight: 600; font-variant-numeric: tabular-nums;">262</td>
+              </tr>
+              <tr class="network-row" style="border-bottom: 1px solid #eef2f6; background-color: #fafbfc; transition: background-color 0.15s ease;">
+                <td style="padding: 10px 8px; text-align: center; color: #64748b; font-weight: 700; font-size: 0.85rem; border-right: 1px solid #f1f5f9;">10</td>
+                <td class="province-name" style="padding: 10px 14px; color: #0f172a; font-weight: 700; border-right: 1px solid #f1f5f9;">Thái Nguyên</td>
+                <td style="padding: 10px 12px; text-align: right; color: #334155; font-weight: 600; font-variant-numeric: tabular-nums; border-right: 1px solid #f1f5f9;">17</td>
+                <td style="padding: 10px 12px; text-align: right; color: #334155; font-weight: 600; font-variant-numeric: tabular-nums; border-right: 1px solid #f1f5f9;">92</td>
+                <td style="padding: 10px 12px; text-align: right; color: #00703c; font-weight: 800; font-variant-numeric: tabular-nums; background: #f0fdf4; border-right: 1px solid #dcfce7;">274</td>
+                <td style="padding: 10px 12px; text-align: right; color: #475569; font-weight: 600; font-variant-numeric: tabular-nums; border-right: 1px solid #f1f5f9;">87</td>
+                <td style="padding: 10px 12px; text-align: center; color: #94a3b8; font-variant-numeric: tabular-nums; border-right: 1px solid #f1f5f9;">-</td>
+                <td style="padding: 10px 12px; text-align: right; color: #475569; font-weight: 600; font-variant-numeric: tabular-nums;">187</td>
+              </tr>
+              <tr class="network-row" style="border-bottom: 1px solid #eef2f6; background-color: #ffffff; transition: background-color 0.15s ease;">
+                <td style="padding: 10px 8px; text-align: center; color: #64748b; font-weight: 700; font-size: 0.85rem; border-right: 1px solid #f1f5f9;">11</td>
+                <td class="province-name" style="padding: 10px 14px; color: #0f172a; font-weight: 700; border-right: 1px solid #f1f5f9;">Lạng Sơn</td>
+                <td style="padding: 10px 12px; text-align: right; color: #334155; font-weight: 600; font-variant-numeric: tabular-nums; border-right: 1px solid #f1f5f9;">11</td>
+                <td style="padding: 10px 12px; text-align: right; color: #334155; font-weight: 600; font-variant-numeric: tabular-nums; border-right: 1px solid #f1f5f9;">65</td>
+                <td style="padding: 10px 12px; text-align: right; color: #00703c; font-weight: 800; font-variant-numeric: tabular-nums; background: #f0fdf4; border-right: 1px solid #dcfce7;">194</td>
+                <td style="padding: 10px 12px; text-align: right; color: #475569; font-weight: 600; font-variant-numeric: tabular-nums; border-right: 1px solid #f1f5f9;">61</td>
+                <td style="padding: 10px 12px; text-align: center; color: #94a3b8; font-variant-numeric: tabular-nums; border-right: 1px solid #f1f5f9;">-</td>
+                <td style="padding: 10px 12px; text-align: right; color: #475569; font-weight: 600; font-variant-numeric: tabular-nums;">133</td>
+              </tr>
+              <tr class="network-row" style="border-bottom: 1px solid #eef2f6; background-color: #fafbfc; transition: background-color 0.15s ease;">
+                <td style="padding: 10px 8px; text-align: center; color: #64748b; font-weight: 700; font-size: 0.85rem; border-right: 1px solid #f1f5f9;">12</td>
+                <td class="province-name" style="padding: 10px 14px; color: #0f172a; font-weight: 700; border-right: 1px solid #f1f5f9;">Tuyên Quang</td>
+                <td style="padding: 10px 12px; text-align: right; color: #334155; font-weight: 600; font-variant-numeric: tabular-nums; border-right: 1px solid #f1f5f9;">18</td>
+                <td style="padding: 10px 12px; text-align: right; color: #334155; font-weight: 600; font-variant-numeric: tabular-nums; border-right: 1px solid #f1f5f9;">124</td>
+                <td style="padding: 10px 12px; text-align: right; color: #00703c; font-weight: 800; font-variant-numeric: tabular-nums; background: #f0fdf4; border-right: 1px solid #dcfce7;">330</td>
+                <td style="padding: 10px 12px; text-align: right; color: #475569; font-weight: 600; font-variant-numeric: tabular-nums; border-right: 1px solid #f1f5f9;">90</td>
+                <td style="padding: 10px 12px; text-align: center; color: #94a3b8; font-variant-numeric: tabular-nums; border-right: 1px solid #f1f5f9;">-</td>
+                <td style="padding: 10px 12px; text-align: right; color: #475569; font-weight: 600; font-variant-numeric: tabular-nums;">240</td>
+              </tr>
+              <tr class="network-row" style="border-bottom: 1px solid #eef2f6; background-color: #ffffff; transition: background-color 0.15s ease;">
+                <td style="padding: 10px 8px; text-align: center; color: #64748b; font-weight: 700; font-size: 0.85rem; border-right: 1px solid #f1f5f9;">13</td>
+                <td class="province-name" style="padding: 10px 14px; color: #0f172a; font-weight: 700; border-right: 1px solid #f1f5f9;">Cao Bằng</td>
+                <td style="padding: 10px 12px; text-align: right; color: #334155; font-weight: 600; font-variant-numeric: tabular-nums; border-right: 1px solid #f1f5f9;">10</td>
+                <td style="padding: 10px 12px; text-align: right; color: #334155; font-weight: 600; font-variant-numeric: tabular-nums; border-right: 1px solid #f1f5f9;">56</td>
+                <td style="padding: 10px 12px; text-align: right; color: #00703c; font-weight: 800; font-variant-numeric: tabular-nums; background: #f0fdf4; border-right: 1px solid #dcfce7;">161</td>
+                <td style="padding: 10px 12px; text-align: right; color: #475569; font-weight: 600; font-variant-numeric: tabular-nums; border-right: 1px solid #f1f5f9;">51</td>
+                <td style="padding: 10px 12px; text-align: center; color: #94a3b8; font-variant-numeric: tabular-nums; border-right: 1px solid #f1f5f9;">-</td>
+                <td style="padding: 10px 12px; text-align: right; color: #475569; font-weight: 600; font-variant-numeric: tabular-nums;">110</td>
+              </tr>
+              <tr class="network-row" style="border-bottom: 1px solid #eef2f6; background-color: #fafbfc; transition: background-color 0.15s ease;">
+                <td style="padding: 10px 8px; text-align: center; color: #64748b; font-weight: 700; font-size: 0.85rem; border-right: 1px solid #f1f5f9;">14</td>
+                <td class="province-name" style="padding: 10px 14px; color: #0f172a; font-weight: 700; border-right: 1px solid #f1f5f9;">Quảng Ninh</td>
+                <td style="padding: 10px 12px; text-align: right; color: #334155; font-weight: 600; font-variant-numeric: tabular-nums; border-right: 1px solid #f1f5f9;">13</td>
+                <td style="padding: 10px 12px; text-align: right; color: #334155; font-weight: 600; font-variant-numeric: tabular-nums; border-right: 1px solid #f1f5f9;">54</td>
+                <td style="padding: 10px 12px; text-align: right; color: #00703c; font-weight: 800; font-variant-numeric: tabular-nums; background: #f0fdf4; border-right: 1px solid #dcfce7;">171</td>
+                <td style="padding: 10px 12px; text-align: right; color: #475569; font-weight: 600; font-variant-numeric: tabular-nums; border-right: 1px solid #f1f5f9;">40</td>
+                <td style="padding: 10px 12px; text-align: center; color: #94a3b8; font-variant-numeric: tabular-nums; border-right: 1px solid #f1f5f9;">-</td>
+                <td style="padding: 10px 12px; text-align: right; color: #475569; font-weight: 600; font-variant-numeric: tabular-nums;">131</td>
+              </tr>
+              <tr class="network-row" style="border-bottom: 1px solid #eef2f6; background-color: #ffffff; transition: background-color 0.15s ease;">
+                <td style="padding: 10px 8px; text-align: center; color: #64748b; font-weight: 700; font-size: 0.85rem; border-right: 1px solid #f1f5f9;">15</td>
+                <td class="province-name" style="padding: 10px 14px; color: #0f172a; font-weight: 700; border-right: 1px solid #f1f5f9;">Thanh hóa</td>
+                <td style="padding: 10px 12px; text-align: right; color: #334155; font-weight: 600; font-variant-numeric: tabular-nums; border-right: 1px solid #f1f5f9;">26</td>
+                <td style="padding: 10px 12px; text-align: right; color: #334155; font-weight: 600; font-variant-numeric: tabular-nums; border-right: 1px solid #f1f5f9;">166</td>
+                <td style="padding: 10px 12px; text-align: right; color: #00703c; font-weight: 800; font-variant-numeric: tabular-nums; background: #f0fdf4; border-right: 1px solid #dcfce7;">547</td>
+                <td style="padding: 10px 12px; text-align: right; color: #475569; font-weight: 600; font-variant-numeric: tabular-nums; border-right: 1px solid #f1f5f9;">132</td>
+                <td style="padding: 10px 12px; text-align: center; color: #94a3b8; font-variant-numeric: tabular-nums; border-right: 1px solid #f1f5f9;">-</td>
+                <td style="padding: 10px 12px; text-align: right; color: #475569; font-weight: 600; font-variant-numeric: tabular-nums;">415</td>
+              </tr>
+              <tr class="network-row" style="border-bottom: 1px solid #eef2f6; background-color: #fafbfc; transition: background-color 0.15s ease;">
+                <td style="padding: 10px 8px; text-align: center; color: #64748b; font-weight: 700; font-size: 0.85rem; border-right: 1px solid #f1f5f9;">16</td>
+                <td class="province-name" style="padding: 10px 14px; color: #0f172a; font-weight: 700; border-right: 1px solid #f1f5f9;">Nghệ An</td>
+                <td style="padding: 10px 12px; text-align: right; color: #334155; font-weight: 600; font-variant-numeric: tabular-nums; border-right: 1px solid #f1f5f9;">20</td>
+                <td style="padding: 10px 12px; text-align: right; color: #334155; font-weight: 600; font-variant-numeric: tabular-nums; border-right: 1px solid #f1f5f9;">130</td>
+                <td style="padding: 10px 12px; text-align: right; color: #00703c; font-weight: 800; font-variant-numeric: tabular-nums; background: #f0fdf4; border-right: 1px solid #dcfce7;">412</td>
+                <td style="padding: 10px 12px; text-align: right; color: #475569; font-weight: 600; font-variant-numeric: tabular-nums; border-right: 1px solid #f1f5f9;">94</td>
+                <td style="padding: 10px 12px; text-align: center; color: #94a3b8; font-variant-numeric: tabular-nums; border-right: 1px solid #f1f5f9;">-</td>
+                <td style="padding: 10px 12px; text-align: right; color: #475569; font-weight: 600; font-variant-numeric: tabular-nums;">318</td>
+              </tr>
+              <tr class="network-row" style="border-bottom: 1px solid #eef2f6; background-color: #ffffff; transition: background-color 0.15s ease;">
+                <td style="padding: 10px 8px; text-align: center; color: #64748b; font-weight: 700; font-size: 0.85rem; border-right: 1px solid #f1f5f9;">17</td>
+                <td class="province-name" style="padding: 10px 14px; color: #0f172a; font-weight: 700; border-right: 1px solid #f1f5f9;">Hà Tĩnh</td>
+                <td style="padding: 10px 12px; text-align: right; color: #334155; font-weight: 600; font-variant-numeric: tabular-nums; border-right: 1px solid #f1f5f9;">12</td>
+                <td style="padding: 10px 12px; text-align: right; color: #334155; font-weight: 600; font-variant-numeric: tabular-nums; border-right: 1px solid #f1f5f9;">69</td>
+                <td style="padding: 10px 12px; text-align: right; color: #00703c; font-weight: 800; font-variant-numeric: tabular-nums; background: #f0fdf4; border-right: 1px solid #dcfce7;">209</td>
+                <td style="padding: 10px 12px; text-align: right; color: #475569; font-weight: 600; font-variant-numeric: tabular-nums; border-right: 1px solid #f1f5f9;">69</td>
+                <td style="padding: 10px 12px; text-align: center; color: #94a3b8; font-variant-numeric: tabular-nums; border-right: 1px solid #f1f5f9;">-</td>
+                <td style="padding: 10px 12px; text-align: right; color: #475569; font-weight: 600; font-variant-numeric: tabular-nums;">140</td>
+              </tr>
+              <tr class="network-row" style="border-bottom: 1px solid #eef2f6; background-color: #fafbfc; transition: background-color 0.15s ease;">
+                <td style="padding: 10px 8px; text-align: center; color: #64748b; font-weight: 700; font-size: 0.85rem; border-right: 1px solid #f1f5f9;">18</td>
+                <td class="province-name" style="padding: 10px 14px; color: #0f172a; font-weight: 700; border-right: 1px solid #f1f5f9;">Quảng Trị</td>
+                <td style="padding: 10px 12px; text-align: right; color: #334155; font-weight: 600; font-variant-numeric: tabular-nums; border-right: 1px solid #f1f5f9;">17</td>
+                <td style="padding: 10px 12px; text-align: right; color: #334155; font-weight: 600; font-variant-numeric: tabular-nums; border-right: 1px solid #f1f5f9;">78</td>
+                <td style="padding: 10px 12px; text-align: right; color: #00703c; font-weight: 800; font-variant-numeric: tabular-nums; background: #f0fdf4; border-right: 1px solid #dcfce7;">265</td>
+                <td style="padding: 10px 12px; text-align: right; color: #475569; font-weight: 600; font-variant-numeric: tabular-nums; border-right: 1px solid #f1f5f9;">72</td>
+                <td style="padding: 10px 12px; text-align: center; color: #94a3b8; font-variant-numeric: tabular-nums; border-right: 1px solid #f1f5f9;">-</td>
+                <td style="padding: 10px 12px; text-align: right; color: #475569; font-weight: 600; font-variant-numeric: tabular-nums;">193</td>
+              </tr>
+              <tr class="network-row" style="border-bottom: 1px solid #eef2f6; background-color: #ffffff; transition: background-color 0.15s ease;">
+                <td style="padding: 10px 8px; text-align: center; color: #64748b; font-weight: 700; font-size: 0.85rem; border-right: 1px solid #f1f5f9;">19</td>
+                <td class="province-name" style="padding: 10px 14px; color: #0f172a; font-weight: 700; border-right: 1px solid #f1f5f9;">TP Huế</td>
+                <td style="padding: 10px 12px; text-align: right; color: #334155; font-weight: 600; font-variant-numeric: tabular-nums; border-right: 1px solid #f1f5f9;">9</td>
+                <td style="padding: 10px 12px; text-align: right; color: #334155; font-weight: 600; font-variant-numeric: tabular-nums; border-right: 1px solid #f1f5f9;">40</td>
+                <td style="padding: 10px 12px; text-align: right; color: #00703c; font-weight: 800; font-variant-numeric: tabular-nums; background: #f0fdf4; border-right: 1px solid #dcfce7;">133</td>
+                <td style="padding: 10px 12px; text-align: right; color: #475569; font-weight: 600; font-variant-numeric: tabular-nums; border-right: 1px solid #f1f5f9;">40</td>
+                <td style="padding: 10px 12px; text-align: center; color: #94a3b8; font-variant-numeric: tabular-nums; border-right: 1px solid #f1f5f9;">-</td>
+                <td style="padding: 10px 12px; text-align: right; color: #475569; font-weight: 600; font-variant-numeric: tabular-nums;">93</td>
+              </tr>
+              <tr class="network-row" style="border-bottom: 1px solid #eef2f6; background-color: #fafbfc; transition: background-color 0.15s ease;">
+                <td style="padding: 10px 8px; text-align: center; color: #64748b; font-weight: 700; font-size: 0.85rem; border-right: 1px solid #f1f5f9;">20</td>
+                <td class="province-name" style="padding: 10px 14px; color: #0f172a; font-weight: 700; border-right: 1px solid #f1f5f9;">TP Đà Nẵng</td>
+                <td style="padding: 10px 12px; text-align: right; color: #334155; font-weight: 600; font-variant-numeric: tabular-nums; border-right: 1px solid #f1f5f9;">24</td>
+                <td style="padding: 10px 12px; text-align: right; color: #334155; font-weight: 600; font-variant-numeric: tabular-nums; border-right: 1px solid #f1f5f9;">93</td>
+                <td style="padding: 10px 12px; text-align: right; color: #00703c; font-weight: 800; font-variant-numeric: tabular-nums; background: #f0fdf4; border-right: 1px solid #dcfce7;">280</td>
+                <td style="padding: 10px 12px; text-align: right; color: #475569; font-weight: 600; font-variant-numeric: tabular-nums; border-right: 1px solid #f1f5f9;">87</td>
+                <td style="padding: 10px 12px; text-align: center; color: #94a3b8; font-variant-numeric: tabular-nums; border-right: 1px solid #f1f5f9;">-</td>
+                <td style="padding: 10px 12px; text-align: right; color: #475569; font-weight: 600; font-variant-numeric: tabular-nums;">193</td>
+              </tr>
+              <tr class="network-row" style="border-bottom: 1px solid #eef2f6; background-color: #ffffff; transition: background-color 0.15s ease;">
+                <td style="padding: 10px 8px; text-align: center; color: #64748b; font-weight: 700; font-size: 0.85rem; border-right: 1px solid #f1f5f9;">21</td>
+                <td class="province-name" style="padding: 10px 14px; color: #0f172a; font-weight: 700; border-right: 1px solid #f1f5f9;">Quảng Ngãi</td>
+                <td style="padding: 10px 12px; text-align: right; color: #334155; font-weight: 600; font-variant-numeric: tabular-nums; border-right: 1px solid #f1f5f9;">23</td>
+                <td style="padding: 10px 12px; text-align: right; color: #334155; font-weight: 600; font-variant-numeric: tabular-nums; border-right: 1px solid #f1f5f9;">96</td>
+                <td style="padding: 10px 12px; text-align: right; color: #00703c; font-weight: 800; font-variant-numeric: tabular-nums; background: #f0fdf4; border-right: 1px solid #dcfce7;">275</td>
+                <td style="padding: 10px 12px; text-align: right; color: #475569; font-weight: 600; font-variant-numeric: tabular-nums; border-right: 1px solid #f1f5f9;">61</td>
+                <td style="padding: 10px 12px; text-align: center; color: #94a3b8; font-variant-numeric: tabular-nums; border-right: 1px solid #f1f5f9;">-</td>
+                <td style="padding: 10px 12px; text-align: right; color: #475569; font-weight: 600; font-variant-numeric: tabular-nums;">214</td>
+              </tr>
+              <tr class="network-row" style="border-bottom: 1px solid #eef2f6; background-color: #fafbfc; transition: background-color 0.15s ease;">
+                <td style="padding: 10px 8px; text-align: center; color: #64748b; font-weight: 700; font-size: 0.85rem; border-right: 1px solid #f1f5f9;">22</td>
+                <td class="province-name" style="padding: 10px 14px; color: #0f172a; font-weight: 700; border-right: 1px solid #f1f5f9;">Gia Lai</td>
+                <td style="padding: 10px 12px; text-align: right; color: #334155; font-weight: 600; font-variant-numeric: tabular-nums; border-right: 1px solid #f1f5f9;">28</td>
+                <td style="padding: 10px 12px; text-align: right; color: #334155; font-weight: 600; font-variant-numeric: tabular-nums; border-right: 1px solid #f1f5f9;">135</td>
+                <td style="padding: 10px 12px; text-align: right; color: #00703c; font-weight: 800; font-variant-numeric: tabular-nums; background: #f0fdf4; border-right: 1px solid #dcfce7;">373</td>
+                <td style="padding: 10px 12px; text-align: right; color: #475569; font-weight: 600; font-variant-numeric: tabular-nums; border-right: 1px solid #f1f5f9;">129</td>
+                <td style="padding: 10px 12px; text-align: center; color: #94a3b8; font-variant-numeric: tabular-nums; border-right: 1px solid #f1f5f9;">-</td>
+                <td style="padding: 10px 12px; text-align: right; color: #475569; font-weight: 600; font-variant-numeric: tabular-nums;">244</td>
+              </tr>
+              <tr class="network-row" style="border-bottom: 1px solid #eef2f6; background-color: #ffffff; transition: background-color 0.15s ease;">
+                <td style="padding: 10px 8px; text-align: center; color: #64748b; font-weight: 700; font-size: 0.85rem; border-right: 1px solid #f1f5f9;">23</td>
+                <td class="province-name" style="padding: 10px 14px; color: #0f172a; font-weight: 700; border-right: 1px solid #f1f5f9;">Khánh Hòa</td>
+                <td style="padding: 10px 12px; text-align: right; color: #334155; font-weight: 600; font-variant-numeric: tabular-nums; border-right: 1px solid #f1f5f9;">15</td>
+                <td style="padding: 10px 12px; text-align: right; color: #334155; font-weight: 600; font-variant-numeric: tabular-nums; border-right: 1px solid #f1f5f9;">64</td>
+                <td style="padding: 10px 12px; text-align: right; color: #00703c; font-weight: 800; font-variant-numeric: tabular-nums; background: #f0fdf4; border-right: 1px solid #dcfce7;">191</td>
+                <td style="padding: 10px 12px; text-align: right; color: #475569; font-weight: 600; font-variant-numeric: tabular-nums; border-right: 1px solid #f1f5f9;">52</td>
+                <td style="padding: 10px 12px; text-align: center; color: #94a3b8; font-variant-numeric: tabular-nums; border-right: 1px solid #f1f5f9;">-</td>
+                <td style="padding: 10px 12px; text-align: right; color: #475569; font-weight: 600; font-variant-numeric: tabular-nums;">139</td>
+              </tr>
+              <tr class="network-row" style="border-bottom: 1px solid #eef2f6; background-color: #fafbfc; transition: background-color 0.15s ease;">
+                <td style="padding: 10px 8px; text-align: center; color: #64748b; font-weight: 700; font-size: 0.85rem; border-right: 1px solid #f1f5f9;">24</td>
+                <td class="province-name" style="padding: 10px 14px; color: #0f172a; font-weight: 700; border-right: 1px solid #f1f5f9;">Đắk Lắk</td>
+                <td style="padding: 10px 12px; text-align: right; color: #334155; font-weight: 600; font-variant-numeric: tabular-nums; border-right: 1px solid #f1f5f9;">24</td>
+                <td style="padding: 10px 12px; text-align: right; color: #334155; font-weight: 600; font-variant-numeric: tabular-nums; border-right: 1px solid #f1f5f9;">102</td>
+                <td style="padding: 10px 12px; text-align: right; color: #00703c; font-weight: 800; font-variant-numeric: tabular-nums; background: #f0fdf4; border-right: 1px solid #dcfce7;">287</td>
+                <td style="padding: 10px 12px; text-align: right; color: #475569; font-weight: 600; font-variant-numeric: tabular-nums; border-right: 1px solid #f1f5f9;">89</td>
+                <td style="padding: 10px 12px; text-align: center; color: #94a3b8; font-variant-numeric: tabular-nums; border-right: 1px solid #f1f5f9;">-</td>
+                <td style="padding: 10px 12px; text-align: right; color: #475569; font-weight: 600; font-variant-numeric: tabular-nums;">198</td>
+              </tr>
+              <tr class="network-row" style="border-bottom: 1px solid #eef2f6; background-color: #ffffff; transition: background-color 0.15s ease;">
+                <td style="padding: 10px 8px; text-align: center; color: #64748b; font-weight: 700; font-size: 0.85rem; border-right: 1px solid #f1f5f9;">25</td>
+                <td class="province-name" style="padding: 10px 14px; color: #0f172a; font-weight: 700; border-right: 1px solid #f1f5f9;">Lâm Đồng</td>
+                <td style="padding: 10px 12px; text-align: right; color: #334155; font-weight: 600; font-variant-numeric: tabular-nums; border-right: 1px solid #f1f5f9;">28</td>
+                <td style="padding: 10px 12px; text-align: right; color: #334155; font-weight: 600; font-variant-numeric: tabular-nums; border-right: 1px solid #f1f5f9;">124</td>
+                <td style="padding: 10px 12px; text-align: right; color: #00703c; font-weight: 800; font-variant-numeric: tabular-nums; background: #f0fdf4; border-right: 1px solid #dcfce7;">329</td>
+                <td style="padding: 10px 12px; text-align: right; color: #475569; font-weight: 600; font-variant-numeric: tabular-nums; border-right: 1px solid #f1f5f9;">108</td>
+                <td style="padding: 10px 12px; text-align: center; color: #94a3b8; font-variant-numeric: tabular-nums; border-right: 1px solid #f1f5f9;">-</td>
+                <td style="padding: 10px 12px; text-align: right; color: #475569; font-weight: 600; font-variant-numeric: tabular-nums;">221</td>
+              </tr>
+              <tr class="network-row" style="border-bottom: 1px solid #eef2f6; background-color: #fafbfc; transition: background-color 0.15s ease;">
+                <td style="padding: 10px 8px; text-align: center; color: #64748b; font-weight: 700; font-size: 0.85rem; border-right: 1px solid #f1f5f9;">26</td>
+                <td class="province-name" style="padding: 10px 14px; color: #0f172a; font-weight: 700; border-right: 1px solid #f1f5f9;">TP Hồ Chí Minh</td>
+                <td style="padding: 10px 12px; text-align: right; color: #334155; font-weight: 600; font-variant-numeric: tabular-nums; border-right: 1px solid #f1f5f9;">32</td>
+                <td style="padding: 10px 12px; text-align: right; color: #334155; font-weight: 600; font-variant-numeric: tabular-nums; border-right: 1px solid #f1f5f9;">168</td>
+                <td style="padding: 10px 12px; text-align: right; color: #00703c; font-weight: 800; font-variant-numeric: tabular-nums; background: #f0fdf4; border-right: 1px solid #dcfce7;">402</td>
+                <td style="padding: 10px 12px; text-align: right; color: #475569; font-weight: 600; font-variant-numeric: tabular-nums; border-right: 1px solid #f1f5f9;">97</td>
+                <td style="padding: 10px 12px; text-align: center; color: #94a3b8; font-variant-numeric: tabular-nums; border-right: 1px solid #f1f5f9;">-</td>
+                <td style="padding: 10px 12px; text-align: right; color: #475569; font-weight: 600; font-variant-numeric: tabular-nums;">305</td>
+              </tr>
+              <tr class="network-row" style="border-bottom: 1px solid #eef2f6; background-color: #ffffff; transition: background-color 0.15s ease;">
+                <td style="padding: 10px 8px; text-align: center; color: #64748b; font-weight: 700; font-size: 0.85rem; border-right: 1px solid #f1f5f9;">27</td>
+                <td class="province-name" style="padding: 10px 14px; color: #0f172a; font-weight: 700; border-right: 1px solid #f1f5f9;">Đồng Nai</td>
+                <td style="padding: 10px 12px; text-align: right; color: #334155; font-weight: 600; font-variant-numeric: tabular-nums; border-right: 1px solid #f1f5f9;">22</td>
+                <td style="padding: 10px 12px; text-align: right; color: #334155; font-weight: 600; font-variant-numeric: tabular-nums; border-right: 1px solid #f1f5f9;">95</td>
+                <td style="padding: 10px 12px; text-align: right; color: #00703c; font-weight: 800; font-variant-numeric: tabular-nums; background: #f0fdf4; border-right: 1px solid #dcfce7;">270</td>
+                <td style="padding: 10px 12px; text-align: right; color: #475569; font-weight: 600; font-variant-numeric: tabular-nums; border-right: 1px solid #f1f5f9;">70</td>
+                <td style="padding: 10px 12px; text-align: center; color: #94a3b8; font-variant-numeric: tabular-nums; border-right: 1px solid #f1f5f9;">-</td>
+                <td style="padding: 10px 12px; text-align: right; color: #475569; font-weight: 600; font-variant-numeric: tabular-nums;">200</td>
+              </tr>
+              <tr class="network-row" style="border-bottom: 1px solid #eef2f6; background-color: #fafbfc; transition: background-color 0.15s ease;">
+                <td style="padding: 10px 8px; text-align: center; color: #64748b; font-weight: 700; font-size: 0.85rem; border-right: 1px solid #f1f5f9;">28</td>
+                <td class="province-name" style="padding: 10px 14px; color: #0f172a; font-weight: 700; border-right: 1px solid #f1f5f9;">Vĩnh Long</td>
+                <td style="padding: 10px 12px; text-align: right; color: #334155; font-weight: 600; font-variant-numeric: tabular-nums; border-right: 1px solid #f1f5f9;">25</td>
+                <td style="padding: 10px 12px; text-align: right; color: #334155; font-weight: 600; font-variant-numeric: tabular-nums; border-right: 1px solid #f1f5f9;">124</td>
+                <td style="padding: 10px 12px; text-align: right; color: #00703c; font-weight: 800; font-variant-numeric: tabular-nums; background: #f0fdf4; border-right: 1px solid #dcfce7;">354</td>
+                <td style="padding: 10px 12px; text-align: right; color: #475569; font-weight: 600; font-variant-numeric: tabular-nums; border-right: 1px solid #f1f5f9;">107</td>
+                <td style="padding: 10px 12px; text-align: center; color: #94a3b8; font-variant-numeric: tabular-nums; border-right: 1px solid #f1f5f9;">-</td>
+                <td style="padding: 10px 12px; text-align: right; color: #475569; font-weight: 600; font-variant-numeric: tabular-nums;">247</td>
+              </tr>
+              <tr class="network-row" style="border-bottom: 1px solid #eef2f6; background-color: #ffffff; transition: background-color 0.15s ease;">
+                <td style="padding: 10px 8px; text-align: center; color: #64748b; font-weight: 700; font-size: 0.85rem; border-right: 1px solid #f1f5f9;">29</td>
+                <td class="province-name" style="padding: 10px 14px; color: #0f172a; font-weight: 700; border-right: 1px solid #f1f5f9;">TP Cần Thơ</td>
+                <td style="padding: 10px 12px; text-align: right; color: #334155; font-weight: 600; font-variant-numeric: tabular-nums; border-right: 1px solid #f1f5f9;">28</td>
+                <td style="padding: 10px 12px; text-align: right; color: #334155; font-weight: 600; font-variant-numeric: tabular-nums; border-right: 1px solid #f1f5f9;">103</td>
+                <td style="padding: 10px 12px; text-align: right; color: #00703c; font-weight: 800; font-variant-numeric: tabular-nums; background: #f0fdf4; border-right: 1px solid #dcfce7;">263</td>
+                <td style="padding: 10px 12px; text-align: right; color: #475569; font-weight: 600; font-variant-numeric: tabular-nums; border-right: 1px solid #f1f5f9;">86</td>
+                <td style="padding: 10px 12px; text-align: center; color: #94a3b8; font-variant-numeric: tabular-nums; border-right: 1px solid #f1f5f9;">-</td>
+                <td style="padding: 10px 12px; text-align: right; color: #475569; font-weight: 600; font-variant-numeric: tabular-nums;">177</td>
+              </tr>
+              <tr class="network-row" style="border-bottom: 1px solid #eef2f6; background-color: #fafbfc; transition: background-color 0.15s ease;">
+                <td style="padding: 10px 8px; text-align: center; color: #64748b; font-weight: 700; font-size: 0.85rem; border-right: 1px solid #f1f5f9;">30</td>
+                <td class="province-name" style="padding: 10px 14px; color: #0f172a; font-weight: 700; border-right: 1px solid #f1f5f9;">Tây Ninh</td>
+                <td style="padding: 10px 12px; text-align: right; color: #334155; font-weight: 600; font-variant-numeric: tabular-nums; border-right: 1px solid #f1f5f9;">24</td>
+                <td style="padding: 10px 12px; text-align: right; color: #334155; font-weight: 600; font-variant-numeric: tabular-nums; border-right: 1px solid #f1f5f9;">96</td>
+                <td style="padding: 10px 12px; text-align: right; color: #00703c; font-weight: 800; font-variant-numeric: tabular-nums; background: #f0fdf4; border-right: 1px solid #dcfce7;">280</td>
+                <td style="padding: 10px 12px; text-align: right; color: #475569; font-weight: 600; font-variant-numeric: tabular-nums; border-right: 1px solid #f1f5f9;">56</td>
+                <td style="padding: 10px 12px; text-align: center; color: #94a3b8; font-variant-numeric: tabular-nums; border-right: 1px solid #f1f5f9;">-</td>
+                <td style="padding: 10px 12px; text-align: right; color: #475569; font-weight: 600; font-variant-numeric: tabular-nums;">224</td>
+              </tr>
+              <tr class="network-row" style="border-bottom: 1px solid #eef2f6; background-color: #ffffff; transition: background-color 0.15s ease;">
+                <td style="padding: 10px 8px; text-align: center; color: #64748b; font-weight: 700; font-size: 0.85rem; border-right: 1px solid #f1f5f9;">31</td>
+                <td class="province-name" style="padding: 10px 14px; color: #0f172a; font-weight: 700; border-right: 1px solid #f1f5f9;">An Giang</td>
+                <td style="padding: 10px 12px; text-align: right; color: #334155; font-weight: 600; font-variant-numeric: tabular-nums; border-right: 1px solid #f1f5f9;">26</td>
+                <td style="padding: 10px 12px; text-align: right; color: #334155; font-weight: 600; font-variant-numeric: tabular-nums; border-right: 1px solid #f1f5f9;">102</td>
+                <td style="padding: 10px 12px; text-align: right; color: #00703c; font-weight: 800; font-variant-numeric: tabular-nums; background: #f0fdf4; border-right: 1px solid #dcfce7;">298</td>
+                <td style="padding: 10px 12px; text-align: right; color: #475569; font-weight: 600; font-variant-numeric: tabular-nums; border-right: 1px solid #f1f5f9;">101</td>
+                <td style="padding: 10px 12px; text-align: center; color: #94a3b8; font-variant-numeric: tabular-nums; border-right: 1px solid #f1f5f9;">-</td>
+                <td style="padding: 10px 12px; text-align: right; color: #475569; font-weight: 600; font-variant-numeric: tabular-nums;">197</td>
+              </tr>
+              <tr class="network-row" style="border-bottom: 1px solid #eef2f6; background-color: #fafbfc; transition: background-color 0.15s ease;">
+                <td style="padding: 10px 8px; text-align: center; color: #64748b; font-weight: 700; font-size: 0.85rem; border-right: 1px solid #f1f5f9;">32</td>
+                <td class="province-name" style="padding: 10px 14px; color: #0f172a; font-weight: 700; border-right: 1px solid #f1f5f9;">Đồng Tháp</td>
+                <td style="padding: 10px 12px; text-align: right; color: #334155; font-weight: 600; font-variant-numeric: tabular-nums; border-right: 1px solid #f1f5f9;">22</td>
+                <td style="padding: 10px 12px; text-align: right; color: #334155; font-weight: 600; font-variant-numeric: tabular-nums; border-right: 1px solid #f1f5f9;">102</td>
+                <td style="padding: 10px 12px; text-align: right; color: #00703c; font-weight: 800; font-variant-numeric: tabular-nums; background: #f0fdf4; border-right: 1px solid #dcfce7;">305</td>
+                <td style="padding: 10px 12px; text-align: right; color: #475569; font-weight: 600; font-variant-numeric: tabular-nums; border-right: 1px solid #f1f5f9;">68</td>
+                <td style="padding: 10px 12px; text-align: center; color: #94a3b8; font-variant-numeric: tabular-nums; border-right: 1px solid #f1f5f9;">-</td>
+                <td style="padding: 10px 12px; text-align: right; color: #475569; font-weight: 600; font-variant-numeric: tabular-nums;">237</td>
+              </tr>
+              <tr class="network-row" style="border-bottom: 1px solid #eef2f6; background-color: #ffffff; transition: background-color 0.15s ease;">
+                <td style="padding: 10px 8px; text-align: center; color: #64748b; font-weight: 700; font-size: 0.85rem; border-right: 1px solid #f1f5f9;">33</td>
+                <td class="province-name" style="padding: 10px 14px; color: #0f172a; font-weight: 700; border-right: 1px solid #f1f5f9;">Cà Mau</td>
+                <td style="padding: 10px 12px; text-align: right; color: #334155; font-weight: 600; font-variant-numeric: tabular-nums; border-right: 1px solid #f1f5f9;">16</td>
+                <td style="padding: 10px 12px; text-align: right; color: #334155; font-weight: 600; font-variant-numeric: tabular-nums; border-right: 1px solid #f1f5f9;">64</td>
+                <td style="padding: 10px 12px; text-align: right; color: #00703c; font-weight: 800; font-variant-numeric: tabular-nums; background: #f0fdf4; border-right: 1px solid #dcfce7;">164</td>
+                <td style="padding: 10px 12px; text-align: right; color: #475569; font-weight: 600; font-variant-numeric: tabular-nums; border-right: 1px solid #f1f5f9;">54</td>
+                <td style="padding: 10px 12px; text-align: center; color: #94a3b8; font-variant-numeric: tabular-nums; border-right: 1px solid #f1f5f9;">-</td>
+                <td style="padding: 10px 12px; text-align: right; color: #475569; font-weight: 600; font-variant-numeric: tabular-nums;">110</td>
+              </tr>
+              <tr class="network-row" style="border-bottom: 1px solid #eef2f6; background-color: #fafbfc; transition: background-color 0.15s ease;">
+                <td style="padding: 10px 8px; text-align: center; color: #64748b; font-weight: 700; font-size: 0.85rem; border-right: 1px solid #f1f5f9;">34</td>
+                <td class="province-name" style="padding: 10px 14px; color: #0f172a; font-weight: 700; border-right: 1px solid #f1f5f9;">Điện Biên</td>
+                <td style="padding: 10px 12px; text-align: right; color: #334155; font-weight: 600; font-variant-numeric: tabular-nums; border-right: 1px solid #f1f5f9;">10</td>
+                <td style="padding: 10px 12px; text-align: right; color: #334155; font-weight: 600; font-variant-numeric: tabular-nums; border-right: 1px solid #f1f5f9;">45</td>
+                <td style="padding: 10px 12px; text-align: right; color: #00703c; font-weight: 800; font-variant-numeric: tabular-nums; background: #f0fdf4; border-right: 1px solid #dcfce7;">129</td>
+                <td style="padding: 10px 12px; text-align: right; color: #475569; font-weight: 600; font-variant-numeric: tabular-nums; border-right: 1px solid #f1f5f9;">21</td>
+                <td style="padding: 10px 12px; text-align: center; color: #94a3b8; font-variant-numeric: tabular-nums; border-right: 1px solid #f1f5f9;">-</td>
+                <td style="padding: 10px 12px; text-align: right; color: #475569; font-weight: 600; font-variant-numeric: tabular-nums;">108</td>
+              </tr>
+                  </tbody>
+                  <tfoot>
+                    <tr class="ui-dgdth-total" style="background: linear-gradient(135deg, #014322 0%, #002e17 100%); color: #ffffff; font-weight: 700; border-top: 2px solid #009640;">
+                      <td colspan="2" style="padding: 14px 16px; text-align: center; font-size: 0.98rem; letter-spacing: 0.5px; border-right: 1px solid rgba(255,255,255,0.15);">
+                        <i class="fa-solid fa-calculator" style="color: var(--vbsp-gold, #c89d3c); margin-right: 6px;"></i> TỔNG CỘNG TOÀN QUỐC
+                      </td>
+                      <td style="padding: 14px 12px; text-align: right; font-size: 1.05rem; font-weight: 800; font-variant-numeric: tabular-nums; color: #ffffff; border-right: 1px solid rgba(255,255,255,0.15);">
+                        682
+                      </td>
+                      <td style="padding: 14px 12px; text-align: right; font-size: 1.05rem; font-weight: 800; font-variant-numeric: tabular-nums; color: #ffffff; border-right: 1px solid rgba(255,255,255,0.15);">
+                        3.319
+                      </td>
+                      <td style="padding: 14px 12px; text-align: right; font-size: 1.15rem; font-weight: 900; font-variant-numeric: tabular-nums; color: #fde047; background: #00361b; border-right: 1px solid rgba(255,255,255,0.15); border-left: 1px solid rgba(255,255,255,0.15);">
+                        9.964
+                      </td>
+                      <td style="padding: 14px 12px; text-align: right; font-size: 1.05rem; font-weight: 800; font-variant-numeric: tabular-nums; color: #ffffff; border-right: 1px solid rgba(255,255,255,0.15);">
+                        2.661
+                      </td>
+                      <td style="padding: 14px 12px; text-align: center; font-size: 1rem; font-weight: 700; color: #94a3b8; border-right: 1px solid rgba(255,255,255,0.15);">
+                        -
+                      </td>
+                      <td style="padding: 14px 12px; text-align: right; font-size: 1.05rem; font-weight: 800; font-variant-numeric: tabular-nums; color: #ffffff;">
+                        7.303
+                      </td>
+                    </tr>
+                  </tfoot>
+                </table>
+              </div>
+
+              <!-- Footer của Bảng: Điều khiển số dòng hiển thị -->
+              <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 12px; padding: 12px 18px; background: #f8fafc; border-top: 1px solid #e2e8f0; font-size: 0.84rem; color: #64748b;">
+                <div style="display: flex; align-items: center; gap: 8px;">
+                  <span>Hiển thị trên bảng:</span>
+                  <select id="networkPageSizeSelect" onchange="changeNetworkPageSize(this.value)" style="padding: 4px 10px; border: 1.5px solid #cbd5e1; border-radius: 6px; font-size: 0.84rem; background: #ffffff; outline: none; cursor: pointer;">
+                    <option value="10">10 địa phương</option>
+                    <option value="20">20 địa phương</option>
+                    <option value="34" selected>Tất cả (34 địa phương)</option>
+                  </select>
+                </div>
+                <div>
+                  <span style="font-style: italic; color: #94a3b8;">* Nguồn: Cơ sở dữ liệu Mạng lưới Điểm giao dịch NHCSXH toàn quốc</span>
+                </div>
+              </div>
+
+            </div>
+          </div>
+
+<!-- BIỂU LÃI SUẤT CHI TIẾT -->
+      <div style="background: #ffffff; border-radius: var(--radius-md); border: 1px solid var(--border-color); padding: 32px; box-shadow: var(--shadow-sm);">
+        <div class="section-header" style="border-bottom: none; margin-bottom: 16px;">
+          <div>
+            <h2 class="section-title"><i class="fa-solid fa-chart-line"></i> Biểu lãi suất chi tiết áp dụng toàn hệ thống</h2>
+            <p class="section-subtitle">Áp dụng công khai, minh bạch theo văn bản điều hành của Thống đốc NHNN và HĐQT NHCSXH</p>
+          </div>
+        </div>
+
+        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 28px;">
+          <!-- Cột Tiết kiệm -->
+          <div>
+            <h3 style="font-size: 1.15rem; font-weight: 700; color: var(--vbsp-green-dark); margin-bottom: 12px; padding-bottom: 6px; border-bottom: 2px solid var(--vbsp-green-light);">
+              Lãi suất huy động tiền gửi tiết kiệm
+            </h3>
+            <table class="table-interest">
+              <thead>
+                <tr>
+                  <th>Kỳ hạn gửi</th>
+                  <th>Lãi suất (%/năm)</th>
+                  <th>Đặc quyền</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr><td>Không kỳ hạn</td><td class="rate-val">0.20%</td><td>Gửi rút linh hoạt</td></tr>
+                <tr><td>01 tháng</td><td class="rate-val">2.60%</td><td>Nhập gốc quay vòng</td></tr>
+                <tr><td>03 tháng</td><td class="rate-val">3.20%</td><td>Nhập gốc quay vòng</td></tr>
+                <tr><td>06 tháng</td><td class="rate-val">4.20%</td><td>Rút gốc từng phần</td></tr>
+                <tr><td>09 tháng</td><td class="rate-val">4.50%</td><td>Rút gốc từng phần</td></tr>
+                <tr><td>12 tháng</td><td class="rate-val" style="color: var(--vbsp-green-dark); font-weight: 800;">5.20%</td><td>Rút gốc từng phần</td></tr>
+                <tr><td>24 tháng</td><td class="rate-val" style="color: var(--vbsp-green-dark); font-weight: 800;">5.80%</td><td>Rút gốc từng phần</td></tr>
+              </tbody>
+            </table>
+          </div>
+
+          <!-- Cột Cho vay -->
+          <div>
+            <h3 style="font-size: 1.15rem; font-weight: 700; color: var(--vbsp-red-dark); margin-bottom: 12px; padding-bottom: 6px; border-bottom: 2px solid var(--vbsp-red-light);">
+              Lãi suất các chương trình cho vay ưu đãi
+            </h3>
+            <table class="table-interest">
+              <thead>
+                <tr>
+                  <th>Chương trình tín dụng</th>
+                  <th>Lãi suất (%/năm)</th>
+                  <th>Thời hạn tối đa</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr><td>Cho vay Hộ nghèo</td><td class="rate-val">6.60%</td><td>120 tháng</td></tr>
+                <tr><td>Cho vay Hộ cận nghèo</td><td class="rate-val">7.26%</td><td>120 tháng</td></tr>
+                <tr><td>Cho vay HSSV có hoàn cảnh khó khăn</td><td class="rate-val">6.60%</td><td>Theo khóa học</td></tr>
+                <tr><td>Hỗ trợ tạo việc làm, duy trì việc làm</td><td class="rate-val">6.60%</td><td>120 tháng</td></tr>
+                <tr><td>Nhà ở xã hội</td><td class="rate-val" style="color: var(--vbsp-green-dark); font-weight: 800;">4.80%</td><td>25 năm</td></tr>
+                <tr><td>Nước sạch và Vệ sinh môi trường NT</td><td class="rate-val">9.00%</td><td>60 tháng</td></tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+          </div>
+
+        </div>
+
+        <!-- CỘT PHẢI: MENU DỌC CHUYÊN MỤC HỎI - ĐÁP & TRA CỨU -->
+        <aside class="vbsp-sidebar-col">
+          <div class="vbsp-sidebar-category-card">
+            <div class="sidebar-top-bar"></div>
+            <div class="sidebar-card-header">
+              <h3 class="sidebar-card-title">HỎI - ĐÁP &amp; TRA CỨU</h3>
+            </div>
+            <ul class="sidebar-category-list">
+              <li class="sidebar-category-item">
+                <a href="tra-cuu-diem-giao-dich.html" class="sidebar-category-link active">
+                  <span>Tra cứu Điểm giao dịch xã</span>
+                  <span class="sidebar-chevron">&gt;</span>
+                </a>
+              </li>
+              <li class="sidebar-category-item">
+                <a href="tra-cuu-diem-giao-dich.html#lichxacodinh" class="sidebar-category-link">Lịch giao dịch cố định tại xã</a>
+              </li>
+              <li class="sidebar-category-item">
+                <a href="hoi-dap.html" class="sidebar-category-link">Hỏi đáp chính sách vay vốn</a>
+              </li>
+              <li class="sidebar-category-item">
+                <a href="hoi-dap.html" class="sidebar-category-link">Hỏi đáp quy trình nghiệp vụ</a>
+              </li>
+              <li class="sidebar-category-item">
+                <a href="hoi-dap.html" class="sidebar-category-link">Hỏi đáp khác</a>
+              </li>
+            </ul>
+          </div>
+
+          <!-- TIN TỨC MỚI DẠNG CỘT (THEO RIGHT-NEWS-HEADER) -->
+          <div class="right-news-box">
+            <div class="right-news-header">
+              <span><i class="fa-solid fa-fire"></i> Tin tức mới</span>
+              <span style="font-size: 0.75rem; background: rgba(255,255,255,0.22); padding: 2px 8px; border-radius: 10px;">Mới nhất</span>
+            </div>
+            <div class="right-news-list">
+              <!-- Tin 1 -->
+              <article class="right-news-card">
+                <div class="right-news-thumb">
+                  <img src="https://vbsp.org.vn/wp-content/uploads/2026/10/hoi-nghi-tw4-5500_11zon-394x208.jpg" alt="Đổi mới phương thức lãnh đạo của Đảng" loading="lazy">
+                </div>
+                <div class="right-news-meta">
+                  <span style="color: var(--vbsp-green-dark, #0c8a4b); font-weight: 700;">Chỉ thị 40</span> • <i class="fa-regular fa-clock"></i> 20/10/2026
+                </div>
+                <h4 class="right-news-title">
+                  <a href="tin-tuc-su-kien.html">Đổi mới phương thức lãnh đạo của Đảng, gắn trách nhiệm cá nhân với kết quả công việc</a>
+                </h4>
+                <p class="right-news-desc">
+                  Đảng bộ NHCSXH Trung ương đề cao vai trò tiền phong gương mẫu của người đứng đầu, quán triệt sâu sắc các Nghị quyết TW gắn với nhiệm vụ chính trị giảm nghèo bền vững.
+                </p>
+              </article>
+
+              <!-- Tin 2 -->
+              <article class="right-news-card">
+                <div class="right-news-thumb">
+                  <img src="https://vbsp.org.vn/wp-content/uploads/2026/10/image0043-394x208.jpg" alt="Phát động Tháng cao điểm Vì người nghèo" loading="lazy">
+                </div>
+                <div class="right-news-meta">
+                  <span style="color: #dc2626; font-weight: 700;">An sinh xã hội</span> • <i class="fa-regular fa-clock"></i> 19/10/2026
+                </div>
+                <h4 class="right-news-title">
+                  <a href="chung-tay-vi-cong-dong.html">Phát động Tháng cao điểm "Vì người nghèo" năm 2026 - Lan tỏa tình dân tộc</a>
+                </h4>
+                <p class="right-news-desc">
+                  NHCSXH vinh dự được vinh danh là một trong các đơn vị tiên phong có nhiều đóng góp xuất sắc nhất cho công tác an sinh xã hội toàn quốc.
+                </p>
+              </article>
+
+              <!-- Tin 3 -->
+              <article class="right-news-card">
+                <div class="right-news-thumb">
+                  <img src="https://images.unsplash.com/photo-1589829545856-d10d557cf95f?w=400&auto=format&fit=crop&q=80" alt="Nguồn vốn chính sách Sơn La" loading="lazy">
+                </div>
+                <div class="right-news-meta">
+                  <span style="color: #2563eb; font-weight: 700;">Nông thôn mới</span> • <i class="fa-regular fa-clock"></i> 18/10/2026
+                </div>
+                <h4 class="right-news-title">
+                  <a href="tin-moi-cap-nhat.html">Nguồn vốn chính sách tạo sinh kế bền vững cho hàng vạn hộ đồng bào Sơn La</a>
+                </h4>
+                <p class="right-news-desc">
+                  Nhờ đồng vốn ưu đãi từ các phiên giao dịch xã định kỳ, bà con các bản vùng cao tự tin chuyển đổi mô hình trồng mận hậu và nuôi trâu vỗ béo thoát nghèo.
+                </p>
+              </article>
+            </div>
+          </div>
+
+                    <!-- 4 MỤC LIÊN KẾT ĐẶC THÙ (DẠNG HÀNG CỘT DƯỚI TIN TỨC MỚI) -->
+          <div class="portal-feature-links-sidebar">
+            <!-- 1. Văn bản chỉ đạo, điều hành -->
+            <a href="he-thong-van-ban.html" class="portal-feature-link-item" title="Văn bản chỉ đạo, điều hành">
+              <div class="feature-link-icon-box">
+                <i class="fa-solid fa-file-contract"></i>
+              </div>
+              <div class="feature-link-text">
+                <span>VĂN BẢN CHỈ ĐẠO,</span>
+                <span>ĐIỀU HÀNH</span>
+              </div>
+              <div class="feature-link-fold"></div>
+            </a>
+
+            <!-- 2. Cuộc thi trực tuyến - Chỉ thị số 39 CT-TW -->
+            <a href="cuoc-thi-truc-tuyen-chi-thi-39.html" class="portal-feature-link-item" title="Cuộc thi trực tuyến - Chỉ thị số 39 CT-TW">
+              <div class="feature-link-icon-box">
+                <i class="fa-solid fa-award"></i>
+              </div>
+              <div class="feature-link-text">
+                <span>CUỘC THI TRỰC TUYẾN -</span>
+                <span>CHỈ THỊ SỐ 39 CT-TW</span>
+              </div>
+              <div class="feature-link-fold"></div>
+            </a>
+
+            <!-- 3. Bình dân học vụ số -->
+            <a href="giao-duc-so-go-digital.html" class="portal-feature-link-item" title="Bình dân học vụ số">
+              <div class="feature-link-icon-box">
+                <i class="fa-solid fa-book-open-reader"></i>
+              </div>
+              <div class="feature-link-text">
+                <span>BÌNH DÂN</span>
+                <span>HỌC VỤ SỐ</span>
+              </div>
+              <div class="feature-link-fold"></div>
+            </a>
+
+            <!-- 4. Thông tin chính sách tín dụng công khai tại điểm giao dịch -->
+            <a href="tra-cuu-diem-giao-dich.html" class="portal-feature-link-item" title="Thông tin chính sách tín dụng công khai tại điểm giao dịch">
+              <div class="feature-link-icon-box">
+                <i class="fa-solid fa-map-location-dot"></i>
+              </div>
+              <div class="feature-link-text">
+                <span>THÔNG TIN CHÍNH SÁCH TÍN DỤNG</span>
+                <span>CÔNG KHAI TẠI ĐIỂM GIAO DỊCH</span>
+              </div>
+              <div class="feature-link-fold"></div>
+            </a>
+          </div>
+        </aside>
+
+      </div>
+    </div>
+  </main>
+
+  <!-- ==================== FOOTER ==================== -->
+  <footer class="vbsp-footer" id="footer">
+    <div class="vbsp-container">
+      <div class="footer-grid-3col">
+        <!-- Cột 1: Thông tin cơ quan -->
+        <div class="footer-col-agency">
+          <div class="footer-brand-header" style="display: flex; align-items: center; gap: 14px; margin-bottom: 18px;">
+            <img src="https://storage-vnportal.vnpt.vn/tw-nhcsxh/8053/banner/logo.png" alt="Logo NHCSXH" style="height: 52px; background: #ffffff; padding: 4px; border-radius: 6px; box-shadow: 0 2px 8px rgba(0,0,0,0.15);">
+            <div>
+              <h3 class="footer-brand-title" style="margin: 0; font-size: 1.15rem; font-weight: 700; color: #ffffff; text-transform: uppercase;">Ngân hàng Chính sách xã hội</h3>
+              <div style="font-size: 0.8rem; color: #cbd5e1; letter-spacing: 0.5px;">VIETNAM BANK FOR SOCIAL POLICIES (VBSP)</div>
+            </div>
+          </div>
+          <div class="footer-contact-list">
+            <div class="footer-contact-item">
+              <i class="fa-solid fa-location-dot" style="color: var(--vbsp-gold);"></i>
+              <span>Trụ sở chính: Tòa nhà NHCSXH, CC5B Bán đảo Linh Đàm, P. Hoàng Liệt, Q. Hoàng Mai, TP. Hà Nội</span>
+            </div>
+            <div class="footer-contact-item">
+              <i class="fa-solid fa-phone" style="color: var(--vbsp-gold);"></i>
+              <span>Điện thoại: (024) 36417184 - Fax: (024) 36417194</span>
+            </div>
+            <div class="footer-contact-item">
+              <i class="fa-solid fa-headset" style="color: #f43f5e;"></i>
+              <span>Tổng đài Chăm sóc khách hàng: <strong style="color: #ffffff; font-size: 1.05rem;">1900 638 586</strong></span>
+            </div>
+            <div class="footer-contact-item">
+              <i class="fa-solid fa-envelope" style="color: var(--vbsp-gold);"></i>
+              <span>Email: banbientap@vbsp.vn</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Cột 2: Liên kết website -->
+        <div class="footer-col-links">
+          <h4 class="footer-col-title" style="color: #ffffff; font-size: 1.05rem; font-weight: 700; margin-bottom: 16px; position: relative; padding-bottom: 8px;">
+            Liên kết website
+            <span style="position: absolute; bottom: 0; left: 0; width: 40px; height: 3px; background: #f43f5e; border-radius: 2px;"></span>
+          </h4>
+          <div class="footer-links-list" style="display: grid; grid-template-columns: 1fr; gap: 8px;">
+            <a href="https://chinhphu.vn" target="_blank" rel="noopener noreferrer"><i class="fa-solid fa-link" style="color: #f43f5e; font-size: 0.8rem; margin-right: 6px;"></i> Cổng Thông tin điện tử Chính phủ</a>
+            <a href="https://sbv.gov.vn" target="_blank" rel="noopener noreferrer"><i class="fa-solid fa-link" style="color: #f43f5e; font-size: 0.8rem; margin-right: 6px;"></i> Ngân hàng Nhà nước Việt Nam</a>
+            <a href="https://mof.gov.vn" target="_blank" rel="noopener noreferrer"><i class="fa-solid fa-link" style="color: #f43f5e; font-size: 0.8rem; margin-right: 6px;"></i> Bộ Tài chính</a>
+            <a href="https://molisa.gov.vn" target="_blank" rel="noopener noreferrer"><i class="fa-solid fa-link" style="color: #f43f5e; font-size: 0.8rem; margin-right: 6px;"></i> Bộ Lao động - Thương binh và Xã hội</a>
+            <a href="https://nhandan.vn" target="_blank" rel="noopener noreferrer"><i class="fa-solid fa-link" style="color: #f43f5e; font-size: 0.8rem; margin-right: 6px;"></i> Báo Nhân Dân</a>
+            <a href="https://tapchicongsan.org.vn" target="_blank" rel="noopener noreferrer"><i class="fa-solid fa-link" style="color: #f43f5e; font-size: 0.8rem; margin-right: 6px;"></i> Tạp chí Cộng sản</a>
+            <a href="https://hoinongdan.org.vn" target="_blank" rel="noopener noreferrer"><i class="fa-solid fa-link" style="color: #f43f5e; font-size: 0.8rem; margin-right: 6px;"></i> Hội Nông dân Việt Nam</a>
+            <a href="https://hoilhpn.org.vn" target="_blank" rel="noopener noreferrer"><i class="fa-solid fa-link" style="color: #f43f5e; font-size: 0.8rem; margin-right: 6px;"></i> Hội Liên hiệp Phụ nữ Việt Nam</a>
+          </div>
+        </div>
+
+        <!-- Cột 3: Thống kê truy cập -->
+        <div class="footer-col-stats">
+          <h4 class="footer-col-title" style="color: #ffffff; font-size: 1.05rem; font-weight: 700; margin-bottom: 16px; position: relative; padding-bottom: 8px;">
+            Thống kê truy cập
+            <span style="position: absolute; bottom: 0; left: 0; width: 40px; height: 3px; background: #0c8a4b; border-radius: 2px;"></span>
+          </h4>
+          <div class="footer-visitor-stats-box">
+            <div class="footer-stat-row">
+              <span><i class="fa-solid fa-user-check" style="color: #10b981; width: 20px;"></i> Đang trực tuyến:</span>
+              <strong style="color: #34d399; font-size: 0.95rem;">1.248</strong>
+            </div>
+            <div class="footer-stat-row">
+              <span><i class="fa-regular fa-calendar-check" style="color: #38bdf8; width: 20px;"></i> Hôm nay:</span>
+              <strong style="color: #ffffff;">38.450</strong>
+            </div>
+            <div class="footer-stat-row">
+              <span><i class="fa-solid fa-clock-rotate-left" style="color: #fbbf24; width: 20px;"></i> Hôm qua:</span>
+              <strong style="color: #ffffff;">65.210</strong>
+            </div>
+            <div class="footer-stat-row">
+              <span><i class="fa-solid fa-chart-line" style="color: #f43f5e; width: 20px;"></i> Trong tuần:</span>
+              <strong style="color: #ffffff;">286.740</strong>
+            </div>
+            <div class="footer-stat-row">
+              <span><i class="fa-solid fa-eye" style="color: var(--vbsp-gold); width: 20px;"></i> Tổng lượt truy cập:</span>
+              <strong style="color: #fef08a; font-size: 1.05rem; letter-spacing: 0.5px;">128.450.920</strong>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <div>© 2026 Bản quyền thuộc về Ngân hàng Chính sách xã hội (VBSP). Thiết kế & Vận hành Cổng thông tin điện tử.</div>
+        <div>Giấy phép số 128/GP-BC do Cục Báo chí - Bộ Thông tin và Truyền thông cấp ngày 28/07/2005.</div>
+      </div>
+    </div>
+  </footer>
+
+  <script src="js/data.js"></script>
+  <script src="js/dgd-data.js"></script>
+  <script src="js/main.js"></script>
+  <script>
+    // Handle URL query parameters (e.g. ?province=HN&office=hn-hs)
+    window.addEventListener('DOMContentLoaded', () => {
+      const params = new URLSearchParams(window.location.search);
+      const p = params.get('province');
+      const o = params.get('office');
+      if (p) {
+        const provSelect = document.getElementById('provinceSelect');
+        if (provSelect) {
+          provSelect.value = p;
+          provSelect.dispatchEvent(new Event('change'));
+          if (o) {
+            setTimeout(() => {
+              const officeSelect = document.getElementById('districtSelect');
+              if (officeSelect) {
+                officeSelect.value = o;
+                officeSelect.dispatchEvent(new Event('change'));
+              }
+              searchDgd();
+            }, 120);
+          } else {
+            setTimeout(() => {
+              searchDgd();
+            }, 120);
+          }
+        }
+      }
+    });
+  </script>
+
+  <script>
+    /* ========================================================
+       CHỨC NĂNG TRA CỨU ĐIỂM GIAO DỊCH & PHÂN TRANG (DGD)
+       ======================================================== */
+    let dgdData = [];
+    let dgdFiltered = [];
+    let dgdCurrentPage = 1;
+    const dgdPageSize = 10;
+
+    function initDgd() {
+      if (window.VBSP_DGD_DATA && Array.isArray(window.VBSP_DGD_DATA)) {
+        dgdData = window.VBSP_DGD_DATA;
+      } else {
+        dgdData = [];
+      }
+      dgdFiltered = [...dgdData];
+      renderDgdTable();
+    }
+
+    function normStr(str) {
+      if (!str) return '';
+      return str.toLowerCase().replace(/[\.\,\-\_\s\/\(\)]+/g, '');
+    }
+
+    function searchDgd() {
+      const provSelect = document.getElementById('provinceSelect');
+      const distSelect = document.getElementById('districtSelect');
+      const nameInput = document.getElementById('pointNameInput');
+      const daySelect = document.getElementById('transDaySelect');
+      const timeFromInput = document.getElementById('timeFromInput');
+      const timeToInput = document.getElementById('timeToInput');
+
+      let provText = '';
+      if (provSelect && provSelect.selectedIndex > 0) {
+        provText = provSelect.options[provSelect.selectedIndex].text.trim();
+      }
+      let officeText = '';
+      if (distSelect && distSelect.selectedIndex > 0) {
+        officeText = distSelect.options[distSelect.selectedIndex].text.trim();
+      }
+      const nameVal = nameInput ? nameInput.value.trim().toLowerCase() : '';
+      const dayVal = daySelect ? daySelect.value.trim() : '';
+      const timeFromVal = timeFromInput ? timeFromInput.value.trim() : '';
+      const timeToVal = timeToInput ? timeToInput.value.trim() : '';
+
+      dgdFiltered = dgdData.filter(item => {
+        // Province filter
+        if (provText && !provText.includes('-- Tất cả --') && !provText.includes('-- Chọn Tỉnh')) {
+          const p1 = normStr(item.province);
+          const p2 = normStr(provText);
+          if (!p1.includes(p2) && !p2.includes(p1)) return false;
+        }
+
+        // Office filter
+        if (officeText && !officeText.includes('-- Tất cả --') && !officeText.includes('-- Chọn Phòng')) {
+          const o1 = normStr(item.office);
+          const o2 = normStr(officeText);
+          if (!o1.includes(o2) && !o2.includes(o1)) return false;
+        }
+
+        // Name / Commune / Address filter
+        if (nameVal) {
+          const searchHaystack = (item.name + ' ' + item.commune + ' ' + item.office + ' ' + item.address).toLowerCase();
+          if (!searchHaystack.includes(nameVal)) return false;
+        }
+
+        // Transaction day in month
+        if (dayVal) {
+          const itemDay = parseInt(item.transDay, 10);
+          const filterDay = parseInt(dayVal, 10);
+          if (itemDay !== filterDay) return false;
+        }
+
+        // Time range filter (HH:mm or HHhmm)
+        if (timeFromVal || timeToVal) {
+          const parseMinutes = (tStr) => {
+            if (!tStr) return null;
+            const clean = tStr.replace('h', ':').trim();
+            const parts = clean.split(':');
+            if (parts.length >= 2) {
+              const h = parseInt(parts[0], 10);
+              const m = parseInt(parts[1], 10);
+              if (!isNaN(h) && !isNaN(m)) return h * 60 + m;
+            }
+            return null;
+          };
+
+          const filterFromMin = parseMinutes(timeFromVal);
+          const filterToMin = parseMinutes(timeToVal);
+
+          const itemTimeParts = item.transTime.split('-');
+          if (itemTimeParts.length === 2) {
+            const itemStartMin = parseMinutes(itemTimeParts[0]);
+            const itemEndMin = parseMinutes(itemTimeParts[1]);
+
+            if (itemStartMin !== null && itemEndMin !== null) {
+              if (filterFromMin !== null && itemEndMin < filterFromMin) return false;
+              if (filterToMin !== null && itemStartMin > filterToMin) return false;
+            }
+          }
+        }
+
+        return true;
+      });
+
+      dgdCurrentPage = 1;
+      renderDgdTable();
+    }
+
+    function resetDgdFilter() {
+      const provSelect = document.getElementById('provinceSelect');
+      const distSelect = document.getElementById('districtSelect');
+      const nameInput = document.getElementById('pointNameInput');
+      const daySelect = document.getElementById('transDaySelect');
+      const timeFromInput = document.getElementById('timeFromInput');
+      const timeToInput = document.getElementById('timeToInput');
+
+      if (provSelect) {
+        provSelect.value = '';
+        provSelect.dispatchEvent(new Event('change'));
+      }
+      if (distSelect) {
+        distSelect.value = '';
+      }
+      if (nameInput) nameInput.value = '';
+      if (daySelect) daySelect.value = '';
+      if (timeFromInput) timeFromInput.value = '';
+      if (timeToInput) timeToInput.value = '';
+
+      dgdFiltered = [...dgdData];
+      dgdCurrentPage = 1;
+      renderDgdTable();
+    }
+
+    function renderDgdTable() {
+      const tbody = document.getElementById('dgdTableBody');
+      const totalCountBadge = document.getElementById('dgdTotalCountBadge');
+      const pageSelect = document.getElementById('dgdPageSelect');
+      const totalPagesSpan = document.getElementById('dgdTotalPagesSpan');
+      const prevBtn = document.getElementById('dgdPrevPageBtn');
+      const nextBtn = document.getElementById('dgdNextPageBtn');
+      const pageRangeInfo = document.getElementById('dgdPageRangeInfo');
+
+      if (!tbody) return;
+
+      const totalItems = dgdFiltered.length;
+      const totalPages = Math.max(1, Math.ceil(totalItems / dgdPageSize));
+
+      if (dgdCurrentPage > totalPages) dgdCurrentPage = totalPages;
+      if (dgdCurrentPage < 1) dgdCurrentPage = 1;
+
+      // Update badge
+      if (totalCountBadge) {
+        totalCountBadge.textContent = `Tìm thấy ${totalItems} điểm giao dịch`;
+      }
+
+      // Update pager info
+      if (totalPagesSpan) totalPagesSpan.textContent = totalPages;
+
+      if (pageSelect) {
+        pageSelect.innerHTML = '';
+        for (let i = 1; i <= totalPages; i++) {
+          const opt = document.createElement('option');
+          opt.value = i;
+          opt.textContent = i;
+          if (i === dgdCurrentPage) opt.selected = true;
+          pageSelect.appendChild(opt);
+        }
+      }
+
+      if (prevBtn) {
+        if (dgdCurrentPage <= 1) {
+          prevBtn.classList.add('disabled');
+        } else {
+          prevBtn.classList.remove('disabled');
+        }
+      }
+
+      if (nextBtn) {
+        if (dgdCurrentPage >= totalPages) {
+          nextBtn.classList.add('disabled');
+        } else {
+          nextBtn.classList.remove('disabled');
+        }
+      }
+
+      const startIdx = (dgdCurrentPage - 1) * dgdPageSize;
+      const endIdx = Math.min(startIdx + dgdPageSize, totalItems);
+
+      if (pageRangeInfo) {
+        if (totalItems === 0) {
+          pageRangeInfo.textContent = 'Không có kết quả nào';
+        } else {
+          pageRangeInfo.textContent = `Hiển thị ${startIdx + 1} - ${endIdx} / ${totalItems} điểm giao dịch`;
+        }
+      }
+
+      if (totalItems === 0) {
+        tbody.innerHTML = `
+          <tr>
+            <td colspan="9" style="text-align: center; padding: 40px 20px; color: #64748b;">
+              <div style="font-size: 2.2rem; color: #94a3b8; margin-bottom: 10px;">
+                <i class="fa-solid fa-map-location-dot"></i>
+              </div>
+              <div style="font-size: 1.05rem; font-weight: 700; color: #334155; margin-bottom: 4px;">
+                Không tìm thấy điểm giao dịch phù hợp
+              </div>
+              <div style="font-size: 0.88rem; color: #64748b;">
+                Vui lòng thử điều chỉnh lại điều kiện tìm kiếm hoặc nhấn <strong>"Nhập lại"</strong> để xem toàn bộ danh sách.
+              </div>
+            </td>
+          </tr>
+        `;
+        return;
+      }
+
+      const pageRows = dgdFiltered.slice(startIdx, endIdx);
+      let html = '';
+      pageRows.forEach((row, idx) => {
+        const rowStt = startIdx + idx + 1;
+        html += `
+          <tr style="transition: background-color 0.15s ease;">
+            <td class="ui-dgd-stt" style="text-align: center; font-weight: 700; color: #64748b; padding: 11px 8px; border: 1px solid #eef2f6;">${rowStt}</td>
+            <td style="font-weight: 700; color: #004d25; padding: 11px 12px; border: 1px solid #eef2f6;">${row.name}</td>
+            <td style="color: #334155; padding: 11px 12px; border: 1px solid #eef2f6;">${row.commune}</td>
+            <td style="font-weight: 600; color: #1e293b; padding: 11px 12px; border: 1px solid #eef2f6;">${row.office}</td>
+            <td style="font-weight: 600; color: #0c8a4b; padding: 11px 12px; border: 1px solid #eef2f6;">${row.province}</td>
+            <td class="ui-dgd-center" style="text-align: center; font-weight: 800; color: #b91c1c; padding: 11px 8px; border: 1px solid #eef2f6;">
+              <span style="background: #fef2f2; color: #b91c1c; padding: 2px 8px; border-radius: 4px; border: 1px solid #fecaca; display: inline-block;">${row.transDay}</span>
+            </td>
+            <td class="ui-dgd-center" style="text-align: center; color: #334155; font-weight: 600; padding: 11px 8px; border: 1px solid #eef2f6; white-space: nowrap;">${row.transTime}</td>
+            <td style="color: #475569; font-size: 0.85rem; padding: 11px 12px; border: 1px solid #eef2f6;">${row.address}</td>
+            <td class="ui-dgd-center" style="text-align: center; color: #64748b; font-size: 0.82rem; padding: 11px 8px; border: 1px solid #eef2f6; white-space: nowrap;">${row.effectiveDate}</td>
+          </tr>
+        `;
+      });
+      tbody.innerHTML = html;
+    }
+
+    function changeDgdPage(delta) {
+      dgdCurrentPage += delta;
+      renderDgdTable();
+    }
+
+    function jumpToDgdPage(page) {
+      dgdCurrentPage = parseInt(page, 10) || 1;
+      renderDgdTable();
+    }
+
+    function uiDgdTimeMask(input) {
+      let v = input.value.replace(/[^0-9]/g, '');
+      if (v.length > 2) {
+        v = v.slice(0, 2) + ':' + v.slice(2, 4);
+      }
+      input.value = v;
+    }
+
+    function uiDgdTimeFix(input) {
+      let v = input.value.trim();
+      if (!v) return;
+      const parts = v.split(':');
+      let h = parseInt(parts[0] || '0', 10);
+      let m = parseInt(parts[1] || '0', 10);
+      if (isNaN(h) || h < 0) h = 0;
+      if (h > 23) h = 23;
+      if (isNaN(m) || m < 0) m = 0;
+      if (m > 59) m = 59;
+      input.value = (h < 10 ? '0' : '') + h + ':' + (m < 10 ? '0' : '') + m;
+    }
+
+    window.addEventListener('DOMContentLoaded', () => {
+      initDgd();
+
+      // Enter key triggers search
+      const nameInput = document.getElementById('pointNameInput');
+      if (nameInput) {
+        nameInput.addEventListener('keydown', (e) => {
+          if (e.key === 'Enter') {
+            e.preventDefault();
+            searchDgd();
+          }
+        });
+      }
+    });
+  </script>
+
+  <script>
+    // Filter Network Table by Province Name
+    function filterNetworkTable() {
+      const input = document.getElementById('networkSearchInput');
+      const filter = input.value.toLowerCase().trim();
+      const rows = document.querySelectorAll('#networkTableBody tr.network-row');
+      let visibleCount = 0;
+
+      rows.forEach(row => {
+        const nameEl = row.querySelector('.province-name');
+        if (nameEl) {
+          const text = nameEl.textContent.toLowerCase();
+          if (text.includes(filter)) {
+            row.style.display = '';
+            visibleCount++;
+          } else {
+            row.style.display = 'none';
+          }
+        }
+      });
+
+      const badge = document.getElementById('networkCountBadge');
+      if (badge) {
+        badge.textContent = `Hiển thị ${visibleCount}/34 kết quả`;
+      }
+    }
+
+    // Change page size in network table
+    function changeNetworkPageSize(val) {
+      const limit = parseInt(val, 10);
+      const rows = document.querySelectorAll('#networkTableBody tr.network-row');
+      let visibleCount = 0;
+      rows.forEach((row, idx) => {
+        if (idx < limit) {
+          row.style.display = '';
+          visibleCount++;
+        } else {
+          row.style.display = 'none';
+        }
+      });
+      const badge = document.getElementById('networkCountBadge');
+      if (badge) {
+        badge.textContent = `Hiển thị ${visibleCount}/34 kết quả`;
+      }
+    }
+  </script>
+</body>
+</html>
