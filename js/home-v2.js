@@ -80,32 +80,116 @@ function initV2Multimedia() {
   const prevBtn = document.getElementById('v2MediaPrev');
   const nextBtn = document.getElementById('v2MediaNext');
   const pills = document.querySelectorAll('.v2-media-pill[data-type]');
+  const section = document.getElementById('multimedia');
 
   if (!track || typeof VBSP_DATA === 'undefined' || !Array.isArray(VBSP_DATA.multimedia)) return;
 
   let centerIdx = 4;
   let activeList = [];
+  let autoTimer = null;
+  let lastVisibleCount = getVisibleSlots();
 
-  function syncTrack() {
-    const cards = track.querySelectorAll('.v2-media-card');
-    cards.forEach((c, i) => {
-      c.classList.remove('is-center', 'is-adjacent');
-      const d = Math.abs(i - centerIdx);
-      if (d === 0) c.classList.add('is-center');
-      else if (d === 1) c.classList.add('is-adjacent');
-    });
-
-    const viewport = track.parentElement;
-    if (!viewport || !cards.length) return;
-    const vw = viewport.offsetWidth;
-    const cw = cards[0].offsetWidth || 245;
-    const gap = parseFloat(window.getComputedStyle(track).gap) || 18;
-    const step = cw + gap;
-    const offset = (vw / 2) - (cw / 2) - (centerIdx * step);
-    track.style.transform = `translateX(${offset}px)`;
+  function getVisibleSlots() {
+    const w = window.innerWidth;
+    if (w < 640) return 1;
+    if (w < 1024) return 3;
+    return 5;
   }
 
-  function render(type) {
+  function renderWindow(direction) {
+    const len = activeList.length;
+    if (!len) {
+      track.innerHTML = '';
+      return;
+    }
+
+    const slots = Math.min(getVisibleSlots(), len);
+    const half = Math.floor(slots / 2);
+    const offsets = [];
+
+    if (slots === 1) {
+      offsets.push(0);
+    } else if (slots % 2 === 1) {
+      for (let o = -half; o <= half; o++) offsets.push(o);
+    } else {
+      for (let o = -half; o < half; o++) offsets.push(o);
+    }
+
+    if (slots < 5 && window.innerWidth >= 1024) {
+      track.setAttribute('data-cols', String(slots));
+    } else if (slots < 3 && window.innerWidth >= 640 && window.innerWidth < 1024) {
+      track.setAttribute('data-cols', String(slots));
+    } else {
+      track.removeAttribute('data-cols');
+    }
+
+    const cardsHtml = offsets.map(offset => {
+      const idx = ((centerIdx + offset) % len + len) % len;
+      const item = activeList[idx];
+      const absD = Math.abs(offset);
+      const cls = absD === 0 ? 'v2-media-card is-center' : (absD === 1 ? 'v2-media-card is-adjacent' : 'v2-media-card');
+      return `
+        <a href="chi-tiet-bai-viet-multimedia.html?id=${item.id}" class="${cls}" data-idx="${idx}" data-offset="${offset}">
+          <div class="v2-media-thumb">
+            <img src="${item.thumb}" alt="${item.title}" loading="lazy" onerror="this.src='images/noimage.png'">
+          </div>
+          <h4 class="v2-media-title">
+            <i class="${item.icon || 'fa-solid fa-play'}"></i>
+            ${item.title}
+          </h4>
+        </a>
+      `;
+    }).join('');
+
+    track.classList.remove('is-anim-next', 'is-anim-prev');
+    track.innerHTML = cardsHtml;
+    if (direction === 'next' || direction === 'prev') {
+      void track.offsetWidth;
+      track.classList.add(direction === 'next' ? 'is-anim-next' : 'is-anim-prev');
+    }
+
+    track.querySelectorAll('.v2-media-card').forEach(card => {
+      card.addEventListener('click', function (e) {
+        const offset = parseInt(this.dataset.offset, 10);
+        if (offset !== 0) {
+          e.preventDefault();
+          centerIdx = parseInt(this.dataset.idx, 10);
+          renderWindow(offset > 0 ? 'next' : 'prev');
+          restartAutoplay();
+        }
+      });
+    });
+  }
+
+  function stepCircular(delta) {
+    const len = activeList.length;
+    if (len <= 1) return;
+    centerIdx = ((centerIdx + delta) % len + len) % len;
+    renderWindow(delta >= 0 ? 'next' : 'prev');
+  }
+
+  function stopAutoplay() {
+    if (autoTimer) {
+      clearInterval(autoTimer);
+      autoTimer = null;
+    }
+  }
+
+  function startAutoplay() {
+    stopAutoplay();
+    if (activeList.length > 1) {
+      autoTimer = setInterval(() => {
+        stepCircular(1);
+      }, 3800);
+    }
+  }
+
+  function restartAutoplay() {
+    stopAutoplay();
+    startAutoplay();
+  }
+
+  function renderFilter(type) {
     let list = VBSP_DATA.multimedia;
     if (type !== 'all') {
       list = list.filter(m => m.type === type);
@@ -113,31 +197,8 @@ function initV2Multimedia() {
     activeList = list;
     const featIdx = list.findIndex(m => m.featured);
     centerIdx = featIdx !== -1 ? featIdx : Math.min(Math.floor(list.length / 2), Math.max(0, list.length - 1));
-
-    track.innerHTML = list.map((item, idx) => `
-      <a href="chi-tiet-bai-viet-multimedia.html?id=${item.id}" class="v2-media-card" data-idx="${idx}">
-        <div class="v2-media-thumb">
-          <img src="${item.thumb}" alt="${item.title}" loading="lazy" onerror="this.src='images/noimage.png'">
-        </div>
-        <h4 class="v2-media-title">
-          <i class="${item.icon || 'fa-solid fa-play'}"></i>
-          ${item.title}
-        </h4>
-      </a>
-    `).join('');
-
-    track.querySelectorAll('.v2-media-card').forEach(card => {
-      card.addEventListener('click', function (e) {
-        const idx = parseInt(this.dataset.idx, 10);
-        if (idx !== centerIdx) {
-          e.preventDefault();
-          centerIdx = idx;
-          syncTrack();
-        }
-      });
-    });
-
-    syncTrack();
+    renderWindow();
+    restartAutoplay();
   }
 
   pills.forEach(btn => {
@@ -145,30 +206,59 @@ function initV2Multimedia() {
       e.preventDefault();
       pills.forEach(p => p.classList.remove('active'));
       this.classList.add('active');
-      render(this.dataset.type);
+      renderFilter(this.dataset.type);
     });
   });
 
   if (prevBtn) {
     prevBtn.addEventListener('click', function () {
-      if (centerIdx > 0) {
-        centerIdx--;
-        syncTrack();
-      }
+      stepCircular(-1);
+      restartAutoplay();
     });
   }
 
   if (nextBtn) {
     nextBtn.addEventListener('click', function () {
-      if (centerIdx < activeList.length - 1) {
-        centerIdx++;
-        syncTrack();
-      }
+      stepCircular(1);
+      restartAutoplay();
     });
   }
 
-  window.addEventListener('resize', syncTrack);
-  render('all');
+  if (section) {
+    section.addEventListener('mouseenter', stopAutoplay);
+    section.addEventListener('mouseleave', startAutoplay);
+  }
+
+  // Touch swipe support
+  const viewport = track.parentElement;
+  if (viewport) {
+    let touchX = 0;
+    viewport.addEventListener('touchstart', function (e) {
+      if (e.touches && e.touches.length) {
+        touchX = e.touches[0].clientX;
+        stopAutoplay();
+      }
+    }, { passive: true });
+    viewport.addEventListener('touchend', function (e) {
+      if (e.changedTouches && e.changedTouches.length) {
+        const dx = e.changedTouches[0].clientX - touchX;
+        if (Math.abs(dx) > 36) {
+          stepCircular(dx < 0 ? 1 : -1);
+        }
+        startAutoplay();
+      }
+    }, { passive: true });
+  }
+
+  window.addEventListener('resize', function () {
+    const nextSlots = getVisibleSlots();
+    if (nextSlots !== lastVisibleCount) {
+      lastVisibleCount = nextSlots;
+      renderWindow();
+    }
+  });
+
+  renderFilter('all');
 }
 
 function initV2DocumentTabs() {
